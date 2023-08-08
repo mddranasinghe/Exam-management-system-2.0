@@ -203,7 +203,7 @@ body
             </div>
          
     
-            <nav class="mid-navbar">
+            <nav class="navbar- navbar-expand-lg mid-navbar">
                 <form action="" class="form-inline">
                     <div class="cleaner"></div>
                     <div class="navbar-brand-wpz">
