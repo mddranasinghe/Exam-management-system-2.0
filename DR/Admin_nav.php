@@ -286,10 +286,7 @@ body
         <?php
             if(isset($_SESSION['regNum'])){
                 ?>
-               
-
-                   
-                  
+                 
          <?php } ?>
 
         
