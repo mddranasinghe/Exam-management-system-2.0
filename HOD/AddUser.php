@@ -43,7 +43,7 @@
     <input class="form-control col-sm-7 col-form-label"type="text" placeholder="Address" name="address" id="address" ><br>
 
 
-  <input class="btn btn-success" type="submit" name="Submit" value="Submit">&nbsp &nbsp &nbsp &nbsp 
+  <input class="btn btn-success" type="submit" name="Submit" value="Submit">&nbsp &nbsp &nbsp
   <input class="btn btn-danger" type="reset" name="Reset" value="Reset">
 </form>
 
