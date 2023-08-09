@@ -13,12 +13,12 @@
 
     <label for=" Name_with_initials"  class="col-sm-2 col-form-label"> Gender  </label></td>
   
-                                    <select name="gender" id="language"class="form-control col-sm-7 col-form-label">
-                                        <option value="">Select gender</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Male">Male</option>
+      <select name="gender" id="language"class="form-control col-sm-7 col-form-label">
+         <option value="">Select gender</option>
+         <option value="Female">Female</option>
+         <option value="Male">Male</option>
                                       
-                                    </select><br>
+      </select><br>
                                 
 
 <label for="name" class="col-sm-3 col-form-label">Name with Initials:</label>
