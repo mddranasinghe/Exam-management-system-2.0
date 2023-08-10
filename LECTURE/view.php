@@ -152,12 +152,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                 echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
                 echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
                 echo '<td style="width: 20%;"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">SIGNATURE</button></td>';
-                if (!empty($signatureDataArray)) {
-                    foreach ($signatureDataArray as $signatureData) {
-                        // Display each signature image
-                        echo '<td style="width: 40%;"> <img src="' . $signatureData . '" alt="Uploaded Signature" style="border: 2px solid #ccc; width: 160px; height:40px; background-color:white"></td>';
-                    }
-                }
+              
                 echo '</tr>';
             }
         }
