@@ -123,7 +123,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
         <tr>
             <th style="width: 20%;">COURSE CODE</th>
             <th style="width: 40%;">SUBJECT TITLE</th>
-            <th style="width: 20%;">SIGNATURE OF LECTURER</th>
+            <th style="width: 20%;">APPROVE OF LECTURER</th>
         </tr>
     </thead>
     <tbody>
@@ -151,8 +151,8 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                 echo '<tr>';
                 echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
                 echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
-                echo '<td style="width: 20%;"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">SIGNATURE</button></td>';
-              
+                echo '<td style="width: 20%;"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">APProved</button></td>';
+                echo '<td style="width: 20%;"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">APProved</button></td>';
                 echo '</tr>';
             }
         }
