@@ -33,7 +33,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 </head>
 <body>
 <section>
-    <div class="wrapper">
+    <div class="container">
         <section class="sec">
             <div style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 30px; margin-top: 0px;">
                 <div class="box1">
@@ -108,8 +108,10 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                 </div><br>
                                             </td>
                                             <td>
-                                                <label for="Faculty of" class="col-sm-4 col-form-label">Faculty of</label>
-                                                <input type="text" name="faculty" style="width: 200px; height: 35px;" class="form-control" value="<?php echo $row['faculty']; ?>">
+                                                <div>
+                                                     <label for="Faculty of" class="col-sm-4 col-form-label">Faculty of</label>
+                                                     <input type="text" name="faculty" style="width: 200px; height: 35px;" class="form-control" value="<?php echo $row['faculty']; ?>">
+                                                </div><br>
                                             </td>
                                         </tr>
                                     </table>
@@ -118,53 +120,53 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                       
                                 <!-- Your HTML and other PHP code here... -->
 
-    <table border="1px" class="table table-stripped m-2 table table-hover" style="width: 80%;">
-    <thead class="thead-dark">
-        <tr>
-            <th style="width: 20%;">COURSE CODE</th>
-            <th style="width: 40%;">SUBJECT TITLE</th>
-            <th style="width: 20%;">APPROVE OF LECTURER</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        $courses = array(
-            'course_code_1' => 'subject_name_1',
-            'course_code_2' => 'subject_name_2',
-            'course_code_3' => 'subject_name_3',
-            'course_code_4' => 'subject_name_4',
-            'course_code_5' => 'subject_name_5',
-            'course_code_6' => 'subject_name_6',
-            'course_code_7' => 'subject_name_7',
-            'course_code_8' => 'subject_name_8',
-            'course_code_9' => 'subject_name_9',
-            'course_code_10' => 'subject_name_10',
-            'course_code_11' => 'subject_name_11',
-            'course_code_12' => 'subject_name_12',
-            'course_code_13' => 'subject_name_13',
-            'course_code_14' => 'subject_name_14',
-            'course_code_15' => 'subject_name_15',
-        );
+                <table border="1px" class="table table-stripped m-2 table table-hover" style="width: 80%;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="width: 20%;">COURSE CODE</th>
+                        <th style="width: 40%;">SUBJECT TITLE</th>
+                        <th style="width: 20%;">APPROVE OF LECTURER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $courses = array(
+                        'course_code_1' => 'subject_name_1',
+                        'course_code_2' => 'subject_name_2',
+                        'course_code_3' => 'subject_name_3',
+                        'course_code_4' => 'subject_name_4',
+                        'course_code_5' => 'subject_name_5',
+                        'course_code_6' => 'subject_name_6',
+                        'course_code_7' => 'subject_name_7',
+                        'course_code_8' => 'subject_name_8',
+                        'course_code_9' => 'subject_name_9',
+                        'course_code_10' => 'subject_name_10',
+                        'course_code_11' => 'subject_name_11',
+                        'course_code_12' => 'subject_name_12',
+                        'course_code_13' => 'subject_name_13',
+                        'course_code_14' => 'subject_name_14',
+                        'course_code_15' => 'subject_name_15',
+                    );
 
-        foreach ($courses as $course_code => $subject_name) {
-            if (!empty($row[$course_code]) && !empty($row[$subject_name])) {
-                echo '<tr>';
-                echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
-                echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
-                echo '<td style="width: 20%;"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">APProved</button></td>';
-                echo '<td style="width: 20%;"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">APProved</button></td>';
-                echo '</tr>';
-            }
-        }
-        ?>
-    </tbody>
-</table>
+                    foreach ($courses as $course_code => $subject_name) {
+                        if (!empty($row[$course_code]) && !empty($row[$subject_name])) {
+                            echo '<tr>';
+                            echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
+                            echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
+                            echo '<td style="width: 20%;"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">APProved</button></td>';
+                            echo '<td style="width: 20%;"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Not APProved</button></td>';
+                            echo '</tr>';
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
 
                                 <p style="margin-left:790px">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
                                     <button id="printButton" class="btn btn-success m-2">Submit</button>
                                 </p>
-                            </body>
+                            
                         </div>
                     </div>
                   
@@ -173,4 +175,6 @@ while ($rowa = mysqli_fetch_assoc($result)) {
         </section>
     </div>
 </section>
+</body>
+</html>
 
