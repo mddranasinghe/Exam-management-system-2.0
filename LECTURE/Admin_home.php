@@ -33,8 +33,45 @@ $conn->close();
 ?>
 </div>
 </div>
-</div>
 
+</div>
+<div class="container  bg-dark text-white" style="margin-left:70%;  margin-top:-45%; width:28%">
+<h1 style="text-align:center">SUBJECTS</h1>
+
+
+<?php
+include "db_connection.php"; 
+$regNum=$_SESSION['regNum'];
+$sql = "SELECT * FROM asign_lecturer WHERE LECNum='$regNum'" ;
+
+$res=mysqli_query($conn,$sql);
+
+
+if(mysqli_num_rows($res)>0){
+
+    while( $row=mysqli_fetch_assoc($res)) {
+       
+        echo '<div class="show_sub">';
+        echo '<p> <b>FACULTY  : </b>' . $row['faculty'].'</p> ';
+        echo '<p> <b>YEAR  :  </b>' . $row['year'] . '</p>';
+		echo '<p> <b>SEMESTER  : </b>' . $row['semester'] . '</p>';
+        echo '<p> <b> SUBJECT CODE  : </b>' . $row['subject_code'] . '</p>';
+        echo '<p> <b>SUBJECT NAME  : </b>' . $row['subject_name'] . '</p>';
+        echo '</div>';
+        echo '<hr>';
+    }
+} else {
+    echo 'No notifications to display.';
+}
+
+$conn->close();
+
+
+
+
+
+?>
+</div>
 
 
 
@@ -63,5 +100,3 @@ $conn->close();
 </div>
 
 
-
-?>

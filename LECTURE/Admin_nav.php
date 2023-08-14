@@ -29,6 +29,12 @@ session_start();
     
 </head>
     <style>
+
+        .home_full
+        {
+            width:100%;
+            height: 100%;
+        }
         /*notification pop*/
               #myModal {
             position: absolute;
@@ -51,6 +57,9 @@ session_start();
         body
         {
             background-color:#e4bfe2;
+            width:100%;
+            height: 100%;
+
         }
        
         input{
@@ -146,16 +155,16 @@ body
 /************view page */
 
 .wapper{
-            width:1972px;
-            height: 1800px;
+            width:100%;
+            height: 100%;
            
             
             
         }
         .sec{
            
-            width: 1972px;
-            height: 2000px;
+            width: 100%;
+            height: 100%;
             margin-top:-40px; 
             background-color:#e4bfe2;
         }
@@ -219,6 +228,25 @@ body
             
             
         }
+
+        /*show subjct*/
+        
+        .show_sub {
+    background-color: green;
+    border: 1px solid #ddd;
+      padding: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    
+  }
+  .show_sub h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: white;
+ 
+  }
+
+  
     </style>
 
   
