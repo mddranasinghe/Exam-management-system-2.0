@@ -1,38 +1,42 @@
 <?php
-include('./Admin_nav.php');
-include "db_connection.php";
+    include('./Admin_nav.php');
+    include "db_connection.php";
 
-$Registration_No = $_GET['Registration_No'];
-$sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
-$sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+        $Registration_No = $_GET['Registration_No'];
+        $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
+        $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
 
-$res = mysqli_query($conn, $sql);
-$res2 = mysqli_query($conn, $sql2);
+        $res = mysqli_query($conn, $sql);
+        $res2 = mysqli_query($conn, $sql2);
 
-if (mysqli_num_rows($res) > 0) {
-    $row = mysqli_fetch_assoc($res);
-}
-$sql3 = "INSERT INTO approve_state VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
-if (mysqli_num_rows($res2) > 0) {
-    $row2 = mysqli_fetch_assoc($res2);
-} else {
-    mysqli_query($conn, $sql3);
-    $row2 = mysqli_fetch_assoc($res2);
-}
+    if (mysqli_num_rows($res) > 0)
+    {
+        $row = mysqli_fetch_assoc($res);
+    }
+    $sql3 = "INSERT INTO approve_state VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+    
+    if (mysqli_num_rows($res2) > 0)
+    {
+        $row2 = mysqli_fetch_assoc($res2);
+    } else {
+        mysqli_query($conn, $sql3);
+        $row2 = mysqli_fetch_assoc($res2);
+    }
 ?>
 <?php
-// Assuming you have a database connection established in db_connection.php
-include "db_connection.php";
 
-// Fetch all signature data from the database
-$sql = "SELECT signature_data FROM signnew";
-$result = mysqli_query($conn, $sql);
+    include "db_connection.php";
 
-// Store all the signature data in an array
-$signatureDataArray = array();
-while ($rowa = mysqli_fetch_assoc($result)) {
-    $signatureDataArray[] = $rowa['signature_data'];
-}
+
+    $sql = "SELECT signature_data FROM signnew";
+    $result = mysqli_query($conn, $sql);
+
+    // Store all the signature data in an array
+    $signatureDataArray = array();
+    while ($rowa = mysqli_fetch_assoc($result)) 
+    {
+        $signatureDataArray[] = $rowa['signature_data'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -212,10 +216,12 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                     $column = "subject_approval_" . substr($subject_name, -2);
                                                 }
                                                 if ($row2[$column] == 0) {
-                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
+                                                    echo '<td style="width: 20%;">
+                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
                                                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
                                                 } else {
-                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
+                                                    echo '<td style="width: 20%;">
+                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
                                                      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
                                                 }
 
