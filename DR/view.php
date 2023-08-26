@@ -1,5 +1,10 @@
+
+<div id="navbar">
 <?php
 include('./Admin_nav.php');
+?>
+</div>
+<?php
 include "db_connection.php";
 
 $Registration_No = $_GET['Registration_No'];
@@ -185,39 +190,55 @@ if (mysqli_num_rows($res2) > 0) {
     </div>
                                 <p style="margin-left:790px">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
-                                    <button type="button" onclick="generatePDF('pdf-content')"class="btn btn-info m-2">DOWNLOAD</button>
+                                    <button type="button" onclick="generatePDF('pdf-content'),hideNavbarAndDownload()"class="btn btn-info m-2">DOWNLOAD</button>
                                 </p>
                             </body>
                         </div>
                     </div>
+
                     <script>
-                    function generatePDF() {
-        const style = `
-            @page {
-                size: A4;
-                margin: 0;
-            }
-            html, body {
-                width: 210mm;
-                height: 297mm;
-                margin: 0;
-                padding: 0;
-            }
-        `;
-        const head = document.head || document.getElementsByTagName('head')[0];
-        const styleElement = document.createElement('style');
-        styleElement.type = 'text/css';
-        styleElement.appendChild(document.createTextNode(style));
-        head.appendChild(styleElement);
+                        function hideNavbarAndDownload() {
+                            // Hide the navigation bar
+                            const navbar = document.getElementById('navbar');
+                            navbar.style.display = 'none';
 
-        setTimeout(()=>{window.print()},2000);
-            
-            head.removeChild(styleElement);
-    }
+                            // Trigger the PDF download
+                            generatePDF('pdf-content');
 
+                            // Show the navigation bar again after a delay (e.g., 2 seconds)
+                            setTimeout(() => {
+                                navbar.style.display = 'block';
+                            }, 2000);
+                        }
+                    </script>
 
-               
-    </script>
+                    <script>
+                        function generatePDF() 
+                            {
+                                const style = `
+                                    @page {
+                                        size: A4;
+                                        margin: 0;
+                                    }
+                                    html, body {
+                                        width: 210mm;
+                                        height: 297mm;
+                                        margin: 0;
+                                        padding: 0;
+                                    }
+                                `;
+                                const head = document.head || document.getElementsByTagName('head')[0];
+                                const styleElement = document.createElement('style');
+                                styleElement.type = 'text/css';
+                                styleElement.appendChild(document.createTextNode(style));
+                                head.appendChild(styleElement);
+
+                                setTimeout(()=>{window.print()},2000);
+                                    
+                                    head.removeChild(styleElement);
+                            }
+                    </script>
+
                     
                 </div>
             </div>
