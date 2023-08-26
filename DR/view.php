@@ -128,66 +128,66 @@ if (mysqli_num_rows($res2) > 0) {
                                 <!-- Your HTML and other PHP code here... -->
 
                                 <table border="1px" class="table table-stripped m-2 table table-hover" style="width: 80%;">
-    <thead class="thead-dark">
-        <tr>
-            <th style="width: 20%;">COURSE CODE</th>
-            <th style="width: 60%;">SUBJECT TITLE</th>
-            <th style="width: 20%;">ELIGIBILITY</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        $courses = array(
-            'course_code_1' => 'subject_name_1',
-            'course_code_2' => 'subject_name_2',
-            'course_code_3' => 'subject_name_3',
-            'course_code_4' => 'subject_name_4',
-            'course_code_5' => 'subject_name_5',
-            'course_code_6' => 'subject_name_6',
-            'course_code_7' => 'subject_name_7',
-            'course_code_8' => 'subject_name_8',
-            'course_code_9' => 'subject_name_9',
-            'course_code_10' => 'subject_name_10',
-            'course_code_11' => 'subject_name_11',
-            'course_code_12' => 'subject_name_12',
-            'course_code_13' => 'subject_name_13',
-            'course_code_14' => 'subject_name_14',
-            'course_code_15' => 'subject_name_15',
-        );
+                <thead class="thead-dark">
+                    <tr>
+                        <th style="width: 20%;">COURSE CODE</th>
+                        <th style="width: 60%;">SUBJECT TITLE</th>
+                        <th style="width: 20%;">ELIGIBILITY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $courses = array(
+                        'course_code_1' => 'subject_name_1',
+                        'course_code_2' => 'subject_name_2',
+                        'course_code_3' => 'subject_name_3',
+                        'course_code_4' => 'subject_name_4',
+                        'course_code_5' => 'subject_name_5',
+                        'course_code_6' => 'subject_name_6',
+                        'course_code_7' => 'subject_name_7',
+                        'course_code_8' => 'subject_name_8',
+                        'course_code_9' => 'subject_name_9',
+                        'course_code_10' => 'subject_name_10',
+                        'course_code_11' => 'subject_name_11',
+                        'course_code_12' => 'subject_name_12',
+                        'course_code_13' => 'subject_name_13',
+                        'course_code_14' => 'subject_name_14',
+                        'course_code_15' => 'subject_name_15',
+                    );
 
         
-        foreach ($courses as $course_code => $subject_name) {
-            if (!empty($row[$course_code]) && !empty($row[$subject_name])) {
-                echo '<tr>';
-                echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
-                echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
-                if (substr($subject_name, -2, 1) == "_") {
-                    $column = "subject_approval_" . substr($subject_name, -1);
-                } else {
-                    $column = "subject_approval_" . substr($subject_name, -2);
-                }
-              
+                            foreach ($courses as $course_code => $subject_name) {
+                                if (!empty($row[$course_code]) && !empty($row[$subject_name])) {
+                                    echo '<tr>';
+                                    echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
+                                    echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
+                                    if (substr($subject_name, -2, 1) == "_") {
+                                        $column = "subject_approval_" . substr($subject_name, -1);
+                                    } else {
+                                        $column = "subject_approval_" . substr($subject_name, -2);
+                                    }
+                                
 
-                        echo '<td>';
-                        if ($row2[$column] == 0) {
-                          
-                          echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                                </svg>';
-                        } else {
-                            echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                                </svg>';
+                                            echo '<td>';
+                                            if ($row2[$column] == 0) {
+                                            
+                                            echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                                    </svg>';
+                                            } else {
+                                                echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                                    </svg>';
 
-                        }
-                        echo '</td>';
-                echo '</tr>';
-            }
-        }
-        ?>
-    </tbody>
-</table>
-    </div>
+                                            }
+                                            echo '</td>';
+                                    echo '</tr>';
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                        </div>
                                 <p style="margin-left:790px">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
                                     <button type="button" onclick="generatePDF('pdf-content'),hideNavbarAndDownload()"class="btn btn-info m-2">DOWNLOAD</button>
