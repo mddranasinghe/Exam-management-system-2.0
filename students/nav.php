@@ -157,37 +157,34 @@ if (isset($_SESSION['regNum'])) {
 
         </header>
 
-        <div class="navbar-header-main">
+        <div class="navbar-header-main" >
             <nav id="main-navbar" class="main-navbar">
-                <form class="form-inline">
-                    <a class="nav-link active" id="main-nav-a" aria-current="page" href="home.php">HOME</a>
-                    <a class="nav-link active" id="main-nav-a" aria-current="page" href="entryFormget.php">EXAM-ENTRY</a>
-                    <a class="nav-link active" id="main-nav-a" aria-current="page" href= "mFormget.php">MEDICAL </a>
-                   <a  class="nav-link active" id="main-nav-a" aria-current="page" href="reSiteFormget.php" >RESIT</a>
-                    <a  class="nav-link active" id="main-nav-a" aria-current="page" href="feedback.php" >FEEDBACK</a>
-           
-                    <a  class="nav-link active" id="main-nav-a" aria-current="page" href="userProfile.php" >USER PROFILE</a>
-                    <a class="nav-link active" id="main-nav-a" aria-current="page" href="about.php">ABOUT</a>
-
+                <form class="form-inline justify-content-between" >
+                    <div class="form-inline">
+                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="home.php">HOME</a>
+                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="entryFormget.php">EXAM-ENTRY</a>
+                        <a class="nav-link active" id="main-nav-a" aria-current="page" href= "mFormget.php">MEDICAL </a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="reSiteFormget.php" >RESIT</a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="feedback.php" >FEEDBACK</a>
+            
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="userProfile.php" >USER PROFILE</a>
+                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="about.php">ABOUT</a>
+                </div>
 
                     <div class="form-inline right" style="margin-left:220px">
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>
-               
-                        <h4  style="color:#fcb900">STUDENT-<?php echo $_SESSION['regNum']; ?></h4>
-
-                        <a class="nav-link active " id="main-nav-a" aria-current="page" href="../logout.php" style="margin-left:70px">LOGOUT</a>
-         <?php } ?>
-                    
-        <?php
-            if(isset($_SESSION['regNum'])){
-                ?>
-               
-
                    
+                        <h4  style="color:#fcb900">STUDENT-<?php echo $_SESSION['regNum']; ?></h4>
+                        
+                        
+                        <a class="nav-link active " id="main-nav-a" aria-current="page" href="../logout.php" style="margin-left:70px">LOGOUT</a>
+                     
                   
          <?php } ?>
+                    
+        
 
         
             </div>

@@ -223,15 +223,16 @@ body
 
         <div class="navbar-header-main">
             <nav id="main-navbar" class="main-navbar">
-                <form class="form-inline">
-                    <a class="nav-link active" id="main-nav-a" aria-current="page" href="Admin_home.php">HOME</a>
-                    <a class="nav-link active" id="main-nav-a" aria-current="page" href="admin_examEnteyPage.php">EXAM-ENTRY</a>
-                   <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
-                   <a  class="nav-link active" id="main-nav-a" aria-current="page" href="admin_resitPage.php" >RESIT</a>
-                   
-                    <a  class="nav-link active" id="main-nav-a" aria-current="page" href="LEC.php" >LECTURE</a>
-                    <a  class="nav-link active" id="main-nav-a" aria-current="page" href="asign_lec.php" >ASIGN-LECTURE</a>
- 
+            <form class="form-inline justify-content-between" >
+                    <div class="form-inline">
+                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="Admin_home.php">HOME</a>
+                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="admin_examEnteyPage.php">EXAM-ENTRY</a>
+                        <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="admin_resitPage.php" >RESIT</a>
+                    
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="LEC.php" >LECTURE</a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="asign_lec.php" >ASIGN-LECTURE</a>
+                    </div>
                  <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>
                     <a class="nav-link" id="main-nav-a" href="#">ACADEMIC <i class="fa-solid fa-caret-down"></i></a>-->
                

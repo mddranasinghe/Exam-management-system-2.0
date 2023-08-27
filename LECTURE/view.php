@@ -178,6 +178,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
                                             <th style="width: 20%;">APPROVE OF LECTURER</th>
+                                            <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
