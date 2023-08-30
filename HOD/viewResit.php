@@ -3,7 +3,7 @@ include('./Admin_nav.php');
 include "db_connection.php";
 
 $Registration_No = $_GET['Registration_No'];
-$sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
+$sql = "SELECT * FROM resit WHERE Registration_No='$Registration_No'";
 $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
 
 $res = mysqli_query($conn, $sql);
@@ -39,7 +39,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 <html>
 
 <head>
-    <title>exam entry page</title>
+    <title>exam Resit page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -239,7 +239,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                 <p style="margin-left:790px">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
-                             
+                                    <button id="printButton" class="btn btn-success m-2">Submit</button>
                                 </p>
 
                             </div>

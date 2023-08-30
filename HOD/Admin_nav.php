@@ -228,7 +228,7 @@ body
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="Admin_home.php">HOME</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="admin_examEnteyPage.php">EXAM-ENTRY</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="admin_resitPage.php" >RESIT</a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="viewResitList.php" >RESIT</a>
                     
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="LEC.php" >LECTURE</a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="asign_lec.php" >ASIGN-LECTURE</a>
