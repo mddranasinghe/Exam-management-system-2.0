@@ -285,7 +285,7 @@ body
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="Admin_home.php">HOME</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="admin_examEnteyPage.php">EXAM-ENTRY</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="admin_resitPage.php" >RESIT</a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="viewResitList.php" >RESIT</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="about.php">ABOUT</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="LEC_PROFILE.php">USER PROFILE</a>
                     </div>
