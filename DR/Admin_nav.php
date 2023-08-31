@@ -275,7 +275,7 @@ body
                
 
                    
-                    <div class="form-inline right" style="margin-left:350px">
+                    <div class="form-inline right" style="margin-left:100px">
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>

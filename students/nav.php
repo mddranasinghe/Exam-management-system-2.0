@@ -171,7 +171,7 @@ if (isset($_SESSION['regNum'])) {
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="about.php">ABOUT</a>
                 </div>
 
-                    <div class="form-inline right" style="margin-left:220px">
+                    <div class="form-inline right" style="margin-left:100px">
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>

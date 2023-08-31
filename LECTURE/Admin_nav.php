@@ -292,7 +292,7 @@ body
                  <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>
                     <a class="nav-link" id="main-nav-a" href="#">ACADEMIC <i class="fa-solid fa-caret-down"></i></a>-->
                
-                    <div class="form-inline right" style="margin-left:300px">
+                    <div class="form-inline right" style="margin-left:100px">
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>
