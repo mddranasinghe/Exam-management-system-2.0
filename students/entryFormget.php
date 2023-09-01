@@ -4,13 +4,14 @@ include "db_connection.php";
 
 
 
+
 ?>
 <div class="container p-3 my-3 bg-white text-dark">
 <div class="container p-1 my-2 bg-dark text-white">
    <h2 style="text-align:center">EXAMINATION ENTRY FORM FOR PROPER CANDIDATES</h2></div>
 <form   method="POST"action="examentry.php">
 <label for="Registration_No" class="col-sm-3 col-form-label"> Registration No </label>
-<input type="text"class="form-control col-s m-2 col-form-label" name="Registration_No" id="Registration_No"placeholder="Registration No" required >
+<input type="text"class="form-control col-s m-2 col-form-label" name="Registration_No" id="Registration_No"required value="<?php echo $_SESSION['regNum']; ?>" readonly>
 
 
 

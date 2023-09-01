@@ -300,7 +300,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          
                         <div >
                         <label for="Registration_No" class="col-sm-3 col-form-label">1. Registration No </label>
-                        <input type="text"class="form-control " name="Registration_No" id="Registration_No"placeholder="Registration No" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Registration_No); ?>">
+                        <input type="text"class="form-control " name="Registration_No" id="Registration_No"placeholder="Registration No" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Registration_No); ?>" readonly>
          
                         </div><br>
 
