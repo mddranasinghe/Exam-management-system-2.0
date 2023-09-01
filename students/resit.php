@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  <style type="text/css">
     	   .wapper{
             width:1972px;
-            height: 1400px;
+            height: 1430px;
            
             
             
@@ -240,6 +240,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h4 style="text-align:center;margin:2px;margin-left:90px;"><u>Examination Entry For Re-site/Upgrading</u></h4>
                     <h4 style="text-align:center;margin:2px;margin-left:90px;">(to be completed and returned to the deputy registrar,examination and student admission)</h4>
 <hr>
+                    <div class="mb-3">
+                    <div class="form-group row">
+                    <form name="Registration"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" >
+                        <div class="login"> 
+                          
+                        
+                            <div  style="float:right;">
+                         
+                        
+                        </div><br><br><br>
+                      
+                    <form>
                             <div>
                         <label  class="col-sm-3 col-form-label" for="Registration_No">1. Registration No </label>
                         <input class="form-control "type="text" name="Registration_No" placeholder="Registration No" style="width: 200px;height: 35px;"value="<?php echo htmlspecialchars($Registration_No); ?>">
@@ -252,7 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div><br>
 
                         <div>
-                        <label  class="col-sm-3 col-form-label"for="gender">3.Name with initialsnder </label>
+                        <label  class="col-sm-3 col-form-label"for="gender">3.Name with initials </label>
                         <input  class="form-control " type="text" name="Name_with_initials" placeholder="Name with initials"style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Name_with_initials); ?>">
                         </div><br>
 
@@ -329,7 +341,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <td><input class="form-control" type="text" name="Ast_attempt_1"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_1"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_1"  ></td>
-                                <
+                                
                                 <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                             </tr>
                                 <tr>
@@ -438,16 +450,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				    </form>
                 </div>
                 
-				
-			
-
-
-		
-
-	</DIV>
-
- 
-  <?php
+				<?php
 
                     if(isset($_POST['submit']))
                     {
@@ -467,6 +470,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         mysqli_query($conn,"INSERT INTO `resit` VALUES(
                             '$_POST[faculty]',
                             '$_POST[Name_of_the_examination]',
+                            '$_POST[year]', 
+                            '$_POST[semester]',
                             '$_POST[gender]',
                             '$_POST[Name_with_initials]',
                             '$_POST[Name_denoted_by_initial]',
@@ -474,21 +479,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             '$_POST[Address]', 
                             '$_POST[Mobile_Phone_no]',
                             '$_POST[Date_of_admission]',
-                            '$_POST[Fees_Paid_for_examination]',
-                            '$_POST[amount]', 
-                            '$_POST[date]', 
-                            '$_POST[Receipt_No]',
+                            '$_POST[myfile_pay]',
+
                             '$_POST[course_code_1]',
                             '$_POST[subject_name_1]',
-                            '$_POST[Ast_attempt_1]', 
+                            '$_POST[Ast_attempt_1]',
                             '$_POST[Bst_attempt_1]',
                             '$_POST[Cst_attempt_1]',
-                            '$_POST[course_code_2]',
-                            '$_POST[subject_name_2]', 
-                            '$_POST[Ast_attempt_2]', 
+
+                            '$_POST[course_code_2]', 
+                            '$_POST[subject_name_2]',
+                            '$_POST[Ast_attempt_2]',
                             '$_POST[Bst_attempt_2]',
-                            '$_POST[Cst_attempt_2]');");
-    
+                            '$_POST[Cst_attempt_2]';");
+                        
+                    
                         ?>
                         <script type="text/javascript">
                         alert("Registration successful");
@@ -508,10 +513,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php
 
                         }
+                      
+                        exit();//after th complete for loop index page process is stop
 
                     }
 
                 ?>
+			
+
+
+		
+
+	</DIV>
+
+ 
 
 <script>
     function deleteRow(button) {
