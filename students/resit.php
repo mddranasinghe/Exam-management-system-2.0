@@ -373,10 +373,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             '$_POST[Address]', 
                             '$_POST[Mobile_Phone_no]',
                             '$_POST[Date_of_admission]',
+<<<<<<< Updated upstream
                             '$_POST[Fees_Paid_for_examination]',
                             '$_POST[amount]', 
                             '$_POST[date]', 
                             '$_POST[Receipt_No]',
+=======
+                            '$_POST[myfile_pay]',
+>>>>>>> Stashed changes
                             '$_POST[course_code_1]',
                             '$_POST[subject_name_1]',
                             '$_POST[Ast_attempt_1]', 
@@ -407,6 +411,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php
 
                         }
+<<<<<<< Updated upstream
+=======
+                      
+                        exit();//after th complete for loop index page process is stop ....................................
+>>>>>>> Stashed changes
 
                     }
 
