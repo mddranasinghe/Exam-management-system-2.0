@@ -514,7 +514,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         }
                       
-                        exit();//after th complete for loop index page process is stop
+                        exit();//after th complete for loop index page process is stop..................................
 
                     }
 
