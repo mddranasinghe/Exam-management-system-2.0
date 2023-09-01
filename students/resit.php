@@ -336,106 +336,95 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </thead>
                               
                              <tr>
-                                <td><input class="form-control" type="text" name="course_code_1" value="<?php echo htmlspecialchars($course_code_1); ?>"></td>
-                                <td><input class="form-control" type="text" name="subject_name_1"  value="<?php echo htmlspecialchars($subject_name_1); ?>"></td>
+                                <td><input class="form-control" type="text" name="course_code_1" ></td>
+                                <td><input class="form-control" type="text" name="subject_name_1"  ></td>
                                 <td><input class="form-control" type="text" name="Ast_attempt_1"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_1"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_1"  ></td>
                                 
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                             </tr>
                                 <tr>
-                                    <td><input class="form-control" type="text" name="course_code_2"  value="<?php echo htmlspecialchars($course_code_2); ?>" ></td>
-                                    <td><input class="form-control" type="text" name="subject_name_2"  value="<?php echo htmlspecialchars($subject_name_2); ?>"></td>
+                                    <td><input class="form-control" type="text" name="course_code_2"  ></td>
+                                    <td><input class="form-control" type="text" name="subject_name_2"  ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_2"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_2"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_2"  ></td>
                                
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                                     
                 
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="course_code_3"   value="<?php echo htmlspecialchars($course_code_3); ?>"></td>
-                                    <td><input class="form-control "type="text" name="subject_name_3" value="<?php echo htmlspecialchars($subject_name_3); ?>" ></td>
+                                    <td><input class="form-control "type="text" name="course_code_3" ></td>
+                                    <td><input class="form-control "type="text" name="subject_name_3" ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_3"  ></td>
                                    <td><input class="form-control" type="text" name="Bst_attempt_3"  ></td>
                                    <td><input class="form-control" type="text" name="Cst_attempt_3"  ></td>
                                    
-                                   <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                                     
                 
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="course_code_4" value="<?php echo htmlspecialchars($course_code_4); ?>"></td>
-                                    <td><input class="form-control "type="text" name="subject_name_4"  value="<?php echo htmlspecialchars($subject_name_4); ?>"></td>
+                                    <td><input class="form-control "type="text" name="course_code_4"></td>
+                                    <td><input class="form-control "type="text" name="subject_name_4"  ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_4"  ></td>
                                    <td><input class="form-control" type="text" name="Bst_attempt_4"  ></td>
                                    <td><input class="form-control" type="text" name="Cst_attempt_4"  ></td>
                                    
-                                   <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                                     
                 
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="course_code_5" value="<?php echo htmlspecialchars($course_code_5); ?>" ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_5"  value="<?php echo htmlspecialchars($subject_name_5); ?>"></td>
+                                    <td><input class="form-control "type="text" name="course_code_5" ></td>
+                                    <td><input class="form-control "type="text" name="subject_name_5" ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_5"  ></td>
                                     <td><input class="form-control" type="text" name="Bst_attempt_5"  ></td>
                                    <td><input class="form-control" type="text" name="Cst_attempt_5"  ></td>
                                   
-                                   <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                 
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="course_code_6" value="<?php echo htmlspecialchars($course_code_6); ?>"></td>
-                                    <td><input class="form-control "type="text" name="subject_name_6"  value="<?php echo htmlspecialchars($subject_name_6); ?>"></td>
+                                    <td><input class="form-control "type="text" name="course_code_6"></td>
+                                    <td><input class="form-control "type="text" name="subject_name_6" ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_6"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_6"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_6"  ></td>
                                 
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>    
-                
+     
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="course_code_7"   value="<?php echo htmlspecialchars($course_code_7); ?>"></td>
-                                    <td><input class="form-control "type="text" name="subject_name_7"   value="<?php echo htmlspecialchars($subject_name_7); ?>"></td>
+                                    <td><input class="form-control "type="text" name="course_code_7"  ></td>
+                                    <td><input class="form-control "type="text" name="subject_name_7" ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_7"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_7"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_7"  ></td>
-                                
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td> 
-                
+                        
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="course_code_8"  value="<?php echo htmlspecialchars($course_code_8); ?>"></td>
-                                    <td><input class="form-control "type="text" name="subject_name_8" value="<?php echo htmlspecialchars($subject_name_8); ?>" ></td>
+                                    <td><input class="form-control "type="text" name="course_code_8"  ></td>
+                                    <td><input class="form-control "type="text" name="subject_name_8" ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_8"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_8"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_8"  ></td>
                                
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
-                                    
+      
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="course_code_9"  value="<?php echo htmlspecialchars($course_code_9); ?>" ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_9"  value="<?php echo htmlspecialchars($subject_name_9); ?>"></td>
+                                    <td><input class="form-control "type="text" name="course_code_9"  ></td>
+                                    <td><input class="form-control "type="text" name="subject_name_9" ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_9"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_9"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_9"  ></td>
                                 
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                                    
                 
                                 </tr>
                                 <tr>
-                                    <td><input class="form-control "type="text" name="Dcourse_code_10"  value="<?php echo htmlspecialchars($course_code_10); ?>" ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_10" value="<?php echo htmlspecialchars($subject_name_10); ?>"></td>
+                                    <td><input class="form-control "type="text" name="Dcourse_code_10" ></td>
+                                    <td><input class="form-control "type="text" name="subject_name_10" ></td>
                                     <td><input class="form-control" type="text" name="Ast_attempt_10"  ></td>
                                 <td><input class="form-control" type="text" name="Bst_attempt_10"  ></td>
                                 <td><input class="form-control" type="text" name="Cst_attempt_10"  ></td>
-                               
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+
                 
                                 </tr>
                                 
