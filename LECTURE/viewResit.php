@@ -177,10 +177,11 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         <tr>
                                             <th style="width: 10%;">COURSE CODE</th>
                                             <th style="width: 30%;">SUBJECT TITLE</th>
+                                            <th style="width: 10%;">1st_attempt</th>
+                                            <th style="width: 10%;">2nd_attempt</th>
+                                            <th style="width: 10%;">3rd_attempt</th>
+                                            <th style="width: 10%;">APPROVE OF LECTURER</th>
                                             <th style="width: 10%;"></th>
-                                            <th style="width: 10%;"></th>
-                                            <th style="width: 10%;"></th>
-                                            <th style="width: 0%;">APPROVE OF LECTURER</th>
                                            
                                         </tr>
                                     </thead>
@@ -212,37 +213,41 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                             'Cst_attempt' => 'Cst_attempt_4'
                                         ),
                                         'course_code_5' => array(
-                                            'subject_name' => 'subject_name_5'
+                                            'subject_name' => 'subject_name_5',
+                                            'Ast_attempt' => 'Ast_attempt_4',
+                                            'Bst_attempt' => 'Bst_attempt_4',
+                                            'Cst_attempt' => 'Cst_attempt_4'
                                         ),
                                         'course_code_6' => array(
-                                            'subject_name' => 'subject_name_6'
+                                            'subject_name' => 'subject_name_6',
+                                            'Ast_attempt' => 'Ast_attempt_6',
+                                            'Bst_attempt' => 'Bst_attempt_6',
+                                            'Cst_attempt' => 'Cst_attempt_6'
                                         ),
                                         'course_code_7' => array(
-                                            'subject_name' => 'subject_name_7'
+                                            'subject_name' => 'subject_name_7',
+                                            'Ast_attempt' => 'Ast_attempt_7',
+                                            'Bst_attempt' => 'Bst_attempt_7',
+                                            'Cst_attempt' => 'Cst_attempt_7'
                                         ),
                                         'course_code_8' => array(
-                                            'subject_name' => 'subject_name_8'
+                                            'subject_name' => 'subject_name_8',
+                                            'Ast_attempt' => 'Ast_attempt_8',
+                                            'Bst_attempt' => 'Bst_attempt_8',
+                                            'Cst_attempt' => 'Cst_attempt_8'
                                         ),
                                         'course_code_9' => array(
-                                            'subject_name' => 'subject_name_9'
+                                            'subject_name' => 'subject_name_9',
+                                            'Ast_attempt' => 'Ast_attempt_9',
+                                            'Bst_attempt' => 'Bst_attempt_9',
+                                            'Cst_attempt' => 'Cst_attempt_9'
                                         ),
                                         'course_code_10' => array(
-                                            'subject_name' => 'subject_name_10'
-                                        ),
-                                        'course_code_11' => array(
-                                            'subject_name' => 'subject_name_11'
-                                        ),
-                                        'course_code_12' => array(
-                                            'subject_name' => 'subject_name_12'
-                                        ),
-                                        'course_code_13' => array(
-                                            'subject_name' => 'subject_name_13'
-                                        ),
-                                        'course_code_14' => array(
-                                            'subject_name' => 'subject_name_14'
-                                        ),
-                                        'course_code_15' => array(
-                                            'subject_name' => 'subject_name_15'
+                                            'subject_name' => 'subject_name_10',
+                                            'Ast_attempt' => 'Ast_attempt_10',
+                                            'Bst_attempt' => 'Bst_attempt_10',
+                                            'Cst_attempt' => 'Cst_attempt_10'
+                                            
                                         )
                                     );
                                     
