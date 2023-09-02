@@ -12,7 +12,7 @@ $res2 = mysqli_query($conn, $sql2);
 if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
 }
-$sql3 = "INSERT INTO approve_state_resit VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+$sql3 = "INSERT INTO approve_state_resit VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0)";
 if (mysqli_num_rows($res2) > 0) {
     $row2 = mysqli_fetch_assoc($res2);
 } else {
@@ -169,7 +169,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                     </div>
                                 </form>
 
-                                <!-- Your HTML and other PHP code here... -->
+                                
 
                                 <table border="1px" class="table table-stripped m-2 table table-hover" id="table1"
                                     style="width: 80%;">
