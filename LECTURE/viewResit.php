@@ -35,12 +35,12 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 }
 ?>
 
-<!DOCTYPE html>
-<html>
+
 
 <head>
     <title>exam Resit page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
 </head>
 
 <body>
