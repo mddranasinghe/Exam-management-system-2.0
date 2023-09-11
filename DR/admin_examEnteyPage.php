@@ -13,7 +13,7 @@ include "db_connection.php"; ?>
         <body>
         <?php
 
-/////////////////////
+
 $sql= "SELECT Registration_No,Name_with_initials  FROM examenrty";
 
     $res=mysqli_query($conn,$sql);
