@@ -251,7 +251,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         
                         </div><br><br><br>
                       
-                    <form>
+                    <form action="resit.php" method="post">
                             <div>
                         <label  class="col-sm-3 col-form-label" for="Registration_No">1. Registration No </label>
                         <input class="form-control "type="text" name="Registration_No" placeholder="Registration No" style="width: 200px;height: 35px;"value="<?php echo htmlspecialchars($Registration_No); ?>">
@@ -438,80 +438,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					
 				    </form>
                 </div>
-                
-				<?php
+                <?php
 
-                    if(isset($_POST['submit']))
-                    {
-                        $count=0;
-                        $sql="SELECT Registration_No from `resit`";
-                        $res=mysqli_query($conn,$sql);
+if(isset($_POST['submit']))
+{
+    $count=0;
+    $sql="SELECT Registration_No from `resit`";
+    $res=mysqli_query($conn,$sql);
 
-                        while($row=mysqli_fetch_assoc($res))
-                        {
-                        if($row['Registration_No']==$_POST['Registration_No'])
-                        {
-                            $count=$count+1;
-                        }
-                        }
-                        if($count==0)
-                        {
-                        mysqli_query($conn,"INSERT INTO `resit` VALUES(
-                            '$_POST[faculty]',
-                            '$_POST[Name_of_the_examination]',
-                            '$_POST[year]', 
-                            '$_POST[semester]',
-                            '$_POST[gender]',
-                            '$_POST[Name_with_initials]',
-                            '$_POST[Name_denoted_by_initial]',
-                            '$_POST[Registration_No]',
-                            '$_POST[Address]', 
-                            '$_POST[Mobile_Phone_no]',
-                            '$_POST[Date_of_admission]',
-                            '$_POST[myfile_pay]',
+    while($row=mysqli_fetch_assoc($res))
+    {
+    if($row['Registration_No']==$_POST['Registration_No'])
+    {
+        $count=$count+1;
+    }
+    }
+    if($count==0)
+    {
+    mysqli_query($conn,"INSERT INTO `resit` VALUES(
+        '$_POST[faculty]',
+        '$_POST[Name_of_the_examination]',
+        '$_POST[gender]',
+        '$_POST[Name_with_initials]',
+        '$_POST[Name_denoted_by_initial]',
+        '$_POST[Registration_No]',
+        '$_POST[Address]', 
+        '$_POST[Mobile_Phone_no]',
+        '$_POST[Date_of_admission]',
+        '$_POST[Fees_Paid_for_examination]',
+        '$_POST[amount]', 
+        '$_POST[date]', 
+        '$_POST[Receipt_No]',
+        '$_POST[course_code_1]',
+        '$_POST[subject_name_1]',
+        '$_POST[Ast_attempt_1]', 
+        '$_POST[Bst_attempt_1]',
+        '$_POST[Cst_attempt_1]',
+        '$_POST[course_code_2]',
+        '$_POST[subject_name_2]', 
+        '$_POST[Ast_attempt_2]', 
+        '$_POST[Bst_attempt_2]',
+        '$_POST[Cst_attempt_2]');");
 
-                            '$_POST[course_code_1]',
-                            '$_POST[subject_name_1]',
-                            '$_POST[Ast_attempt_1]',
-                            '$_POST[Bst_attempt_1]',
-                            '$_POST[Cst_attempt_1]',
+    ?>
+    <script type="text/javascript">
+    alert("Registration successful");
+    </script>
 
-                            '$_POST[course_code_2]', 
-                            '$_POST[subject_name_2]',
-                            '$_POST[Ast_attempt_2]',
-                            '$_POST[Bst_attempt_2]',
-                            '$_POST[Cst_attempt_2]';");
-                        
-                    
-                        ?>
-                        <script type="text/javascript">
-                        alert("Registration successful");
-                        </script>
-                    
-                            
+        
 
-                        <?php
-                        }
-                        else
-                        {
+    <?php
+    }
+    else
+    {
 
-                        ?>
-                            <script type="text/javascript">
-                            alert("The username already exist.");
-                            </script>
-                        <?php
+    ?>
+        <script type="text/javascript">
+        alert("The username already exist.");
+        </script>
+    <?php
 
-                        }
-                      
-                        exit();//after th complete for loop index page process is stop..................................
+    }
 
-                    }
+}
 
-                ?>
-			
-
-
-		
+?>
 
 	</DIV>
 
