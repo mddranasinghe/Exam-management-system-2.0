@@ -338,25 +338,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div><br>
 
                         <div>
-                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">7.Name of the examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">8.Name of the examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="Name_of_the_examination" placeholder="Name ofthe examination" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Name_of_the_examination); ?>">
                         </div><br>
 
 
                         <div>
-                        <label for="Faculty"class="col-sm-3 col-form-label">7.Faculty&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="Faculty"class="col-sm-3 col-form-label">9.Faculty&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="faculty" placeholder="Faculty" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($faculty); ?>">
                         </div><br>
 
 
                         <div>
-                        <label for="year"class="col-sm-3 col-form-label">7.Year &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="year"class="col-sm-3 col-form-label">10.Year &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="year" placeholder="year" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($year); ?>">
                         </div><br>
 
 
                         <div>
-                        <label for="semester"class="col-sm-3 col-form-label">7.Semester &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="semester"class="col-sm-3 col-form-label">11.Semester &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="semester" placeholder="semester" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($semester); ?>">
                         </div><br>
 
