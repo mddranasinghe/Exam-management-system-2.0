@@ -314,7 +314,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         <div>
                         <label class="col-sm-3 col-form-label"for="myfile">12. Select Payment Receipt </label>
-                            <input class="form-control col-s m-3 col-form-label"type="file" id="myfile" name="myfile_pay" multiple style="width: 700px;height: 35px;" required>
+                            <input class="form-control col-s m-3 col-form-label"type="file" id="myfile" name="myfile_resit" multiple style="width: 700px;height: 35px;" required>
                              </div><br>
 <br><br>
 
@@ -442,6 +442,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if(isset($_POST['submit']))
 {
+    $filenameRe=$_FILES['myfile_resit']['name'];
+    $tempnameRe=$_FILES['myfile_resit']['tmp_name'];
+    $folder="./resitUpload/" .$filenamRe;
+
+
     $count=0;
     $sql="SELECT Registration_No from `resit`";
     $res=mysqli_query($conn,$sql);
