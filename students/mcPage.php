@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  <style type="text/css">
     	   .wapper{
-            width:1000px;
+            width:100%;
             height: 1360px;
            
             
@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .sec{
            
-            width: 1465px;
+            width: 100%;
             height: 1800px;
             margin-top:-30px; 
             background-color:#e4bfe2;
@@ -227,14 +227,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="sec">
 			
 			
-                    <div style="float:center;width:1200px;height:100%;background-color:#white;margin-left:30px;margin-top:0px;"> <!-- margin left- eka wenas karahan -->
+                    <div style="width:1200px;height:100%;margin:auto;">
                         <div class ="box1">
                             <img src="n.png" style="float:center;">
                         </div>
 
-                        <div class ="box2">"
-                        <input type="text" value=" MC ONLY" style ="width:120px;height:40px;">
-                        </div>
+                        
 
                         
                             <h3 style="text-align:center;text-transform: uppercase;margin:2px;margin-left:190px;">University of Vavuniya,srilanka</h3s>
