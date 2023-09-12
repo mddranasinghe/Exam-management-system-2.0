@@ -10,7 +10,7 @@ include "db_connection.php";
    <h2 style="text-align:center">EXAMINATION  MEDICAL FORM FOR PROPER CANDIDATES</h2></div>
 <form   method="POST"action="mcPage.php">
 <label for="Registration_No" class="col-sm-3 col-form-label"> Registration No </label>
-<input type="text"class="form-control col-s m-2 col-form-label" name="Registration_No" id="Registration_No"placeholder="Registration No" required >
+<input type="text"class="form-control col-s m-2 col-form-label" name="Registration_No" id="Registration_No" required value="<?php echo $_SESSION['regNum']; ?>" readonly>
 
 
 
