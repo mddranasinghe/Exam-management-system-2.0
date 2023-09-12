@@ -1,26 +1,26 @@
 <?php include "./Admin_nav.php";
 
-// add hod////////////////////////////////////////////////
+// add DEAN////////////////////////////////////////////////
 include 'db_connection.php';
 
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['DEANsubmit'])) {
 
 
     // Get form data
-    $LECNum = $_POST['LECNum'];
-    $LECName = $_POST['LECName'];
+    $DEANNum = $_POST['DEANNum'];
+    $DEANName = $_POST['DEANName'];
     $faculty = $_POST['faculty'];
     $email = $_POST['email'];
     $contactNo = $_POST['contactNo'];
     $password=$_POST['password'];
 
-    // Perform database query to insert HOD information
-    $query = "INSERT INTO lec (LECNum, LECName, Faculty, Email, contactno,password) VALUES ('$LECNum', '$LECName', '$faculty', '$email', '$contactNo',' $password')";
+    // Perform database query to insert DEAN information
+    $query = "INSERT INTO dean (DEANNum, DEANName, Faculty, Email, contactno,passwordS) VALUES ('$DEANNum', '$DEANName', '$faculty', '$email', '$contactNo',' $password')";
 
     if (mysqli_query($conn, $query)) {
         // Insertion successful
-        $successMessage = "LECTURE information has been saved successfully.";
+        $successMessage = " information has been saved successfully.";
     
     } else {
         // Insertion failed
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 
 <div class="container p-3 my-3 bg-light text-dark">
 <div class="container p-1 my-2 bg-dark text-white">
-   <h2 style="text-align:center">ADD LECTURE DETAILS</h2></div>
+   <h2 style="text-align:center">ADD DEAN DETAILS</h2></div>
    
    <?php if (!empty($successMessage)) { ?>
     
@@ -45,11 +45,11 @@ if (isset($_POST['submit'])) {
             <?php } ?><div class="Add_user_form">
  <form name="login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
-        <label for="LECNum" class="col-sm-5 col-form-label">LECTURE Registration Number:</label>
-        <input type="text"  class="form-control col-sm-7 col-form-label" id="LECNum" name="LECNum" required><br>
+        <label for="DEANNum" class="col-sm-5 col-form-label">DEAN Registration Number:</label>
+        <input type="text"  class="form-control col-sm-7 col-form-label" id="DEANNum" name="DEANNum" required><br>
       
-        <label for="LECName"class="col-sm-3 col-form-label">LECTURE Name:</label>
-        <input type="text" class="form-control col-sm-7 col-form-label" id="LECName" name="LECName" required><br>
+        <label for="DEANName"class="col-sm-3 col-form-label">DEAN Name:</label>
+        <input type="text" class="form-control col-sm-7 col-form-label" id="DEANName" name="DEANName" required><br>
       
        
 
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
         <label for="contactNo"class="col-sm-3 col-form-label">Contact No:</label>
         <input type="text" class="form-control col-sm-7 col-form-label" id="contactNo" name="contactNo" required placeholder="071xxxxxx2"><br>
 
-        <button type="submit" name="submit" class="btn btn-primary submit-btn" >Submit</button>
+        <button type="submit" name="DEANsubmit" class="btn btn-primary submit-btn" >Submit</button>
 
 
    
