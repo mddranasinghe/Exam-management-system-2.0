@@ -97,6 +97,7 @@
                     aria-label="Default select example">
                 <option selected value="Student">Student</option>
                 <option value="DR">DR</option>
+                <option value="DEAN">DEAN</option>
                 <option value="HOD">HOD</option>
                 <option value="Lecturer">Lecturer</option>
             </select>

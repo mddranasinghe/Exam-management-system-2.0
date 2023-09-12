@@ -12,7 +12,7 @@ $res2 = mysqli_query($conn, $sql2);
 if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
 }
-$sql3 = "INSERT INTO approve_state_resit VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0)";
+$sql3 = "INSERT INTO approve_state_resit VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
 if (mysqli_num_rows($res2) > 0) {
     $row2 = mysqli_fetch_assoc($res2);
 } else {
@@ -35,12 +35,12 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 }
 ?>
 
-
+<!DOCTYPE html>
+<html>
 
 <head>
     <title>exam Resit page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
 </head>
 
 <body>
@@ -48,7 +48,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
         <div class="container">
             <section class="sec">
                 <div
-                    style="float: center; width: 1200px; height: 100%;  margin-left: 30px; margin-top: 0px;">
+                    style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 30px; margin-top: 0px;">
                     <div class="box1">
 
                         <img src="n.png" style="float: center;">
@@ -169,7 +169,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                     </div>
                                 </form>
 
-                                
+                                <!-- Your HTML and other PHP code here... -->
 
                                 <table border="1px" class="table table-stripped m-2 table table-hover" id="table1"
                                     style="width: 80%;">
@@ -274,10 +274,10 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                 }
                                                 if ($row2[$column] == 0) {
                                                     echo '<td style="width: 20%;"><a href="approvalResit.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Certify</button></a></td>';
+                                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
                                                 } else {
                                                     echo '<td style="width: 20%;"><a href="approvalResit.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Certify</button></a></td>';
+                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
                                                 }
 
                                                         echo '<td>';

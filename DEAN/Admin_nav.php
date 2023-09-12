@@ -1,6 +1,4 @@
-
 <?php 
-ob_start();
 include "./db_connection.php";
 session_start();
  ?>
@@ -28,16 +26,13 @@ session_start();
     <!-- Add Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
+    
 </head>
     <style>
         /*notification pop*/
               #myModal {
-            position: absolute;
-            top: 90px;
-            left: 50px;
+            position: center;
+            
         }
 
         .full-page {
@@ -55,7 +50,6 @@ session_start();
         body
         {
             background-color:#e4bfe2;
-            
         }
        
         input{
@@ -151,16 +145,16 @@ body
 /************view page */
 
 .wapper{
-            width:1000px;
+            width:1972px;
             height: 1800px;
            
-          
+            
             
         }
         .sec{
            
-            width: 100%;
-            height: 100%;
+            width: 1972px;
+            height: 2000px;
             margin-top:-40px; 
             background-color:#e4bfe2;
         }
@@ -193,37 +187,6 @@ body
   text-align: left;
 }
        
- /* Custom styles for the form container  edit hod.php*/
- .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #f4f6f8;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-
-
-
-        
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        .pdf-content {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.5;
-            /* Adjust other styles as needed for your form */
-        }
-        /* Set A4 size: 210mm x 297mm */
-        @media print {
-            body {
-                width: 210mm;
-                height: 297mm;
-                margin: 0;
-            }
-        }
 
 
     </style>
@@ -238,8 +201,9 @@ body
             <div>
 
             </div>
-
-            <nav class="mid-navbar">
+         
+    
+            <nav class="navbar- navbar-expand-lg mid-navbar">
                 <form action="" class="form-inline">
                     <div class="cleaner"></div>
                     <div class="navbar-brand-wpz">
@@ -266,22 +230,19 @@ body
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="viewResitList.php" >RESIT</a>
                     
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="student.php" >STUDENTS</a>
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="HOD.php" >HOD</a>
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="den.php" >DEAN</a>
-                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="about.php">ABOUT</a>
+                    
+                  
                     </div>
-                        <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>
+                 <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>
                     <a class="nav-link" id="main-nav-a" href="#">ACADEMIC <i class="fa-solid fa-caret-down"></i></a>-->
                
 
-                   
                     <div class="form-inline right" style="margin-left:100px">
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>
                
-                        <h4  style="color:#fcb900">DR-<?php echo $_SESSION['regNum']; ?></h4>
+                        <h4  style="color:#fcb900">DEAN-<?php echo $_SESSION['regNum']; ?></h4>
 
                         <a class="nav-link active " id="main-nav-a" aria-current="page" href="../logout.php" style="margin-left:100px">LOGOUT</a>
          <?php } ?>
@@ -289,7 +250,10 @@ body
         <?php
             if(isset($_SESSION['regNum'])){
                 ?>
-                 
+               
+
+                   
+                  
          <?php } ?>
 
         
