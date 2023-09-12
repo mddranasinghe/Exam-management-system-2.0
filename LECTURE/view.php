@@ -211,9 +211,9 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                     $column = "subject_approval_" . substr($subject_name, -2);
                                                 }
                                                 if ($row2[$column] == 0) {
-                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
+                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Certify</button></a></td>';
                                                 } else {
-                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
+                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Certify</button></a></td>';
                                                 }
 
                                                         echo '<td>';
