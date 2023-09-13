@@ -50,12 +50,12 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                 <div style="width:1200px;height:100%;margin:auto;">
                     <div class="box1">
 
-                        <img src="n.png" style="float: center;">
+                        <img src="n.png" style="float:center; ">
                     </div>
 
                     <h3 style="text-align: center; text-transform: uppercase; margin: 2px; margin-left: 50px;">
                         University of Vavuniya, Sri Lanka</h3>
-                    <h4 style="text-align: center; margin: 2px;"><u>Examination Entry Form For Proper Candidates</u>
+                    <h4 style="text-align: center; margin: 2px; margin-left:50px;"><u>Examination Entry Form For Proper Candidates</u>
                     </h4>
                     <h4 style="text-align: center; margin: 2px;">(to be completed and returned to the deputy registrar,
                         examination and student admission)</h4>
@@ -112,7 +112,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                         <div>
                                             <label for="Mobile_Phone_no" class="col-sm-2 col-form-label">Mobile Phone
-                                                no</label>
+                                                No</label>
                                             <input type="text" name="Mobile_Phone_no" id="Mobile_Phone_no"
                                                 placeholder="Mobile Phone no" style="width: 700px; height: 35px;"
                                                 class="form-control" value="<?php echo $row['Mobile_Phone_no']; ?>">
@@ -120,7 +120,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                         <div>
                                             <label for="Date_of_admission" class="col-sm-2 col-form-label">Date of
-                                                admission</label>
+                                                Admission</label>
                                             <input type="text" name="Date_of_admission" placeholder="Date of admission"
                                                 style="width: 700px; height: 35px;" class="form-control"
                                                 value="<?php echo $row['Date_of_admission']; ?>">
@@ -128,7 +128,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                         <div>
                                             <label for="Name_of_the_examination" class="col-sm-2 col-form-label">Name of
-                                                the examination</label>
+                                                the Examination</label>
                                             <input type="text" name="Name_of_the_examination"
                                                 style="width: 700px; height: 35px;" class="form-control"
                                                 value="<?php echo $row['Name_of_the_examination']; ?>">

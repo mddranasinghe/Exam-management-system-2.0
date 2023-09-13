@@ -61,7 +61,7 @@
 
             <div class="wrapper">
                 
-                <h4>If you have any suggesions or questions please comment below.</h4>
+                <h4>If you have any suggestions or questions please comment below.</h4>
                 <form style="" action="" method="post">
                     <input class="form-control" type="text" name="comment" placeholder="Write something..."required><br>	
                     <input class="btn btn-default" type="submit" name="submit" value="Comment" style="width: 100px; height: 35px;">		

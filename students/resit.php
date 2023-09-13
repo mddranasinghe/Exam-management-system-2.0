@@ -236,8 +236,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     
-              <h3 style="text-align:center;text-transform: uppercase;margin:2px;margin-left:100px;">University Of Vavuniya Sri lanka</h3s>
-                    <h4 style="text-align:center;margin:2px;margin-left:90px;"><u>Examination Entry For Re-site/Upgrading</u></h4>
+              <h3 style="text-align:center;text-transform: uppercase;margin:2px;margin-left:100px;">University Of Vavuniya Sri Lanka</h3s>
+                    <h4 style="text-align:center;margin:2px;margin-left:90px;"><u>Examination Entry For Re-sit/Upgrading</u></h4>
                     <h4 style="text-align:center;margin:2px;margin-left:90px;">(to be completed and returned to the deputy registrar,examination and student admission)</h4>
 <hr>
                     <div class="mb-3">
@@ -255,6 +255,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <div>
                         <label  class="col-sm-3 col-form-label" for="Registration_No">1. Registration No </label>
                         <input class="form-control "type="text" name="Registration_No" placeholder="Registration No" style="width: 200px;height: 35px;"value="<?php echo htmlspecialchars($Registration_No); ?>"readonly>
+
+
                          </div><br>
 
                     
@@ -280,17 +282,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>  <br>
                     
                         <div>
-                        <label class="col-sm-3 col-form-label"for="Mobile_Phone_no">6. Mobile Phone no </label>
+                        <label class="col-sm-3 col-form-label"for="Mobile_Phone_no">6. Mobile Phone No </label>
                         <input class="form-control "type="text" name="Mobile_Phone_no" placeholder="Mobile Phone no" style="width: 200px;height: 35px;"value="<?php echo htmlspecialchars($Mobile_Phone_no); ?>">
                         </div><br>
 
                         <div>
-                        <label class="col-sm-3 col-form-label"for="Date_of_admission">7. Date of admission </label>
+                        <label class="col-sm-3 col-form-label"for="Date_of_admission">7. Date of Admission </label>
                         <input class="form-control "type="text" name="Date_of_admission" placeholder="Date of admission" style="width: 200px;height: 35px;"value="<?php echo htmlspecialchars($Date_of_admission); ?>" >
                         </div><br>
 
                         <div>
-                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">8.Name of the examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">8.Name of the Examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="Name_of_the_examination" placeholder="Name ofthe examination" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Name_of_the_examination); ?>">
                         </div><br>
 

@@ -279,7 +279,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 
-                    <h3 style="text-align:center;text-transform: uppercase;margin:2px;margin-left:50px;">University of Vavuniya,srilanka</h3s>
+                    <h3 style="text-align:center;text-transform: uppercase;margin:2px;margin-left:50px;">University of Vavuniya,Sri Lanka</h3s>
                     <h4 style="text-align:center;margin:2px;"><u>Examination Entry Form For Proper Candidates</u></h4>
                     <h4 style="text-align:center;margin:2px;">(to be completed and returned to the deputy registrar, examination and student admission)</h4>
 
@@ -299,7 +299,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form>
                          
                         <div >
-                        <label for="Registration_No" class="col-sm-3 col-form-label">1. Registration No </label>
+                        <label for="Registration_No" class="col-sm-3 col-form-label">1.Registration No </label>
                         <input type="text"class="form-control " name="Registration_No" id="Registration_No"placeholder="Registration No" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Registration_No); ?>" readonly>
          
                         </div><br>
@@ -463,7 +463,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                         <div style="float:right;margin-top:20px;margin-right:50px;">
                         <a href="entryFormget.php"class="btn btn-danger m-2" >GO BACK</a>
-                        <input class="btn btn-success m-2"type="submit" name="submit" value="submit">&nbsp &nbsp &nbsp &nbsp 
+                        <input class="btn btn-success m-2"type="submit" name="submit" value="SUBMIT">&nbsp &nbsp &nbsp &nbsp 
 
                         
                         </div>

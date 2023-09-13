@@ -14,7 +14,7 @@ include "db_connection.php";
 
 
 
-<label for="Name_of_the_examination"class="col-sm-3 col-form-label" > Name of the examination &nbsp &nbsp</label>
+<label for="Name_of_the_examination"class="col-sm-3 col-form-label" > Name of the Examination &nbsp &nbsp</label>
                         <select name="Name_of_the_examination" id="Name_of_the_examination" class="form-control "required>
                                     <option value="">Select The Exam</option>
                                     <option value="First Year First Semester Examination In Information Communication Technology">First Year First Semester Examination In Information Communication Technology</option>
@@ -30,15 +30,15 @@ include "db_connection.php";
   
                                 <label for="Faculty of" class="col-s m-2 col-form-label"> Faculty of</label>
                             <select name="faculty" id="faculty"  class="form-control col-s m-2 col-form-label" required>
-                                    <option value="">Select faculty &nbsp</option>
-                                    <option value="Technological studies">Technological studies</option>
-                                    <option value="applied sceince">applied sceince</option>
-                                    <option value="manegment">manegment</option>
+                                    <option value="">Select Faculty &nbsp</option>
+                                    <option value="Technological studies">Technological Studies</option>
+                                    <option value="applied sceince">Applied Science</option>
+                                    <option value="manegment">Business Studies</option>
                                 </select>
             
-                        <label for="year_of_the_examination" class="col-s m-2 col-form-label"> year of the examination &nbsp  </label>
+                        <label for="year_of_the_examination" class="col-s m-2 col-form-label"> Year of the Examination &nbsp  </label>
                                 <select name="year" id="year"  class="form-control col-s m-2 col-form-label" required>
-                                    <option value="">Select year</option>
+                                    <option value="">Select Year</option>
                                     <option value="1st year">1st year</option>
                                     <option value="2nd year">2nd year</option>
                                     <option value="3rd year">3rd year</option>
@@ -50,7 +50,7 @@ include "db_connection.php";
                             
                         <label for="Semester" class="col-s m-2 col-form-label"> Semester &nbsp </label>
                                 <select name="semester" id="language"    class="form-control col-s m-2 col-form-label" required>
-                                    <option value="">Select semester</option>
+                                    <option value="">Select Semester</option>
                                     <option value="1st semester">1st semester</option>
                                     <option value="2nd semester">2nd semester</option>
                                 </select>
