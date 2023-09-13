@@ -229,7 +229,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="sec">
 			
 			
-        <div style="float:center;width:1200px;height:1250px;background-color:#white;margin-left:30px;margin-top:0px;"> 
+        <div style="width:1200px;height:100%;margin:auto;"> 
 				<div class ="box1">
                     <img src="n.png" style="float:center;">
                 </div>

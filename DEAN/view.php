@@ -50,9 +50,8 @@
 <body>
     <section>
         <div class="container">
-            <section class="sec">
-                <div
-                    style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 30px; margin-top: 0px;">
+            <section class="home-page-full">
+                <div style="width:1200px;height:100%;margin:auto;">
                     <div class="box1">
 
                         <img src="n.png" style="float: center;">
@@ -181,7 +180,7 @@
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF HOD</th>
+                                            <th style="width: 20%;">APPROVE OF DEAN</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -218,11 +217,11 @@
                                                 if ($row2[$column] == 0) {
                                                     echo '<td style="width: 20%;">
                                                     <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
+                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Recommend</button></a></td>';
                                                 } else {
                                                     echo '<td style="width: 20%;">
                                                     <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
+                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Recommend</button></a></td>';
                                                 }
 
                                                         echo '<td>';
@@ -244,11 +243,12 @@
                                         ?>
                                     </tbody>
                                 </table>
-
-                                <p style="margin-left:790px">
-                                    <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
-                                    
-                                </p>
+                                <div>
+                                    <p style="margin-left:750px">
+                                        <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
+                                        
+                                    </p>
+                                </div>
 
                             </div>
                         </div>

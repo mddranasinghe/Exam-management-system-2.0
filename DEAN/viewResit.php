@@ -46,9 +46,8 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 <body>
     <section>
         <div class="container">
-            <section class="sec">
-                <div
-                    style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 30px; margin-top: 0px;">
+            <section class="home-page-full">
+                <div style="width:1200px;height:100%;margin:auto;">
                     <div class="box1">
 
                         <img src="n.png" style="float: center;">
@@ -180,7 +179,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                             <th style="width: 10%;">1st_attempt</th>
                                             <th style="width: 10%;">2nd_attempt</th>
                                             <th style="width: 10%;">3rd_attempt</th>
-                                            <th style="width: 10%;">APPROVE OF LECTURER</th>
+                                            <th style="width: 10%;">APPROVE OF DEAN</th>
                                             <th style="width: 10%;"></th>
                                            
                                         </tr>
@@ -274,10 +273,10 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                 }
                                                 if ($row2[$column] == 0) {
                                                     echo '<td style="width: 20%;"><a href="approvalResit.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
+                                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Recommend</button></a></td>';
                                                 } else {
                                                     echo '<td style="width: 20%;"><a href="approvalResit.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
+                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Recommend </button></a></td>';
                                                 }
 
                                                         echo '<td>';
@@ -299,11 +298,12 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         ?>
                                     </tbody>
                                 </table>
-
-                                <p style="margin-left:790px">
-                                    <a href="viewResitList.php" class="btn btn-danger m-2">GO BACK</a>
-                                   
-                                </p>
+                                <div>
+                                    <p style="margin-left:750px">
+                                        <a href="viewResitList.php" class="btn btn-danger m-2">GO BACK</a>
+                                    
+                                    </p>
+                                </div>
 
                             </div>
                         </div>
