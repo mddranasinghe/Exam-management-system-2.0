@@ -41,7 +41,7 @@ if (mysqli_num_rows($res2) > 0) {
 <section>
     <div class="wrapper">
         <section class="sec">
-            <div style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 150px; margin-top: 0px;">
+            <div style="width:1200px;height:100%;margin:auto;">
                 <div class="box1">
                     <div class="box1">
                         <img src="n.png" style="float: center;">

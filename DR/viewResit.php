@@ -305,11 +305,14 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                     </tbody>
                                 </table>
 
-                                <p style="margin-left:790px">
-                                    <a href="viewResitList.php" class="btn btn-danger m-2">GO BACK</a>
-                                    <button type="button" onclick="generatePDF('pdf-content'),hideNavbarAndDownload()"class="btn btn-info m-2">DOWNLOAD</button>
-                                   
-                                </p>
+
+                                    <div>
+                                        <p style="margin-left:750px">
+                                            <a href="viewResitList.php" class="btn btn-danger m-2">GO BACK</a>
+                                            <button type="button" onclick="generatePDF('pdf-content'),hideNavbarAndDownload()"class="btn btn-info m-2">DOWNLOAD</button>
+                                        
+                                        </p>
+                                    </div>
 
                               
 

@@ -46,7 +46,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 <body>
     <section>
         <div class="container">
-            <section class="sec">
+            <section class="home-page-full">
                 <div style="width:1200px;height:100%;margin:auto;">
                     <div class="box1">
 

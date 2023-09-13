@@ -5,7 +5,7 @@ include "db_connection.php"; ?>
 	<h2 style="text-align:center;margin:2px;"> List of Examination Entry Applications Submitted</h2>
         <thead class="thead-dark">
             <tr>
-                <th>REGISTRATION NUMBER </th>
+                <th>REGISTRATION NUMBER</th>
                 <th>NAME</th>
         
             </tr>
@@ -13,7 +13,7 @@ include "db_connection.php"; ?>
         <body>
         <?php
 
-/////////////////////
+
 $sql= "SELECT Registration_No,Name_with_initials  FROM examenrty";
 
     $res=mysqli_query($conn,$sql);

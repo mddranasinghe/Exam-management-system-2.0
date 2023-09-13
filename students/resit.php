@@ -229,7 +229,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="sec">
 			
 			
-        <div style="float:center;width:1200px;height:1250px;background-color:#white;margin-left:30px;margin-top:0px;"> 
+        <div style="width:1200px;height:100%;margin:auto;"> 
 				<div class ="box1">
                     <img src="n.png" style="float:center;">
                 </div>
@@ -253,8 +253,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       
                     <form action="resit.php" method="post">
                             <div>
-                        <label  class="col-sm-3 col-form-label" for="Registration_No">1.Registration No </label>
-                        <input class="form-control "type="text" name="Registration_No" placeholder="Registration No" style="width: 200px;height: 35px;"value="<?php echo htmlspecialchars($Registration_No); ?>">
+                        <label  class="col-sm-3 col-form-label" for="Registration_No">1. Registration No </label>
+                        <input class="form-control "type="text" name="Registration_No" placeholder="Registration No" style="width: 200px;height: 35px;"value="<?php echo htmlspecialchars($Registration_No); ?>"readonly>
+
+
                          </div><br>
 
                     
