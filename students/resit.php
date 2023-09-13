@@ -442,9 +442,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if(isset($_POST['submit']))
 {
-    $filenameRe=$_FILES['myfile_resit']['name'];
-    $tempnameRe=$_FILES['myfile_resit']['tmp_name'];
-    $folder="./resitUpload/" .$filenamRe;
+    
 
 
     $count=0;
