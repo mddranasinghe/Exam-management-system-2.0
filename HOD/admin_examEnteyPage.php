@@ -5,7 +5,7 @@ include "db_connection.php"; ?>
 	<h2 style="text-align:center;margin:2px;"> List of Examination Entry Applications Submitted</h2>
         <thead class="thead-dark">
             <tr>
-                <th>REGISTATION NUMBER </th>
+                <th>REGISTRATION NUMBER </th>
                 <th>NAME</th>
         
             </tr>
