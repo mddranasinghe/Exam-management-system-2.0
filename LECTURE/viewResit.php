@@ -46,9 +46,8 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 <body>
     <section>
         <div class="container">
-            <section class="sec">
-                <div
-                    style="float: center; width: 1200px; height: 100%;  margin-left: 30px; margin-top: 0px;">
+            <section class="login-page-full">
+                <div style="width:1200px;height:100%;margin:auto;">
                     <div class="box1">
 
                         <img src="n.png" style="float: center;">
@@ -300,10 +299,11 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                     </tbody>
                                 </table>
 
-                                <p style="margin-left:790px">
-                                    <a href="viewResitList.php" class="btn btn-danger m-2">GO BACK</a>
-                                   
-                                </p>
+                                        <div>
+                                            <p style="margin-left:750px">
+                                                <a href="viewResitList.php" class="btn btn-danger m-2">GO BACK</a>
+                                            </p>
+                                        </div>
 
                             </div>
                         </div>
