@@ -14,7 +14,7 @@ include "db_connection.php"; ?>
         <?php
 
 
-$sql= "SELECT Registration_No,Name_with_initials  FROM examenrty";
+$sql=  "SELECT  examenrty.Registration_No,examenrty.Name_with_initials FROM examenrty JOIN approve_state ON examenrty.Registration_No = approve_state.Registration_No WHERE approve_state.dean_recommend=1";
 
     $res=mysqli_query($conn,$sql);
             if(mysqli_num_rows($res)>0){
