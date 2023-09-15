@@ -81,7 +81,7 @@
 </head>
 <body>
         <header class="header">
-                    <div class="navbar-brand-wpz" style="height:150px">
+                    <div class="navbar-brand-wpz" >
                         <a href="https://vau.ac.lk/" class="custom-logo-link" rel="home" itemprop="url">
                             <img class="NavPhoto" id="logo-img" src="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png" class="custom-logo" alt="University of Vavuniya" decoding="async" loading="lazy" itemprop="logo" srcset="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png 742w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-300x80.png 300w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-624x166.png 624w" sizes="(max-width: 742px) 100vw, 742px" /></a>
     </div>

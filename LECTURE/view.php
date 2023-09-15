@@ -144,6 +144,10 @@ while ($rowa = mysqli_fetch_assoc($result)) {
     } 
 
     @media (max-width: 480px){
+
+        body,html {
+            overflow-x: hidden !important;
+        }
         .FormView{
             width: 98%;
             height: auto;
@@ -167,7 +171,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
         }
 
         .FormV{
-            width: 97vw;
+            width: 91vw;
         }
 
         .CourseDetail{
