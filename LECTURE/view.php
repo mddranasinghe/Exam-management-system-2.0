@@ -41,20 +41,162 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 <head>
     <title>exam entry page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .FormV{
+            width: 700px; 
+            height: 35px;
+        }
+
+        .Submit{
+            margin-left:790px;
+        }
+        
+        #table1{
+            border: 1px; 
+            width: 80%;
+        }
+
+        .FullForm{
+            float: center; 
+            width: 1200px; 
+            height: 100%; 
+            background-color: #white; 
+            margin-left: 30px; 
+            margin-top: 0px;
+
+        }
+
+        .Uov-logo{
+            float: center;
+        }
+
+        .H3{
+            text-align: center; 
+            text-transform: uppercase; 
+            margin: 2px; 
+            margin-left: 50px;
+        }
+
+        .CourseDetail{
+            width: 200px; 
+            height: 35px;
+        }
+
+        @media (max-width: 768px){
+        .FormView{
+            width: 98%;
+            height: auto;
+            margin: auto;
+        }
+
+        .FullForm{
+            width: 98%;
+            height: auto;
+            margin: auto;
+        }
+
+        .H3{
+            width: 98%;
+            height: auto;
+            margin: auto;
+        }
+
+        .SubApprove{
+            width: 20%;
+        }
+
+        .Uov-logo{
+            float: center;
+        }
+
+        
+        .FormV{
+            width: 90vw;
+        }
+
+        .CourseDetail{
+            width: 25vw;
+            height: auto;
+            margin: auto;
+        }
+
+        .TableFlex{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .Submit{
+            margin: auto;
+
+        }
+
+        #SUB{
+            width: 30vw;
+        }
+
+        #SUBAp{
+            width: 10vw;
+        }
+        #table1{
+            width: 100vw;
+        }
+
+    } 
+
+    @media (max-width: 480px){
+        .FormView{
+            width: 98%;
+            height: auto;
+            margin: auto;
+        }
+        
+        .FullForm{
+            width: 98%;
+            height: auto;
+            margin: auto;
+        }
+
+        .H3{
+            width: 98%;
+            height: auto;
+            margin: auto;
+        }
+
+        .Uov-logo{
+            float: center;
+        }
+
+        .FormV{
+            width: 97vw;
+        }
+
+        .CourseDetail{
+            width: 25vw;
+            height: auto;
+            margin: auto;
+        }
+
+        .TableFlex{
+            display: flex;
+            flex-direction: column;
+        }
+        
+    } 
+    </style>
 </head>
 
 <body>
-    <section>
+    <section class="FormView">
         <div class="container">
             <section class="sec">
-                <div
-                    style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 30px; margin-top: 0px;">
+                <div class="FullForm">
+                    
                     <div class="box1">
 
-                        <img src="n.png" style="float: center;">
+                        <img src="n.png" class="Uov-logo">
                     </div>
 
-                    <h3 style="text-align: center; text-transform: uppercase; margin: 2px; margin-left: 50px;">
+                    <h3 class="H3" >
                         University of Vavuniya, Sri Lanka</h3>
                     <h4 style="text-align: center; margin: 2px;"><u>Examination Entry Form For Proper Candidates</u>
                     </h4>
@@ -73,9 +215,9 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         <div>
                                             <label for="Registration_No" class="col-sm-2 col-form-label">Registration
                                                 No</label>
-                                            <input type="text" class="form-control" name="Registration_No"
+                                            <input type="text" class="form-control FormV" name="Registration_No"
                                                 id="Registration_No" placeholder="Registration No"
-                                                style="width: 700px; height: 35px;"
+                                                
                                                 value="<?php echo $row['Registration_No']; ?>">
                                         </div><br>
 
@@ -83,15 +225,15 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                             <label for="gender" class="col-sm-2 col-form-label">Gender</label>
 
                                             <input type="text" name="gender" id="gender" placeholder="Gender"
-                                                style="width: 700px; height: 35px;" class="form-control"
+                                                 class="form-control FormV"
                                                 value="<?php echo $row['gender']; ?>">
                                         </div><br>
                                         <div>
                                             <label for="Name_with_initials" class="col-sm-2 col-form-label">Name with
                                                 initials</label>
                                             <input type="text" name="Name_with_initials" id="Name_with_initials"
-                                                placeholder="Name with initials" style="width: 700px; height: 35px;"
-                                                class="form-control" value="<?php echo $row['Name_with_initials']; ?>">
+                                                placeholder="Name with initials"
+                                                class="form-control FormV" value="<?php echo $row['Name_with_initials']; ?>">
                                         </div><br>
 
                                         <div>
@@ -99,7 +241,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                 denoted by initial</label>
                                             <input type="text" name="Name_denoted_by_initial"
                                                 id="Name_denoted_by_initial" placeholder="Name denoted by initial"
-                                                style="width: 700px; height: 35px;" class="form-control"
+                                                 class="form-control FormV"
                                                 value="<?php echo $row['Name_denoted_by_initial']; ?>">
                                         </div><br>
 
@@ -107,23 +249,23 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                             <label for="Address(Present)" class="col-sm-2 col-form-label">Address
                                                 (Present)</label>
                                             <input type="text" name="Address" id="Address"
-                                                placeholder="Address (Present)" style="width: 700px; height: 35px;"
-                                                class="form-control" value="<?php echo $row['Address']; ?>">
+                                                placeholder="Address (Present)" 
+                                                class="form-control FormV" value="<?php echo $row['Address']; ?>">
                                         </div><br>
 
                                         <div>
                                             <label for="Mobile_Phone_no" class="col-sm-2 col-form-label">Mobile Phone
                                                 no</label>
                                             <input type="text" name="Mobile_Phone_no" id="Mobile_Phone_no"
-                                                placeholder="Mobile Phone no" style="width: 700px; height: 35px;"
-                                                class="form-control" value="<?php echo $row['Mobile_Phone_no']; ?>">
+                                                placeholder="Mobile Phone no" 
+                                                class="form-control FormV" value="<?php echo $row['Mobile_Phone_no']; ?>">
                                         </div><br>
 
                                         <div>
                                             <label for="Date_of_admission" class="col-sm-2 col-form-label">Date of
                                                 admission</label>
                                             <input type="text" name="Date_of_admission" placeholder="Date of admission"
-                                                style="width: 700px; height: 35px;" class="form-control"
+                                                 class="form-control FormV"
                                                 value="<?php echo $row['Date_of_admission']; ?>">
                                         </div><br>
 
@@ -131,18 +273,18 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                             <label for="Name_of_the_examination" class="col-sm-2 col-form-label">Name of
                                                 the examination</label>
                                             <input type="text" name="Name_of_the_examination"
-                                                style="width: 700px; height: 35px;" class="form-control"
+                                                 class="form-control FormV"
                                                 value="<?php echo $row['Name_of_the_examination']; ?>">
                                         </div><br>
 
                                         <table class="margin-right:10px;">
-                                            <tr>
+                                            <tr class="TableFlex">
                                                 <td>
                                                     <div>
                                                         <label for="year_of_the_examination"
                                                             class="col-sm-4 col-form-label">Year </label>
                                                         <input type="text" name="year"
-                                                            style="width: 200px; height: 35px;" class="form-control"
+                                                            class="CourseDetail form-control"
                                                             value="<?php echo $row['year']; ?>">
                                                     </div><br>
                                                 </td>
@@ -151,7 +293,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                         <label for="Semester"
                                                             class="col-sm-4 col-form-label">Semester</label>
                                                         <input type="text" name="semester"
-                                                            style="width: 200px; height: 35px;" class="form-control"
+                                                             class="CourseDetail form-control"
                                                             value="<?php echo $row['semester']; ?>">
                                                     </div><br>
                                                 </td>
@@ -160,7 +302,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                         <label for="Faculty of" class="col-sm-4 col-form-label">Faculty
                                                             of</label>
                                                         <input type="text" name="faculty"
-                                                            style="width: 200px; height: 35px;" class="form-control"
+                                                             class="form-control CourseDetail"
                                                             value="<?php echo $row['faculty']; ?>">
                                                     </div><br>
                                                 </td>
@@ -171,14 +313,13 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                 <!-- Your HTML and other PHP code here... -->
 
-                                <table border="1px" class="table table-stripped m-2 table table-hover" id="table1"
-                                    style="width: 80%;">
+                                <table class="table table-stripped m-2 table table-hover" id="table1">
                                     <thead class="thead-dark">
                                         <tr>
-                                            <th style="width: 20%;">COURSE CODE</th>
-                                            <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF LECTURER</th>
-                                            <th style="width: 20%;"></th>
+                                            <th id="SUB" class="SubApprove">COURSE CODE</th>
+                                            <th id="SUB" class="SubApprove">SUBJECT TITLE</th>
+                                            <th id="SUB" class="SubApprove">APPROVE OF LECTURER</th>
+                                            <th id="SUBAp" class="SubApprove"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -237,11 +378,11 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                     </tbody>
                                 </table>
 
-                                <p style="margin-left:790px">
+                                <p class="Submit">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
                                     <button id="printButton" class="btn btn-success m-2">Submit</button>
                                 </p>
-
+                                
                             </div>
                         </div>
 
