@@ -1,38 +1,70 @@
 <?php
-include('./Admin_nav.php');
-include "db_connection.php";
+    include('./Admin_nav.php');
+    include "db_connection.php";
 
-$Registration_No = $_GET['Registration_No'];
-$sql = "SELECT * FROM medical WHERE Registration_No='$Registration_No'";
-$sql2 = "SELECT * FROM approve_state_medical WHERE Registration_No='$Registration_No'";
+        $Registration_No = $_GET['Registration_No'];
+        $sql = "SELECT * FROM medical WHERE Registration_No='$Registration_No'";
+        $sql2 = "SELECT * FROM approve_state_medical WHERE Registration_No='$Registration_No'";
 
-$res = mysqli_query($conn, $sql);
-$res2 = mysqli_query($conn, $sql2);
+        $res = mysqli_query($conn, $sql);
+        $res2 = mysqli_query($conn, $sql2);
 
-if (mysqli_num_rows($res) > 0) {
-    $row = mysqli_fetch_assoc($res);
-}
-$sql3 = "INSERT INTO approve_state_medical VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
-if (mysqli_num_rows($res2) > 0) {
-    $row2 = mysqli_fetch_assoc($res2);
-} else {
-    mysqli_query($conn, $sql3);
-    $row2 = mysqli_fetch_assoc($res2);
-}
+    if (mysqli_num_rows($res) > 0)
+    {
+        $row = mysqli_fetch_assoc($res);
+    }
+    $sql3 = "INSERT INTO approve_state_medical VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+    
+    if (mysqli_num_rows($res2) > 0)
+    {
+        $row2 = mysqli_fetch_assoc($res2);
+    } else {
+        mysqli_query($conn, $sql3);
+        $row2 = mysqli_fetch_assoc($res2);
+    }
+
+    $recommendationSuccess = false;
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Check if the form has been submitted
+        $dean_recommend = $_POST['dean_recommend'];
+
+        // Update the "approve_state" table with the hod_recommend value
+        $sqlUpdate = "UPDATE approve_state_medical SET dean_recommend = '$dean_recommend' WHERE Registration_No = '$Registration_No'";
+        if (mysqli_query($conn, $sqlUpdate)) {
+            $recommendationSuccess = true;
+        } else {
+            $recommendationSuccess = false;
+        }
+
+        if ($recommendationSuccess) {
+            echo '<div class="alert alert-success" role="alert">Recommendation Successful!</div>';
+            ("Location: ./view.php");
+        } elseif ($recommendationSuccess === false) {
+            echo '<div class="alert alert-danger" role="alert">Recommendation Failed!</div>';
+            ("Location: ./view.php");
+        }
+
+        // Redirect to the same page after updating the table
+        
+      // exit();
+       
+    }
 ?>
 <?php
-// Assuming you have a database connection established in db_connection.php
-include "db_connection.php";
 
-// Fetch all signature data from the database
-$sql = "SELECT signature_data FROM signnew";
-$result = mysqli_query($conn, $sql);
+    include "db_connection.php";
 
-// Store all the signature data in an array
-$signatureDataArray = array();
-while ($rowa = mysqli_fetch_assoc($result)) {
-    $signatureDataArray[] = $rowa['signature_data'];
-}
+
+    $sql = "SELECT signature_data FROM signnew";
+    $result = mysqli_query($conn, $sql);
+
+    // Store all the signature data in an array
+    $signatureDataArray = array();
+    while ($rowa = mysqli_fetch_assoc($result)) 
+    {
+        $signatureDataArray[] = $rowa['signature_data'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,17 +77,17 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
 <body>
     <section>
-        <div class="login-page-full">
-            <section class="sec">
+        <div class="container">
+            <section class="home-page-full">
                 <div style="width:1200px;height:100%;margin:auto;">
                     <div class="box1">
 
-                        <img src="n.png" style="float:center; ">
+                        <img src="n.png" style="float: center;">
                     </div>
 
                     <h3 style="text-align: center; text-transform: uppercase; margin: 2px; margin-left: 50px;">
                         University of Vavuniya, Sri Lanka</h3>
-                    <h4 style="text-align: center; margin: 2px; margin-left:50px;"><u>Examination Entry Form For Proper Candidates</u>
+                    <h4 style="text-align: center; margin: 2px;"><u>Examination Entry Form For Proper Candidates</u>
                     </h4>
                     <h4 style="text-align: center; margin: 2px;">(to be completed and returned to the deputy registrar,
                         examination and student admission)</h4>
@@ -112,7 +144,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                         <div>
                                             <label for="Mobile_Phone_no" class="col-sm-2 col-form-label">Mobile Phone
-                                                No</label>
+                                                no</label>
                                             <input type="text" name="Mobile_Phone_no" id="Mobile_Phone_no"
                                                 placeholder="Mobile Phone no" style="width: 700px; height: 35px;"
                                                 class="form-control" value="<?php echo $row['Mobile_Phone_no']; ?>">
@@ -120,7 +152,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                         <div>
                                             <label for="Date_of_admission" class="col-sm-2 col-form-label">Date of
-                                                Admission</label>
+                                                admission</label>
                                             <input type="text" name="Date_of_admission" placeholder="Date of admission"
                                                 style="width: 700px; height: 35px;" class="form-control"
                                                 value="<?php echo $row['Date_of_admission']; ?>">
@@ -128,7 +160,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                         <div>
                                             <label for="Name_of_the_examination" class="col-sm-2 col-form-label">Name of
-                                                the Examination</label>
+                                                the examination</label>
                                             <input type="text" name="Name_of_the_examination"
                                                 style="width: 700px; height: 35px;" class="form-control"
                                                 value="<?php echo $row['Name_of_the_examination']; ?>">
@@ -176,7 +208,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF LECTURER</th>
+                                            <th style="width: 20%;">APPROVE OF DEAN</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -211,9 +243,13 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                                     $column = "subject_approval_" . substr($subject_name, -2);
                                                 }
                                                 if ($row2[$column] == 0) {
-                                                    echo '<td style="width: 20%;"><a href="approvalMedical.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Certify</button></a></td>';
+                                                    echo '<td style="width: 20%;">
+                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
+                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Recommend</button></a></td>';
                                                 } else {
-                                                    echo '<td style="width: 20%;"><a href="approvalMedical.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Certify</button></a></td>';
+                                                    echo '<td style="width: 20%;">
+                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
+                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Recommend</button></a></td>';
                                                 }
 
                                                         echo '<td>';
@@ -235,14 +271,44 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         ?>
                                     </tbody>
                                 </table>
+                               <!-- Wrap form around your fields and buttons -->
+                               <form name="Registration1" method="POST" action="">
+                                        <!-- Your existing form fields and buttons go here -->
+                                        <!-- ... -->
 
-                                <div>
-                                    <p style="margin-left:750px">
+                                        <div>
+                                            <button type="button" class="btn btn-success" id="recommendButton">Recommend</button>
+                                            <button type="button" class="btn btn-danger" id="notRecommendButton">Not Recommend</button>
+                                        </div>
 
-                                        <a href="viewMcList.php" class="btn btn-danger m-2">GO BACK</a>
-                                
-                                    </p>
-                                </div>
+                                        <div>
+                                            <input type="hidden" name="dean_recommend" id="dean_recommend" value="0">
+                                        </div>
+
+                                        <div>
+                                            <p style="margin-left:750px">
+                                                <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
+                                                
+                                            </p>
+                                         </div>
+                                    </form>
+
+                                    <!-- JavaScript for button clicks (outside the form) -->
+                                    <script>
+                                        document.getElementById("recommendButton").addEventListener("click", function() {
+                                            // Set the value to 1 when the "Recommend" button is clicked
+                                            document.getElementById("dean_recommend").value = 1;
+                                            // Submit the form
+                                            document.forms["Registration1"].submit();
+                                        });
+
+                                        document.getElementById("notRecommendButton").addEventListener("click", function() {
+                                            // Set the value to 0 when the "Not Recommend" button is clicked
+                                            document.getElementById("dean_recommend").value = 0;
+                                            // Submit the form
+                                            document.forms["Registration1"].submit();
+                                        });
+                                    </script>
 
                             </div>
                         </div>
