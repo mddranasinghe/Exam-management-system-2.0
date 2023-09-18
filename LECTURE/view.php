@@ -12,7 +12,7 @@ $res2 = mysqli_query($conn, $sql2);
 if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
 }
-$sql3 = "INSERT INTO approve_state VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+$sql3 = "INSERT INTO approve_state VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
 if (mysqli_num_rows($res2) > 0) {
     $row2 = mysqli_fetch_assoc($res2);
 } else {
@@ -176,7 +176,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF LECTURER</th>
+                                            <th style="width: 30%;">CERTIFICATION OF LECTURER</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -239,7 +239,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                 <div>
                                     <p style="margin-left:750px">
 
-                                        <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
+                         
                                 
                                     </p>
                                 </div>

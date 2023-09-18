@@ -438,8 +438,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($course_code_10) || !empty($subject_name_10)) {
         echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_15" value="' . htmlspecialchars($course_code_10) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_15" value="' . htmlspecialchars($subject_name_10) . '"></td>';
+        echo '<td><input class="form-control" type="text" name="course_code_10" value="' . htmlspecialchars($course_code_10) . '"></td>';
+        echo '<td><input class="form-control" type="text" name="subject_name_10" value="' . htmlspecialchars($subject_name_10) . '"></td>';
         echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
         echo '</tr>';
     }
@@ -616,3 +616,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+

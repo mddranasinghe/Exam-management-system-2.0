@@ -210,7 +210,7 @@ include "db_connection.php";
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF HOD</th>
+                                            <th style="width: 30%;">ReCOMMENDATION  OF HOD</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -244,17 +244,8 @@ include "db_connection.php";
                                                 } else {
                                                     $column = "subject_approval_" . substr($subject_name, -2);
                                                 }
-                                                if ($row2[$column] == 0) {
-                                                    echo '<td style="width: 20%;">
-                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
-                                                } else {
-                                                    echo '<td style="width: 20%;">
-                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
-                                                }
-
-                                                        echo '<td>';
+                                             
+                                                        echo '<td style="text-align:center">';
                                                         if ($row2[$column] == 0) {
                                                           
                                                           echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -278,7 +269,7 @@ include "db_connection.php";
                                         <!-- Your existing form fields and buttons go here -->
                                         <!-- ... -->
 
-                                        <div>
+                                        <div style="margin-left:50%">
                                             <button type="button" class="btn btn-success" id="recommendButton">Recommend</button>
                                             <button type="button" class="btn btn-danger" id="notRecommendButton">Not Recommend</button>
                                         </div>
@@ -289,7 +280,7 @@ include "db_connection.php";
 
                                         <div>
                                             <p style="margin-left:750px">
-                                                <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
+                                             
                                                 
                                             </p>
                                          </div>
