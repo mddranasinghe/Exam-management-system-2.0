@@ -14,7 +14,13 @@ include "db_connection.php";
 <input type="text"class="form-control col-s m-2 col-form-label" name="Registration_No" id="Registration_No"required value="<?php echo $_SESSION['regNum']; ?>" readonly>
 
 
-
+<label for="Faculty of" class="col-s m-2 col-form-label"> Faculty</label>
+                            <select name="faculty" id="faculty"  class="form-control col-s m-2 col-form-label" required>
+                                    <option value="">Select faculty &nbsp</option>
+                                    <option value="Technological studies">Technological Studies</option>
+                                    <option value="applied sceince">Applied Sceince</option>
+                                    <option value="manegment">Business Studies</option>
+                                </select>
 
 <label for="Name_of_the_examination"class="col-sm-3 col-form-label" > Name of the Examination &nbsp &nbsp</label>
                         <select name="Name_of_the_examination" id="Name_of_the_examination" class="form-control "required>
@@ -26,17 +32,20 @@ include "db_connection.php";
                                     <option value="Third Year First Semester Examination In Information Communication Technology">Third Year First Semester Examination In Information Communication Technology</option>
                                     <option value="Third Year Second Semester Examination In Information Communication Technology">Third Year Second Semester Examination In Information Communication Technology</option>
                                     <option value="Forth Year First Semester Examination In Information Communication Technology">Fourth Year First Semester Examination In Information Communication Technology</option>
-                                    <option value="Forth Year Second Semester Examination In Information Communication Technology">Fourth Year Second Semester Examination In Information Communication Technology</option>
+                                   
+                                    <option value="Forth Year Second Semester Examination In Applied Science">Fourth Year Second Semester Examination In Applied Science</option>
+                                    <option value="First Year First Semester Examination In Applied Science">First Year First Semester Examination In Applied Science</option>
+                                    <option value="First Year Second Semester Examination In Applied Science">First Year Second Semester Examination In Applied Science</option>
+                                    <option value="Second Year First Semester Examination In Applied Science">Second Year First Semester Examination In Applied Science</option>
+                                    <option value="Second Year Second Semester Examination In Applied Science">Second Year Second Semester Examination In Applied Science</option>
+                                    <option value="Third Year First Semester Examination In Applied Science">Third Year First Semester Examination In Applied Science</option>
+                                    <option value="Third Year Second Semester Examination In Applied Science">Third Year Second Semester Examination In Applied Science</option>
+                                    <option value="Forth Year First Semester Examination In Applied Science">Fourth Year First Semester Examination In Applied Science</option>
+                                    <option value="Forth Year Second Semester Examination In Applied Science">Fourth Year Second Semester Examination In Applied Science</option>
                                 </select>
                      
   
-                                <label for="Faculty of" class="col-s m-2 col-form-label"> Faculty of</label>
-                            <select name="faculty" id="faculty"  class="form-control col-s m-2 col-form-label" required>
-                                    <option value="">Select faculty &nbsp</option>
-                                    <option value="Technological studies">Technological Studies</option>
-                                    <option value="applied sceince">Applied Sceince</option>
-                                    <option value="manegment">Business Studies</option>
-                                </select>
+                           
             
                         <label for="year_of_the_examination" class="col-s m-2 col-form-label"> Year of the Examination &nbsp  </label>
                                 <select name="year" id="year"  class="form-control col-s m-2 col-form-label" required>
