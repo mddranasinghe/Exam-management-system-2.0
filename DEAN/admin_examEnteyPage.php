@@ -13,8 +13,7 @@ include "db_connection.php"; ?>
         <body>
         <?php
 
-/////////////////////
-$sql= "SELECT Registration_No,Name_with_initials  FROM examenrty";
+$sql= "SELECT  examenrty.Registration_No,examenrty.Name_with_initials FROM examenrty JOIN approve_state ON examenrty.Registration_No = approve_state.Registration_No WHERE approve_state.hod_recommend=1";
 
     $res=mysqli_query($conn,$sql);
             if(mysqli_num_rows($res)>0){
@@ -27,7 +26,7 @@ $sql= "SELECT Registration_No,Name_with_initials  FROM examenrty";
 
                     echo "<td>";
                     echo "<a class='btn btn-primary btn-sm' href='./view.php?Registration_No=$Registration_No'>view</a>";
-                    //echo "<a class='btn btn-danger m-2 btn-sm' href='./delete.php?id=$id'>Delete</a>";
+                    
                 }
             }
         ?>

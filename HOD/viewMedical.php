@@ -1,10 +1,12 @@
+
 <?php
-    include('./Admin_nav.php');
-    include "db_connection.php";
+
+include('./Admin_nav.php');
+include "db_connection.php";
 
         $Registration_No = $_GET['Registration_No'];
-        $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
-        $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+        $sql = "SELECT * FROM medical WHERE Registration_No='$Registration_No'";
+        $sql2 = "SELECT * FROM approve_state_medical WHERE Registration_No='$Registration_No'";
 
         $res = mysqli_query($conn, $sql);
         $res2 = mysqli_query($conn, $sql2);
@@ -13,7 +15,7 @@
     {
         $row = mysqli_fetch_assoc($res);
     }
-    $sql3 = "INSERT INTO approve_state VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+    $sql3 = "INSERT INTO approve_state_medical VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
     
     if (mysqli_num_rows($res2) > 0)
     {
@@ -27,10 +29,10 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if the form has been submitted
-        $dean_recommend = $_POST['dean_recommend'];
+        $hod_recommend = $_POST['hod_recommend'];
 
         // Update the "approve_state" table with the hod_recommend value
-        $sqlUpdate = "UPDATE approve_state SET dean_recommend = '$dean_recommend' WHERE Registration_No = '$Registration_No'";
+        $sqlUpdate = "UPDATE approve_state_medical SET hod_recommend = '$hod_recommend' WHERE Registration_No = '$Registration_No'";
         if (mysqli_query($conn, $sqlUpdate)) {
             $recommendationSuccess = true;
         } else {
@@ -39,10 +41,10 @@
 
         if ($recommendationSuccess) {
             echo '<div class="alert alert-success" role="alert">Recommendation Successful!</div>';
-            ("Location: ./view.php");
+            ("Location: ./viewMedical.php");
         } elseif ($recommendationSuccess === false) {
             echo '<div class="alert alert-danger" role="alert">Recommendation Failed!</div>';
-            ("Location: ./view.php");
+            ("Location: ./viewMedical.php");
         }
 
         // Redirect to the same page after updating the table
@@ -50,6 +52,9 @@
       // exit();
        
     }
+  
+
+    
 ?>
 <?php
 
@@ -66,9 +71,6 @@
         $signatureDataArray[] = $rowa['signature_data'];
     }
 ?>
-
-<!DOCTYPE html>
-<html>
 
 <head>
     <title>exam entry page</title>
@@ -208,7 +210,7 @@
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF DEAN</th>
+                                            <th style="width: 20%;">APPROVE OF HOD</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -244,12 +246,12 @@
                                                 }
                                                 if ($row2[$column] == 0) {
                                                     echo '<td style="width: 20%;">
-                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Recommend</button></a></td>';
+                                                    <a href="approvalMedical.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
+                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
                                                 } else {
                                                     echo '<td style="width: 20%;">
-                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Recommend</button></a></td>';
+                                                    <a href="approvalMedical.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
+                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
                                                 }
 
                                                         echo '<td>';
@@ -271,8 +273,8 @@
                                         ?>
                                     </tbody>
                                 </table>
-                               <!-- Wrap form around your fields and buttons -->
-                               <form name="Registration1" method="POST" action="">
+                                <!-- Wrap form around your fields and buttons -->
+                                    <form name="Registration1" method="POST" action="">
                                         <!-- Your existing form fields and buttons go here -->
                                         <!-- ... -->
 
@@ -282,7 +284,7 @@
                                         </div>
 
                                         <div>
-                                            <input type="hidden" name="dean_recommend" id="dean_recommend" value="0">
+                                            <input type="hidden" name="hod_recommend" id="hod_recommend" value="0">
                                         </div>
 
                                         <div>
@@ -297,18 +299,20 @@
                                     <script>
                                         document.getElementById("recommendButton").addEventListener("click", function() {
                                             // Set the value to 1 when the "Recommend" button is clicked
-                                            document.getElementById("dean_recommend").value = 1;
+                                            document.getElementById("hod_recommend").value = 1;
                                             // Submit the form
                                             document.forms["Registration1"].submit();
                                         });
 
                                         document.getElementById("notRecommendButton").addEventListener("click", function() {
                                             // Set the value to 0 when the "Not Recommend" button is clicked
-                                            document.getElementById("dean_recommend").value = 0;
+                                            document.getElementById("hod_recommend").value = 0;
                                             // Submit the form
                                             document.forms["Registration1"].submit();
                                         });
                                     </script>
+
+                                    
 
                             </div>
                         </div>

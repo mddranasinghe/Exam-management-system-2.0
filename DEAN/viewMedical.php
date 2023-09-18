@@ -3,8 +3,8 @@
     include "db_connection.php";
 
         $Registration_No = $_GET['Registration_No'];
-        $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
-        $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+        $sql = "SELECT * FROM medical WHERE Registration_No='$Registration_No'";
+        $sql2 = "SELECT * FROM approve_state_medical WHERE Registration_No='$Registration_No'";
 
         $res = mysqli_query($conn, $sql);
         $res2 = mysqli_query($conn, $sql2);
@@ -13,7 +13,7 @@
     {
         $row = mysqli_fetch_assoc($res);
     }
-    $sql3 = "INSERT INTO approve_state VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+    $sql3 = "INSERT INTO approve_state_medical VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
     
     if (mysqli_num_rows($res2) > 0)
     {
@@ -30,7 +30,7 @@
         $dean_recommend = $_POST['dean_recommend'];
 
         // Update the "approve_state" table with the hod_recommend value
-        $sqlUpdate = "UPDATE approve_state SET dean_recommend = '$dean_recommend' WHERE Registration_No = '$Registration_No'";
+        $sqlUpdate = "UPDATE approve_state_medical SET dean_recommend = '$dean_recommend' WHERE Registration_No = '$Registration_No'";
         if (mysqli_query($conn, $sqlUpdate)) {
             $recommendationSuccess = true;
         } else {

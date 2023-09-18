@@ -13,10 +13,10 @@ include "db_connection.php"; ?>
         <body>
         <?php
 
-/////////////////////
-$sql= "SELECT Registration_No,Name_with_initials  FROM resit";
 
-    $res=mysqli_query($conn,$sql);
+$sql= "SELECT  resit.Registration_No,resit.Name_with_initials FROM resit JOIN approve_state_resit ON resit.Registration_No = approve_state_resit.Registration_No WHERE approve_state_resit.dean_recommend=1";
+
+     $res=mysqli_query($conn,$sql);
             if(mysqli_num_rows($res)>0){
                 while($row=mysqli_fetch_assoc($res)){
                     $Registration_No=$row['Registration_No'];

@@ -341,67 +341,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </tr>
 </thead>
                               
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_1"   ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_1"   ></td>
-                                   
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_2"   ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_2"  ></td>
-                                    
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_3"   ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_3"  ></td>
-                                    
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_4" ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_4"  ></td>
-                                    
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_5"  ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_5"  ></td>
-                                   
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_6" ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_6"  ></td>
-                                    
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_7"   ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_7"   ></td>
-                                    
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_8"  ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_8"  ></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="course_code_9"   ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_9"  ></td>
-                                   
-                
-                                </tr>
-                                <tr>
-                                    <td><input class="form-control "type="text" name="Dcourse_code_10"   ></td>
-                                    <td><input class="form-control "type="text" name="subject_name_10" ></td>
-                                   
-                
-                                </tr>
+<tr>
+                                <td><input class="form-control " type="text" name="course_code_1"  value="<?php echo htmlspecialchars($course_code_1); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_1"  value="<?php echo htmlspecialchars($subject_name_1); ?>" ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_2"  value="<?php echo htmlspecialchars($course_code_2); ?>" ></td>
+                                <td><input class="form-control "type="text" name="subject_name_2" value="<?php echo htmlspecialchars($subject_name_2); ?>" ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_3"  value="<?php echo htmlspecialchars($course_code_3); ?>" ></td>
+                                <td><input class="form-control "type="text" name="subject_name_3"  value="<?php echo htmlspecialchars($subject_name_3); ?>" ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_4"  value="<?php echo htmlspecialchars($course_code_4); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_4" value="<?php echo htmlspecialchars($subject_name_4); ?>"  ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_5"   value="<?php echo htmlspecialchars($course_code_5); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_5" value="<?php echo htmlspecialchars($subject_name_5); ?>"  ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control " type="text" name="course_code_6"   value="<?php echo htmlspecialchars($course_code_6); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_6"  value="<?php echo htmlspecialchars($subject_name_6); ?>" ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_7"   value="<?php echo htmlspecialchars($course_code_7); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_7"  value="<?php echo htmlspecialchars($subject_name_7); ?>"  ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_8"  value="<?php echo htmlspecialchars($course_code_8); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_8" value="<?php echo htmlspecialchars($subject_name_8); ?>"  ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_9"  value="<?php echo htmlspecialchars($course_code_9); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_9"   value="<?php echo htmlspecialchars($subject_name_9); ?>" ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_10" value="<?php echo htmlspecialchars($course_code_10); ?>" ></td>
+                                <td><input class="form-control "type="text" name="subject_name_10"  value="<?php echo htmlspecialchars($subject_name_10); ?>" ></td>
+                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
+            
+                            </tr>
+                         
                                 
-                            </table>
+                        </table>
 
                             <div style="float:right;margin-top:20px;margin-right:50px;">
                         <a href="mFormget.php"class="btn btn-danger m-2" >GO BACK</a>
@@ -458,7 +459,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             '$_POST[course_code_1]',
                             '$_POST[subject_name_1]', 
                             '$_POST[course_code_2]', 
-                            '$_POST[subject_name_2]');");
+                            '$_POST[subject_name_2]',
+                            '$_POST[course_code_3]', 
+                            '$_POST[subject_name_3]',
+                            '$_POST[course_code_4]', 
+                            '$_POST[subject_name_4]',
+                            '$_POST[course_code_5]', 
+                            '$_POST[subject_name_5]',
+                            '$_POST[course_code_6]', 
+                            '$_POST[subject_name_6]',
+                            '$_POST[course_code_7]', 
+                            '$_POST[subject_name_7]',
+                            '$_POST[course_code_8]', 
+                            '$_POST[subject_name_8]',
+                            '$_POST[course_code_9]', 
+                            '$_POST[subject_name_9]',
+                            '$_POST[course_code_10]', 
+                            '$_POST[subject_name_10]');");
                         
                     
                         ?>
@@ -508,6 +525,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 
 	</DIV>
+
+    <script>
+    function deleteRow(button) {
+        // Get the reference to the row to be deleted
+        var row = button.parentNode.parentNode;
+
+        // Remove the row from the table
+        row.parentNode.removeChild(row);
+    }
+    </script>
 
 
 </body>

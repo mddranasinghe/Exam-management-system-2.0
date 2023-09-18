@@ -12,7 +12,7 @@ $res2 = mysqli_query($conn, $sql2);
 if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
 }
-$sql3 = "INSERT INTO approve_state_resit VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+$sql3 = "INSERT INTO approve_state_resit VALUES ('$row[Registration_No]','$row[Name_of_the_examination]',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
 if (mysqli_num_rows($res2) > 0) {
     $row2 = mysqli_fetch_assoc($res2);
 } else {
@@ -32,6 +32,34 @@ $result = mysqli_query($conn, $sql);
 $signatureDataArray = array();
 while ($rowa = mysqli_fetch_assoc($result)) {
     $signatureDataArray[] = $rowa['signature_data'];
+}
+
+$recommendationSuccess = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the form has been submitted
+    $hod_recommend = $_POST['hod_recommend'];
+
+    // Update the "approve_state" table with the hod_recommend value
+    $sqlUpdate = "UPDATE approve_state_resit SET hod_recommend = '$hod_recommend' WHERE Registration_No = '$Registration_No'";
+    if (mysqli_query($conn, $sqlUpdate)) {
+        $recommendationSuccess = true;
+    } else {
+        $recommendationSuccess = false;
+    }
+
+    if ($recommendationSuccess) {
+        echo '<div class="alert alert-success" role="alert">Recommendation Successful!</div>';
+        ("Location: ./view.php");
+    } elseif ($recommendationSuccess === false) {
+        echo '<div class="alert alert-danger" role="alert">Recommendation Failed!</div>';
+        ("Location: ./view.php");
+    }
+
+    // Redirect to the same page after updating the table
+    
+  // exit();
+   
 }
 ?>
 
@@ -299,11 +327,45 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                     </tbody>
                                 </table>
 
-                                <div>
-                                    <p style="margin-left:750px">
-                                        <a href="viewResitList.php" class="btn btn-danger m-2">GO BACK</a>
-                                    </p>
-                                </div>
+                               <!-- Wrap form around your fields and buttons -->
+                               <form name="Registration1" method="POST" action="">
+                                        <!-- Your existing form fields and buttons go here -->
+                                        <!-- ... -->
+
+                                        <div>
+                                            <button type="button" class="btn btn-success" id="recommendButton">Recommend</button>
+                                            <button type="button" class="btn btn-danger" id="notRecommendButton">Not Recommend</button>
+                                        </div>
+
+                                        <div>
+                                            <input type="hidden" name="hod_recommend" id="hod_recommend" value="0">
+                                        </div>
+
+                                        <div>
+                                            <p style="margin-left:750px">
+                                                <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
+                                                
+                                            </p>
+                                         </div>
+                                    </form>
+
+                                    <!-- JavaScript for button clicks (outside the form) -->
+                                    <script>
+                                        document.getElementById("recommendButton").addEventListener("click", function() {
+                                            // Set the value to 1 when the "Recommend" button is clicked
+                                            document.getElementById("hod_recommend").value = 1;
+                                            // Submit the form
+                                            document.forms["Registration1"].submit();
+                                        });
+
+                                        document.getElementById("notRecommendButton").addEventListener("click", function() {
+                                            // Set the value to 0 when the "Not Recommend" button is clicked
+                                            document.getElementById("hod_recommend").value = 0;
+                                            // Submit the form
+                                            document.forms["Registration1"].submit();
+                                        });
+                                    </script>
+
 
                             </div>
                         </div>
