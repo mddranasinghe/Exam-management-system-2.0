@@ -306,7 +306,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                        
                         <div>
-                        <label for="gender"class="col-sm-3 col-form-label">2.Gender &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="gender"class="col-sm-3 col-form-label">2.Title &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="gender"id="gender" placeholder="gender"style="width: 700px;height: 35px;" class="form-control " value="<?php echo htmlspecialchars($gender); ?>">
 </div><br>
 <div>
