@@ -3,7 +3,17 @@
     
     include "db_connection.php";
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    
+    // Include PHPMailer autoload.php
+    require 'path/to/PHPMailer/src/Exception.php';
+    require 'path/to/PHPMailer/src/PHPMailer.php';
+    require 'path/to/PHPMailer/src/SMTP.php';
 
+
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         
@@ -20,13 +30,13 @@
             $initialName = mysqli_real_escape_string($conn, $_POST['initialName']);
             $password = mysqli_real_escape_string($conn, $_POST['password']);
             $admissionDate = mysqli_real_escape_string($conn, $_POST['admissionDate']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
             $phone = mysqli_real_escape_string($conn, $_POST['phone']);
             $address = mysqli_real_escape_string($conn, $_POST['address']);
-           
 
             $faculty = mysqli_real_escape_string($conn, $_POST['faculty']);
 
-$sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_denoted_by_initial, password, Date_of_admission, Mobile_Phone_no, Address, faculty) VALUES ('$regNum', '$gender', '$name', '$initialName', '$password', '$admissionDate', '$phone', '$address', '$faculty')";
+$sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_denoted_by_initial, password, Date_of_admission,email, Mobile_Phone_no, Address, faculty) VALUES ('$regNum', '$gender', '$name', '$initialName', '$password', '$admissionDate','$email','$phone', '$address', '$faculty')";
 
 
     
@@ -34,6 +44,16 @@ $sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_
     if (mysqli_query($conn, $sql)) {
       // Insertion successful
       $successMessage = "STUDENTS information has been saved successfully.";
+      $to = $email;
+      $subject = "Welcome to Our University";
+      $message = "Dear " . $regNum . ",\n\nWelcome to our university. Your email is: " . $email . "\nYour password is: " . $password;
+      $headers = "From: mdinukadulanjana@gmail.com";
+  
+      if (mail($to, $subject, $message, $headers)) {
+          echo "Student added successfully, and email sent!";
+      } else {
+          echo "Student added successfully, but email sending failed.";
+      }
   } else {
       // Insertion failed
       $errorMessage = "Error: " . mysqli_error($conn);
@@ -96,6 +116,9 @@ $sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_
     <input class="form-control col-sm-7 col-form-label"type="date"  name="admissionDate" id="admissionDate" placeholder="Admision Date" ><br>
 
  
+    <label for="email" class="col-sm-3 col-form-label">Email :</label>
+    <input class="form-control col-sm-7 col-form-label" type="email"  placeholder="Email" name="email" id="email" ><br>
+
   <label for="phone" class="col-sm-3 col-form-label">Mobile Phone Number:</label>
     <input class="form-control col-sm-7 col-form-label"type="text"  placeholder="Mobile Phone Number" name="phone" id="phone" ><br>
  
@@ -110,3 +133,5 @@ $sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_
 </div>
 </div>
 
+
+<!-- Create your HTML form here for administrators to add student details. -->
