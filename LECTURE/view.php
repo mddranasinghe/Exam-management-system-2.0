@@ -3,11 +3,15 @@ include('./Admin_nav.php');
 include "db_connection.php";
 
 $Registration_No = $_GET['Registration_No'];
+$lecturerNum=$_SESSION['regNum'];
+//$lecturerNum='UV/FOTS/DICT/L/01';
 $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
 $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+$sql4 = "SELECT subject_code FROM asign_lecturer WHERE LECNum='$lecturerNum'";
 
 $res = mysqli_query($conn, $sql);
 $res2 = mysqli_query($conn, $sql2);
+$res3 = mysqli_query($conn, $sql4);
 
 if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
@@ -19,6 +23,12 @@ if (mysqli_num_rows($res2) > 0) {
     mysqli_query($conn, $sql3);
     $row2 = mysqli_fetch_assoc($res2);
 }
+
+$subjects=[];
+while ($data=mysqli_fetch_assoc($res3)) {
+    $subjects[]=$data['subject_code'];
+}
+
 ?>
 <?php
 // Assuming you have a database connection established in db_connection.php
@@ -176,7 +186,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 30%;">CERTIFICATION OF LECTURER</th>
+                                            <th style="width: 20%;">APPROVE OF LECTURER</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -201,36 +211,41 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                         );
 
                                         foreach ($courses as $course_code => $subject_name) {
-                                            if (!empty($row[$course_code]) && !empty($row[$subject_name])) {
-                                                echo '<tr>';
-                                                echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
-                                                echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
-                                                if (substr($subject_name, -2, 1) == "_") {
-                                                    $column = "subject_approval_" . substr($subject_name, -1);
-                                                } else {
-                                                    $column = "subject_approval_" . substr($subject_name, -2);
-                                                }
-                                                if ($row2[$column] == 0) {
-                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Certify</button></a></td>';
-                                                } else {
-                                                    echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Certify</button></a></td>';
-                                                }
-
-                                                        echo '<td>';
-                                                        if ($row2[$column] == 0) {
-                                                          
-                                                          echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                                                                </svg>';
+                                            foreach ($subjects as $key => $value) {
+                                                if ($value==$row[$course_code]) {
+                                                    if (!empty($row[$course_code]) && !empty($row[$subject_name])) {
+                                                        echo '<tr>';
+                                                        echo '<td style="width: 20%;"><input class="form-control" type="text" name="' . $course_code . '" value="' . $row[$course_code] . '"></td>';
+                                                        echo '<td style="width: 40%;"><input class="form-control" type="text" name="' . $subject_name . '" value="' . $row[$subject_name] . '"></td>';
+                                                        if (substr($subject_name, -2, 1) == "_") {
+                                                            $column = "subject_approval_" . substr($subject_name, -1);
                                                         } else {
-                                                            echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                                                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                                                                </svg>';
-
+                                                            $column = "subject_approval_" . substr($subject_name, -2);
                                                         }
-                                                        echo '</td>';
-                                                echo '</tr>';
+                                                        if ($row2[$column] == 0) {
+                                                            echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Certify</button></a></td>';
+                                                        } else {
+                                                            echo '<td style="width: 20%;"><a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Not Certify</button></a></td>';
+                                                        }
+        
+                                                                echo '<td>';
+                                                                if ($row2[$column] == 0) {
+                                                                  
+                                                                  echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                                                        </svg>';
+                                                                } else {
+                                                                    echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                                         <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                                                                        </svg>';
+        
+                                                                }
+                                                                echo '</td>';
+                                                        echo '</tr>';
+                                                    } 
+                                                }
                                             }
+                                            
                                         }
                                         ?>
                                     </tbody>
@@ -239,7 +254,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                 <div>
                                     <p style="margin-left:750px">
 
-                         
+                                        <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
                                 
                                     </p>
                                 </div>
