@@ -191,6 +191,7 @@ if (mysqli_num_rows($res2) > 0) {
                                 <p style="margin-left:790px">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
                                     <button type="button" onclick="generatePDF('pdf-content'),hideNavbarAndDownload()"class="btn btn-info m-2">DOWNLOAD</button>
+                                   <?php echo"<a class='btn btn-primary btn-sm' href='./printPage.php?Registration_No=$Registration_No'>print</a>"?>
                                 </p>
                             </body>
                         </div>
@@ -238,8 +239,7 @@ if (mysqli_num_rows($res2) > 0) {
                                     head.removeChild(styleElement);
                             }
                     </script>
-
-                    
+     
                 </div>
             </div>
         </section>

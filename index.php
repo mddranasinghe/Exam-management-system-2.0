@@ -122,6 +122,7 @@
                 <option selected value="Student" id="SelectR">Student</option>
                 <option value="DR" id="SelectR">DR</option>
                 <option value="HOD" id="SelectR">HOD</option>
+                <option value="DEAN" id="SelectR">DEAN</option>
                 <option value="Lecturer" id="SelectR">Lecturer</option>
 
             </select>
