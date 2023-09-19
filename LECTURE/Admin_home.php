@@ -4,6 +4,29 @@
 include "Admin_nav.php";
 include "db_connection.php"; 
 ?>
+<style type="text/css">
+    
+    
+    #Sub{
+        margin-left:70%;  
+        margin-top:-45%; 
+        width:28%;
+    }
+    @media (max-width:480px){
+        #Sub{
+        margin:auto;
+        width:80vw;
+        }
+    }
+    @media (max-width:768px){
+        #Sub{
+        margin:auto;
+        width:80vw;
+        }
+    }
+   
+</style>
+<div class="Fullpage">
 <div class="home_full">
 <div class=N_box>
 <div class="container p-3 my-3 bg-dark text-white">
@@ -35,7 +58,7 @@ $conn->close();
 </div>
 
 </div>
-<div class="container  bg-dark text-white" style="margin-left:70%;  margin-top:-45%; width:28%">
+<div id="Sub" class="container  bg-dark text-white" class="SubStyle">
 <h1 style="text-align:center">SUBJECTS</h1>
 
 
@@ -97,6 +120,7 @@ $conn->close();
 			</table>
 		</form>
 	</div>
+</div>
 </div>
 
 
