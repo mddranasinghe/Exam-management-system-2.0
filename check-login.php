@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 		header("Location: HOD/Admin_home.php");
 	
 	}else{
-		echo "Failed to loginOOOOO.";
+		echo "Failed to login.";
 	}
 	
   } 
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
 		header("Location: DR/Admin_home.php");
 	
 	}else{
-		echo "Failed to loginOOOOO.";
+		echo "Failed to login.";
 	}
 	
   } 
@@ -62,12 +62,30 @@ if(isset($_POST['submit'])){
 		$_SESSION['regNum'] =$regnum ;
 		header("Location: LECTURE/Admin_home.php");
 	
-	}else{
-		echo "Failed to loginOOOOO.";
+	}
+	
+	else{
+		echo "Failed to login.";
 	}
 	
   } 
+  else if ($role == 'DEAN'){ 
 
+	$sql1 = "SELECT * FROM dean WHERE DEANNum='$regnum' AND PasswordS='$password'";
+	$result1 = mysqli_query($conn, $sql1);
+
+	if($result1){
+		if(mysqli_num_rows($result1) > 0){
+			$_SESSION['regNum'] = $regnum;
+			header("Location: DEAN/Admin_home.php");
+		} else {
+			echo "Failed to login.";
+		}
+	} else {
+		echo "Query failed: " . mysqli_error($conn);
+	}
+}
+ 
 }
 ?>
 

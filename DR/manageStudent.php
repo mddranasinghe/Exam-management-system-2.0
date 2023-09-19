@@ -127,8 +127,8 @@ if (!$conn) {
         <table class="table table-bordered student-list">
             <thead>
                 <tr>
-                <th>Registration Number</th>
                     <th>Student Name</th>
+                    <th>Registration Number</th>
                     <th>Year of Study</th>
                     <th>Faculty</th>
                     <th>Actions</th>
@@ -162,8 +162,8 @@ if (!$conn) {
                 $result = mysqli_query($conn, $query);
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $studentName = $row['Name_with_initials'];
                     $regNo = $row['Registration_No'];
+                    $studentName = $row['Name_with_initials'];
                     $yearOfStudy = $row['Date_of_admission'];
                     $faculty = $row['faculty'];
                 ?>

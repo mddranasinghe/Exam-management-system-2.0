@@ -118,10 +118,12 @@
             <select class="form-select mb-3"
                     name="role" 
                     aria-label="Default select example">
+
                 <option selected value="Student" id="SelectR">Student</option>
                 <option value="DR" id="SelectR">DR</option>
                 <option value="HOD" id="SelectR">HOD</option>
                 <option value="Lecturer" id="SelectR">Lecturer</option>
+
             </select>
             <button type="submit" 
                     class="btn btn-primary d-block mx-auto" name="submit">LOGIN</button>

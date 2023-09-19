@@ -294,6 +294,7 @@ if (isset($_SESSION['regNum'])) {
                 </div>
 
                     <div class="form-inline right" id="navbarMain">
+
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>

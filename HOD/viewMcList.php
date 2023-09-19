@@ -26,7 +26,7 @@ $sql= "SELECT Registration_No,Name_with_initials  FROM medical";
                     
 
                     echo "<td>";
-                    echo "<a class='btn btn-primary btn-sm' href='./view.php?Registration_No=$Registration_No'>view</a>";
+                    echo "<a class='btn btn-primary btn-sm' href='./viewMedical.php?Registration_No=$Registration_No'>view</a>";
                     //echo "<a class='btn btn-danger m-2 btn-sm' href='./delete.php?id=$id'>Delete</a>";
                 }
             }

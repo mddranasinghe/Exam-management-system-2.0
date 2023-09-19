@@ -1,6 +1,8 @@
+
 <?php
-    include('./Admin_nav.php');
-    include "db_connection.php";
+
+include('./Admin_nav.php');
+include "db_connection.php";
 
         $Registration_No = $_GET['Registration_No'];
         $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
@@ -22,6 +24,37 @@
         mysqli_query($conn, $sql3);
         $row2 = mysqli_fetch_assoc($res2);
     }
+
+    $recommendationSuccess = false;
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Check if the form has been submitted
+        $hod_recommend = $_POST['hod_recommend'];
+
+        // Update the "approve_state" table with the hod_recommend value
+        $sqlUpdate = "UPDATE approve_state SET hod_recommend = '$hod_recommend' WHERE Registration_No = '$Registration_No'";
+        if (mysqli_query($conn, $sqlUpdate)) {
+            $recommendationSuccess = true;
+        } else {
+            $recommendationSuccess = false;
+        }
+
+        if ($recommendationSuccess) {
+            echo '<div class="alert alert-success" role="alert">Recommendation Successful!</div>';
+            ("Location: ./view.php");
+        } elseif ($recommendationSuccess === false) {
+            echo '<div class="alert alert-danger" role="alert">Recommendation Failed!</div>';
+            ("Location: ./view.php");
+        }
+
+        // Redirect to the same page after updating the table
+        
+      // exit();
+       
+    }
+  
+
+    
 ?>
 <?php
 
@@ -39,9 +72,6 @@
     }
 ?>
 
-<!DOCTYPE html>
-<html>
-
 <head>
     <title>exam entry page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -50,9 +80,8 @@
 <body>
     <section>
         <div class="container">
-            <section class="sec">
-                <div
-                    style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 30px; margin-top: 0px;">
+            <section class="home-page-full">
+                <div style="width:1200px;height:100%;margin:auto;">
                     <div class="box1">
 
                         <img src="n.png" style="float: center;">
@@ -181,7 +210,7 @@
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF HOD</th>
+                                            <th style="width: 30%;">ReCOMMENDATION  OF HOD</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -215,17 +244,8 @@
                                                 } else {
                                                     $column = "subject_approval_" . substr($subject_name, -2);
                                                 }
-                                                if ($row2[$column] == 0) {
-                                                    echo '<td style="width: 20%;">
-                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=1&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">APProve</button></a></td>';
-                                                } else {
-                                                    echo '<td style="width: 20%;">
-                                                    <a href="approval.php?ExamName=' . $row['Name_of_the_examination'] . '&approve=0&Registration_No=' . $row['Registration_No'] . '&course_code=' . $course_code . '">
-                                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Reject</button></a></td>';
-                                                }
-
-                                                        echo '<td>';
+                                             
+                                                        echo '<td style="text-align:center">';
                                                         if ($row2[$column] == 0) {
                                                           
                                                           echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -244,11 +264,46 @@
                                         ?>
                                     </tbody>
                                 </table>
+                                <!-- Wrap form around your fields and buttons -->
+                                    <form name="Registration1" method="POST" action="">
+                                        <!-- Your existing form fields and buttons go here -->
+                                        <!-- ... -->
 
-                                <p style="margin-left:790px">
-                                    <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
+                                        <div style="margin-left:50%">
+                                            <button type="button" class="btn btn-success" id="recommendButton">Recommend</button>
+                                            <button type="button" class="btn btn-danger" id="notRecommendButton">Not Recommend</button>
+                                        </div>
+
+                                        <div>
+                                            <input type="hidden" name="hod_recommend" id="hod_recommend" value="0">
+                                        </div>
+
+                                        <div>
+                                            <p style="margin-left:750px">
+                                             
+                                                
+                                            </p>
+                                         </div>
+                                    </form>
+
+                                    <!-- JavaScript for button clicks (outside the form) -->
+                                    <script>
+                                        document.getElementById("recommendButton").addEventListener("click", function() {
+                                            // Set the value to 1 when the "Recommend" button is clicked
+                                            document.getElementById("hod_recommend").value = 1;
+                                            // Submit the form
+                                            document.forms["Registration1"].submit();
+                                        });
+
+                                        document.getElementById("notRecommendButton").addEventListener("click", function() {
+                                            // Set the value to 0 when the "Not Recommend" button is clicked
+                                            document.getElementById("hod_recommend").value = 0;
+                                            // Submit the form
+                                            document.forms["Registration1"].submit();
+                                        });
+                                    </script>
+
                                     
-                                </p>
 
                             </div>
                         </div>

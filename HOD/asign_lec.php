@@ -149,10 +149,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <tr><td>
   
                             <select name="faculty" id="faculty"  class="form-control col-s m-2 col-form-label" required style="width:310px">
-                                    <option value="">Select faculty &nbsp</option>
-                                    <option value="Technological studies">Technological studies</option>
-                                    <option value="applied sceince">applied sceince</option>
-                                    <option value="manegment">manegment</option>
+                                    <option value="">Select Faculty &nbsp</option>
+                                    <option value="Technological studies">Technological Studies</option>
+                                    <option value="applied sceince">Applied Sceince</option>
+                                    <option value="manegment">Business Studies</option>
                                 </select></td>
             
                       
@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                              
                       
                                 <td>  <select name="semester" id="language"    class="form-control col-s m-2 col-form-label" required style="width:310px">
-                                    <option value="">Select semester</option>
+                                    <option value="">Select Semester</option>
                                     <option value="1st semester">1st semester</option>
                                     <option value="2nd semester">2nd semester</option>
                                 </select></td>

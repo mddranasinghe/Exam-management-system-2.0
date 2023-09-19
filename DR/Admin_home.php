@@ -5,38 +5,38 @@ include "Admin_nav.php";
 include "db_connection.php"; 
 ?>
 <div class="home_full">
-<div class=N_box>
-<div class="container p-3 my-3 bg-dark text-white">
-<h2>EXAMINATION NOTIFICATIONS</h2>
+	<div class=N_box>
+		<div class="container p-3 my-3 bg-dark text-white">
+			<h2>EXAMINATION NOTIFICATIONS</h2>
 
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:40px">
-   ADD NOTIFICATION
-</button>
-<hr>
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:40px">
+			ADD NOTIFICATION
+			</button>
+			<hr>
 
-<?php
-$sql = "SELECT * FROM notifications ORDER BY created_at DESC";
-$result = $conn->query($sql);
+		<?php
+		$sql = "SELECT * FROM notifications ORDER BY created_at DESC";
+		$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+		if ($result->num_rows > 0) {
 
-    while($row = $result->fetch_assoc()) {
-        $id=$row['id'];
-        echo '<div class="notification">';
-        echo '<h2>' . $row['title'] . '</h2>';
-        echo '<p>' . $row['message'] . '</p>';
-        echo '<span class="timestamp">' . $row['created_at'] . '</span>';
-        echo "<a class='btn btn-danger m-2 btn-sm' href='./script.php?id=$id'>Delete</a>";
-        echo '</div>';
-    }
-} else {
-    echo 'No notifications to display.';
-}
+			while($row = $result->fetch_assoc()) {
+				$id=$row['id'];
+				echo '<div class="notification">';
+				echo '<h2>' . $row['title'] . '</h2>';
+				echo '<p>' . $row['message'] . '</p>';
+				echo '<span class="timestamp">' . $row['created_at'] . '</span>';
+				echo "<a class='btn btn-danger m-2 btn-sm' href='./script.php?id=$id'>Delete</a>";
+				echo '</div>';
+			}
+		} else {
+			echo 'No notifications to display.';
+		}
 
-$conn->close();
-?>
-</div>
-</div>
+		$conn->close();
+		?>
+		</div>
+	</div>
 </div>
 
 
@@ -68,4 +68,4 @@ $conn->close();
 
 
 
-?>
+

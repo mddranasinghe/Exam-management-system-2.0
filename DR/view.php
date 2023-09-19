@@ -41,7 +41,7 @@ if (mysqli_num_rows($res2) > 0) {
 <section>
     <div class="wrapper">
         <section class="sec">
-            <div style="float: center; width: 1200px; height: 100%; background-color: #white; margin-left: 150px; margin-top: 0px;">
+            <div style="width:1200px;height:100%;margin:auto;">
                 <div class="box1">
                     <div class="box1">
                         <img src="n.png" style="float: center;">
@@ -67,7 +67,7 @@ if (mysqli_num_rows($res2) > 0) {
                                     </div><br>
 
                                     <div>
-                                        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                        <label for="gender" class="col-sm-2 col-form-label">Title</label>
                                       
                                   <input type="text" name="gender" id="gender" placeholder="Gender" style="width: 700px; height: 35px;" class="form-control" value="<?php echo $row['gender']; ?>">    </div><br>
                                   <div>
@@ -168,7 +168,7 @@ if (mysqli_num_rows($res2) > 0) {
                                     }
                                 
 
-                                            echo '<td>';
+                                            echo '<td style="text-align:center">';
                                             if ($row2[$column] == 0) {
                                             
                                             echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
