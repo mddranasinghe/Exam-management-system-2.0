@@ -70,21 +70,28 @@ if(isset($_POST['year'])){
    }
 
 
-$sql= "SELECT  examenrty.Registration_No,examenrty.Name_with_initials FROM examenrty JOIN approve_state ON examenrty.Registration_No = approve_state.Registration_No 
-WHERE approve_state.hod_recommend=1 AND examenrty.faculty='$faculty' AND  year ='$year' AND semester='$semester'";
+$sql= "SELECT  examenrty.Registration_No,examenrty.Name_with_initials,examenrty.Name_of_the_examination FROM examenrty JOIN approve_state 
+ON examenrty.Registration_No = approve_state.Registration_No
+WHERE approve_state.hod_recommend=1 AND examenrty.faculty='$faculty' AND  examenrty.year ='$year' AND examenrty.semester='$semester'";
 
     $res=mysqli_query($conn,$sql);
             if(mysqli_num_rows($res)>0){
+                $check ="abc";
                 while($row=mysqli_fetch_assoc($res)){
-                    $Registration_No=$row['Registration_No'];
-                    echo "<tr>";
-                    echo "<td>".$row['Registration_No']."</td>";
-                    echo "<td>".$row['Name_with_initials']."</td>";
-                    
+                    if($row['Registration_No']!=$check)
+                    {
+                        $check = $row['Registration_No'];
+                        $Registration_No=$row['Registration_No'];
+                        $_SESSION['Name_of_the_examination']=$row['Name_of_the_examination'];
+                        echo "<tr>";
+                        echo "<td>".$row['Registration_No']."</td>";
+                        echo "<td>".$row['Name_with_initials']."</td>";
+                        
+                        
 
-                    echo "<td>";
-                    echo "<a class='btn btn-primary btn-sm' href='./view.php?Registration_No=$Registration_No'>view</a>";
-                    
+                        echo "<td>";
+                        echo "<a class='btn btn-primary btn-sm' href='./view.php?Registration_No=$Registration_No'>view</a>";
+                    }  
                 }
             }
         ?>

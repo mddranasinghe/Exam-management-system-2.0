@@ -3,8 +3,9 @@
     include "db_connection.php";
 
         $Registration_No = $_GET['Registration_No'];
-        $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
-        $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+        $Name_of_the_examination=$_SESSION['Name_of_the_examination'];
+        $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'";
+        $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'";
 
         $res = mysqli_query($conn, $sql);
         $res2 = mysqli_query($conn, $sql2);
