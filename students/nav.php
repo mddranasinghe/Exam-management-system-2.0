@@ -23,14 +23,8 @@ if (isset($_SESSION['regNum'])) {
 
 <!-- Add Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    function dorpDown() {
-        let navBar=document.getElementById("navBar");
-        navBar.classList.toggle("show");
-    }
-</script>
+
     <style type="text/css">
-        
         .topic {
             text-align: center;
             color: #350339;
@@ -60,10 +54,7 @@ if (isset($_SESSION['regNum'])) {
             text-decoration: none;
             color: #ffffff;
         }
-        #navbarMain{
-            margin-left:220px;
-        }
-  /**********notification box**************/
+  /***********notification box***************/
 
         .notification {
     background-color: blue;
@@ -115,11 +106,6 @@ if (isset($_SESSION['regNum'])) {
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         }
 
-        #logo-img{
-             width="600"; 
-             height="145";
-        }
-
         .profile-info p {
             color: #666;
         }
@@ -127,7 +113,7 @@ if (isset($_SESSION['regNum'])) {
 
 
 
-            /change password  pop/
+            /*change password  pop*/
             #myModal {
             position: absolute;
             top: 90px;
@@ -137,111 +123,6 @@ if (isset($_SESSION['regNum'])) {
         #signatureCanvas {
             border: 2px solid #ccc;
         }
-        .hidden{
-            display: none;
-        }
-        .show{
-            display: unset !important;
-        }
-        @media (max-width: 768px) {
-        .ImageStyle {
-            width: 80%; 
-            height: 80%;
-        }
-        .form-inline{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: right;
-        }
-        #main-nav-a{
-            align-self: flex-end;
-        }
-        #dropDownIcon{
-                display: unset !important;
-                align-self: flex-end;
-            }
-        #navBar{
-            display:none;
-            position:absolute;
-            background-color: #350339;
-            right: 0;
-            top:50px;
-            padding: 5px;
-        }
-        #navbarMain{
-            margin:auto;
-        }
-        }
-
-        
-        @media (max-width: 480px) {
-        .ImageStyle {
-            width: 100%; 
-            height: auto;
-        }
-        #logo-img{
-            padding:10px 10px;
-        }
-        #dropDownIcon{
-                display: unset !important;
-            }
-        #navBar{
-            display:none;
-            position:absolute;
-            background-color: #350339;
-            right: 0;
-            top:50px;
-            padding: 5px;
-        }
-        #navbarMain{
-            margin-left:0;
-        }
-        .home_full{
-            display: flex;
-            flex-direction: column;
-            
-        }
-        .N_box{
-            width: 80vw;
-            margin :auto;
-        }
-        }
-       @media only screen and (min-width: 769px) {
-        #dropDownIcon{
-                display: none;
-            }
-        /* #navbar{
-            display: flex !important;
-        } */
-        .show{
-            display: flex !important;
-        }
-        .home_full{
-            display: flex;
-            flex-direction: column;
-        }
-    }
-        @media (max-width: 480px) {
-        .ImageStyle {
-            width: 100%; 
-            height: auto;
-        }
-        
-        
-       }
-       
-       @media (max-width: 765px) {
-        .ImageStyle {
-            width: 100%; 
-            height: auto;
-        }
-        .N_box{
-            width: 78vw;
-            margin :auto;
-        }
-        
-       }
        
     </style>
 
@@ -263,7 +144,7 @@ if (isset($_SESSION['regNum'])) {
                     <div class="cleaner"></div>
                     <div class="navbar-brand-wpz">
                         <a href="https://vau.ac.lk/" class="custom-logo-link" rel="home" itemprop="url">
-                            <img id="logo-img" src="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png" class="custom-logo ImageStyle" alt="University of Vavuniya" decoding="async" loading="lazy" itemprop="logo" srcset="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png 742w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-300x80.png 300w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-624x166.png 624w" sizes="(max-width: 742px) 100vw, 742px" /></a>
+                            <img id="logo-img" width="600" height="145" src="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png" class="custom-logo" alt="University of Vavuniya" decoding="async" loading="lazy" itemprop="logo" srcset="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png 742w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-300x80.png 300w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-624x166.png 624w" sizes="(max-width: 742px) 100vw, 742px" /></a>
                         <p class="tagline"></p>
 
                     </div><!-- .navbar-brand -->
@@ -279,9 +160,7 @@ if (isset($_SESSION['regNum'])) {
         <div class="navbar-header-main" >
             <nav id="main-navbar" class="main-navbar">
                 <form class="form-inline justify-content-between" >
-                <i class="fa fa-list hidden" id="dropDownIcon" onclick="dorpDown()"></i>
-                    <div class="form-inline" id="navBar">
-                    
+                    <div class="form-inline">
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="home.php">HOME</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="entryFormget.php">EXAM-ENTRY</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href= "mFormget.php">MEDICAL </a>
@@ -290,11 +169,9 @@ if (isset($_SESSION['regNum'])) {
             
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="userProfile.php" >USER PROFILE</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="about.php">ABOUT</a>
-                        
                 </div>
 
-                    <div class="form-inline right" id="navbarMain">
-
+                    <div class="form-inline right" style="margin-left:100px">
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>

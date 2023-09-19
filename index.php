@@ -53,37 +53,14 @@
             text-decoration: none;
             color: #ffffff;
         }
-
-        .NavPhoto{
-            width="600"; 
-            height="145"
-        }
-         
-     /*   
-        
-        @media (max-width: 480px){
-        .NavPhoto {
-            width: 100%; 
-            height: auto;
-        }
-        #SelectR{
-            width: 35vw;
-        }
-
-        #FormSize{
-            width: 60vw; 
-            height: auto;
-            margin: auto;
-        }
-        }
-*/
+ 
     </style>
 </head>
 <body>
         <header class="header">
-                    <div class="navbar-brand-wpz" >
+                    <div class="navbar-brand-wpz" style="height:150px">
                         <a href="https://vau.ac.lk/" class="custom-logo-link" rel="home" itemprop="url">
-                            <img class="NavPhoto" id="logo-img" src="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png" class="custom-logo" alt="University of Vavuniya" decoding="async" loading="lazy" itemprop="logo" srcset="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png 742w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-300x80.png 300w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-624x166.png 624w" sizes="(max-width: 742px) 100vw, 742px" /></a>
+                            <img id="logo-img" width="600" height="145" src="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png" class="custom-logo" alt="University of Vavuniya" decoding="async" loading="lazy" itemprop="logo" srcset="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png 742w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-300x80.png 300w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-624x166.png 624w" sizes="(max-width: 742px) 100vw, 742px" /></a>
     </div>
         </header>
 
@@ -94,7 +71,7 @@
     <div class="container d-flex justify-content-center align-items-center"
         style="min-height: 100vh; background-color: #e0dbdf;">
         <!-- Rest of your login form code -->
-        <form id="FormSize" class="border shadow p-3 rounded form-bg"
+        <form class="border shadow p-3 rounded form-bg"
             action="check-login.php" 
             method="post" 
             style="width: 450px;">
@@ -119,11 +96,13 @@
                     name="role" 
                     aria-label="Default select example">
 
+
                 <option selected value="Student" id="SelectR">Student</option>
                 <option value="DR" id="SelectR">DR</option>
                 <option value="HOD" id="SelectR">HOD</option>
                 <option value="DEAN" id="SelectR">DEAN</option>
                 <option value="Lecturer" id="SelectR">Lecturer</option>
+
 
             </select>
             <button type="submit" 
