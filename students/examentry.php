@@ -476,12 +476,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     {
                         
                         $count=0;
-                        $sql="SELECT Registration_No from `examEnrty`";
+                        $sql="SELECT Registration_No,Name_of_the_examination from `examEnrty`";
                         $res=mysqli_query($conn,$sql);
 
                         while($row=mysqli_fetch_assoc($res))
                         {
-                        if($row['Registration_No']==$_POST['Registration_No'])
+                        if($row['Registration_No']==$_POST['Registration_No']&& $row['Name_of_the_examination']==$_POST['Name_of_the_examination'])
                         {
                             $count=$count+1;
                         }

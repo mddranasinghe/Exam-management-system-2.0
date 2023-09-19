@@ -5,8 +5,10 @@ include "db_connection.php";
 $Registration_No = $_GET['Registration_No'];
 $lecturerNum=$_SESSION['regNum'];
 //$lecturerNum='UV/FOTS/DICT/L/01';
-$sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
-$sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+
+$Name_of_the_examination=$_SESSION['Name_of_the_examination'];
+$sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'";
+$sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'"; // error
 $sql4 = "SELECT subject_code FROM asign_lecturer WHERE LECNum='$lecturerNum'";
 
 $res = mysqli_query($conn, $sql);
