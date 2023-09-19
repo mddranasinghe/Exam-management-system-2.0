@@ -124,6 +124,113 @@ if (isset($_SESSION['regNum'])) {
             border: 2px solid #ccc;
         }
        
+
+
+        .hidden{
+            display: none;
+        }
+        .show{
+            display: unset !important;
+        }
+        @media (max-width: 768px) {
+        .ImageStyle {
+            width: 80%; 
+            height: 80%;
+        }
+        .form-inline{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: right;
+        }
+        #main-nav-a{
+            align-self: flex-end;
+        }
+        #dropDownIcon{
+                display: unset !important;
+                align-self: flex-end;
+            }
+        #navBar{
+            display:none;
+            position:absolute;
+            background-color: #350339;
+            right: 0;
+            top:50px;
+            padding: 5px;
+        }
+        #navbarMain{
+            margin:auto;
+        }
+        }
+
+        
+        @media (max-width: 480px) {
+        .ImageStyle {
+            width: 100%; 
+            height: auto;
+        }
+        #logo-img{
+            padding:10px 10px;
+        }
+        #dropDownIcon{
+                display: unset !important;
+            }
+        #navBar{
+            display:none;
+            position:absolute;
+            background-color: #350339;
+            right: 0;
+            top:50px;
+            padding: 5px;
+        }
+        #navbarMain{
+            margin-left:0;
+        }
+        .home_full{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .N_box{
+            width: 80vw;
+            margin :auto;
+        }
+        }
+       @media only screen and (min-width: 769px) {
+        #dropDownIcon{
+                display: none;
+            }
+        /* #navbar{
+            display: flex !important;
+        } */
+        .show{
+            display: flex !important;
+        }
+        .home_full{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+        @media (max-width: 480px) {
+        .ImageStyle {
+            width: 100%; 
+            height: auto;
+        }
+        
+        
+       }
+       
+       @media (max-width: 765px) {
+        .ImageStyle {
+            width: 100%; 
+            height: auto;
+        }
+        .N_box{
+            width: 78vw;
+            margin :auto;
+        }
+        
+       }
     </style>
 
   

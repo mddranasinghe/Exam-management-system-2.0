@@ -225,6 +225,50 @@ body
             }
         }
 
+        /* Add your existing CSS here */
+
+        /* Mobile-first styles */
+        body {
+            background-color: #e4bfe2;
+        }
+
+        .topic {
+            font-size: 28px;
+            margin-top: 10px;
+        }
+
+        .tpic {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        /* Add more responsive styles here using media queries */
+
+        /* For tablets and larger screens */
+        @media (min-width: 768px) {
+            .topic {
+                font-size: 32px;
+            }
+
+            .tpic {
+                width: 70%;
+                margin: 30px auto;
+            }
+        }
+
+        /* For laptops and larger screens */
+        @media (min-width: 1024px) {
+            .topic {
+                font-size: 40px;
+            }
+
+            .tpic {
+                width: 50%;
+                margin: 50px auto;
+            }
+        }
+
+
 
     </style>
 

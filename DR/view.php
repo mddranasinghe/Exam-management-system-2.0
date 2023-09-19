@@ -190,8 +190,7 @@ if (mysqli_num_rows($res2) > 0) {
                         </div>
                                 <p style="margin-left:790px">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
-                                    <button type="button" onclick="generatePDF('pdf-content'),hideNavbarAndDownload()"class="btn btn-info m-2">DOWNLOAD</button>
-                                   <?php echo"<a class='btn btn-primary btn-sm' href='./printPage.php?Registration_No=$Registration_No'>print</a>"?>
+                                   <?php echo"<a class='btn btn-primary btn-sm' href='./printPage.php?Registration_No=$Registration_No'>DOWNLOAD</a>"?>
                                 </p>
                             </body>
                         </div>
@@ -213,32 +212,7 @@ if (mysqli_num_rows($res2) > 0) {
                         }
                     </script>
 
-                    <script>
-                        function generatePDF() 
-                            {
-                                const style = `
-                                    @page {
-                                        size: A4;
-                                        margin: 0;
-                                    }
-                                    html, body {
-                                        width: 210mm;
-                                        height: 297mm;
-                                        margin: 0;
-                                        padding: 0;
-                                    }
-                                `;
-                                const head = document.head || document.getElementsByTagName('head')[0];
-                                const styleElement = document.createElement('style');
-                                styleElement.type = 'text/css';
-                                styleElement.appendChild(document.createTextNode(style));
-                                head.appendChild(styleElement);
-
-                                setTimeout(()=>{window.print()},2000);
-                                    
-                                    head.removeChild(styleElement);
-                            }
-                    </script>
+                   
      
                 </div>
             </div>

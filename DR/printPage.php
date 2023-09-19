@@ -64,7 +64,7 @@ if (mysqli_num_rows($res2) > 0) {
         th, td {
             padding: 8px;
            
-            font-size:12px;
+            font-size:11px;
             text align:left;
         }
 
@@ -101,11 +101,12 @@ if (mysqli_num_rows($res2) > 0) {
                     </div>
                 <p style="text-align:center">UNIVERSITY OF VAVUNIYA<br>
                 <B><span style="text-transform:uppercase;"> FACULTY OF <?php echo  $row['faculty'] ?></B></span> <br>
-            
-                <u>ADMISION CRAD</u></p>
+                <span style="text-transform:uppercase;">  <?php echo $row['Name_of_the_examination']; ?></span>
+                <u>ADMISSION CARD</u></p>
                 <br>
                 <p> NAME :-<?php echo $row['Name_with_initials'];  ?>   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Reg No :- <?php echo $row['Registration_No']; ?></p>
                 <br>
+
                 <p> Index No :- 
                 <div>
                     Candidates are expected to produce this admission card to the Supervisor/Invigilator/Examiner at the Examination Hall. This form should be filled and
@@ -114,7 +115,7 @@ if (mysqli_num_rows($res2) > 0) {
                      his/her initials in the appropriate column. Students are requested to hand over the admission card to the Supervisor on the last day of the paper.
                 </div>
 
-                <table border="2px" class="table table-stripped m-2 " style="width: 100%;">
+                <table border="2px" style="width: 100%;">
                 <thead class="thead-dark">
                     <tr>
                         <th style="width: 5%;">S NO</th>
@@ -146,11 +147,11 @@ if (mysqli_num_rows($res2) > 0) {
                         'course_code_15' => 'subject_name_15',
                     );
 
-        
+        $numbr=1;
                             foreach ($courses as $course_code => $subject_name) {
                                 if (!empty($row[$course_code]) && !empty($row[$subject_name])) {
                                     echo "<tr>";
-                                    echo "<td>   </td>";
+                                    echo "<td> $numbr </td>";
                                     echo "<td style=width: 20%>" .$row[$course_code]  ."</td>";
                                     echo "<td style=width: 40%>" . $row[$subject_name] . "</td>";
                                   
@@ -178,12 +179,13 @@ if (mysqli_num_rows($res2) > 0) {
                                             echo "<td>   </td>";
                                             echo "<td>   </td>";
                                     echo '</tr>';
+                                $numbr++;
                                 }
                             }
                             ?>
                         </tbody>
                     </table>
-
+<br>
                 
                     <p>Instructions:</p>
                     <ol>
@@ -191,10 +193,14 @@ if (mysqli_num_rows($res2) > 0) {
                         <li>If any candidate loses this admission card, he/she shall obtain a duplicate Admission Card on payment of Rs.150/-.</li>
                         <li>Every candidate shall produce his/her Identity Card at every paper/Practical Examination he/she sits for.</li>
                         <li>Any unauthorized documents, notes, and bags should not be taken into the Examinations.</li>
-                        <li>When unable to be present for any part of the Examination, it should be notified to me immediately in writing. No appeals will be considered later without this timely notification to me.</li>
+                        <li>When unable to be present for any part of the Examination, it should be notified to me <b><u>immediately in writing</b></u>. No appeals will be considered later without this timely notification to me.</li>
                     </ol>
-                
-       
+                <br>
+       <div style="margin-left :65%">
+        <p>Deputy Registrar
+            <br> Examination & Student Admission</p>
+
+                        </div>
         </section>
     </div>
 </section>
