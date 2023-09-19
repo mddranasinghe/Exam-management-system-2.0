@@ -67,12 +67,14 @@ $semester='1st semester';
 
 
 
-$sql= "SELECT Registration_No,Name_with_initials  FROM examenrty WHERE year ='$year' AND semester='$semester'";
+$sql= "SELECT Registration_No,Name_with_initials,Name_of_the_examination  FROM examenrty WHERE year ='$year' AND semester='$semester'";
 
     $res=mysqli_query($conn,$sql);
             if(mysqli_num_rows($res)>0){
                 while($row=mysqli_fetch_assoc($res)){
                     $Registration_No=$row['Registration_No'];
+                    $_SESSION['Name_of_the_examination']=$row['Name_of_the_examination'];
+
                     echo "<tr>";
                     echo "<td>".$row['Registration_No']."</td>";
                     echo "<td>".$row['Name_with_initials']."</td>";
