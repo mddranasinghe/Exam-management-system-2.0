@@ -31,7 +31,7 @@
     	{
     		padding: 10px;
     		margin: -20px auto;
-    		width:100%;
+    		width:900px;
     		height: 600px;
     		background-color: black;
     		opacity: .8;
@@ -51,15 +51,6 @@
     		overflow: auto;
     	}
 
-        @media (max-width: 768px){
-           .wapper{ 
-                width: 90vw;
-                
-            }
-            .wrapper{
-                margin: auto;
-            }
-        }
     </style>
 </head>
 <body>
