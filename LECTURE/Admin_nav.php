@@ -297,7 +297,7 @@ body
             if(isset($_SESSION['regNum'])){
                 ?>
                
-                        <h4  style="color:#fcb900">LECTURE-<?php echo $_SESSION['regNum']; ?></h4>
+                      <a href="LEC_PROFILE.php">  <h4  style="color:#fcb900">LECTURE-<?php echo $_SESSION['regNum']; ?></h4></a>
 
                         <a class="nav-link active " id="main-nav-a" aria-current="page" href="../logout.php" style="margin-left:50px">LOGOUT</a>
          <?php } ?>

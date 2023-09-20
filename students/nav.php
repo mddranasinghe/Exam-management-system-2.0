@@ -283,7 +283,7 @@ if (isset($_SESSION['regNum'])) {
             if(isset($_SESSION['regNum'])){
                 ?>
                    
-                        <h4  style="color:#fcb900">STUDENT-<?php echo $_SESSION['regNum']; ?></h4>
+                       <a href="userProfile.php" ><h4 style="color:#fcb900">STUDENT-<?php echo $_SESSION['regNum']; ?></h4></a>
                         
                         
                         <a class="nav-link active " id="main-nav-a" aria-current="page" href="../logout.php" style="margin-left:70px">LOGOUT</a>
