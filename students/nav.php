@@ -260,6 +260,7 @@ if (isset($_SESSION['regNum'])) {
 
             <nav class="mid-navbar">
                 <form action="" class="form-inline">
+                <i class="fa fa-list hidden" id="dropDownIcon" onclick="dorpDown()"></i>
                     <div class="cleaner"></div>
                     <div class="navbar-brand-wpz">
                         <a href="https://vau.ac.lk/" class="custom-logo-link" rel="home" itemprop="url">
