@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  
 
-    $stmt = $conn->prepare("SELECT gender,Name_with_initials, Name_denoted_by_initial, Address,Mobile_Phone_no,Date_of_admission  FROM students WHERE  Registration_No= ?");
+    $stmt = $conn->prepare("SELECT INnum, gender,Name_with_initials, Name_denoted_by_initial, Address,Mobile_Phone_no,Date_of_admission  FROM students WHERE  Registration_No= ?");
     $stmt->bind_param("s", $Registration_No);
     $stmt->execute();
     
@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $INnum=$row["INnum"];
         $gender = $row["gender"];
         $Name_with_initials = $row["Name_with_initials"];
         $Name_denoted_by_initial = $row["Name_denoted_by_initial"];
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Date_of_admission = $row["Date_of_admission"];
        
     } else {
-    
+        $INnum = "";
         $gender = "";
         $Name_with_initials = "";
         $Name_denoted_by_initial = "";
@@ -40,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
 
     $Registration_No = "";
+    $INnum = "";
     $gender = "";
     $Name_with_initials = "";
     $Name_denoted_by_initial = "";
@@ -305,64 +307,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form>
                          
                         <div >
-                        <label for="Registration_No" class="col-sm-3 col-form-label">1.Registration No </label>
+                        <label for="Registration_No" class="col-sm-3 col-form-label">1. Registration No </label>
                         <input type="text"class="form-control " name="Registration_No" id="Registration_No"placeholder="Registration No" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Registration_No); ?>" readonly>
          
                         </div><br>
 
-                       
                         <div>
-                        <label for="gender"class="col-sm-3 col-form-label">2.Title &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                                            <label for="Index_Number" class="col-sm-3 col-form-label">2. Index Number
+                                                </label>
+                                            <input type="text" class="form-control" name="Index_Number"
+                                                id="Index_Number" placeholder="Index_Number"
+                                                style="width: 700px; height: 35px;"
+                                                value="<?php echo htmlspecialchars($INnum); ?>">
+                                        </div><br>
+
+                        <div>
+                        <label for="gender"class="col-sm-3 col-form-label">3. Title &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="gender"id="gender" placeholder="gender"style="width: 700px;height: 35px;" class="form-control " value="<?php echo htmlspecialchars($gender); ?>">
 </div><br>
 <div>
-                        <label for="Name_with_initials" class="col-sm-3 col-form-label">3.Name with initials </label>
+                        <label for="Name_with_initials" class="col-sm-3 col-form-label">4. Name with initials </label>
  
                     <input type="text" name="Name_with_initials"id="Name_with_initials" placeholder="Name with initials"style="width: 700px;height: 35px;" class="form-control "value="<?php echo htmlspecialchars($Name_with_initials); ?>">
                         </div><br>
 
                         <div>
-                        <label for="Name_denoted_by_initial"class="col-sm-3 col-form-label">4. Name denoted by initial &nbsp &nbsp  &nbsp</label>
+                        <label for="Name_denoted_by_initial"class="col-sm-3 col-form-label">5. Name denoted by initial &nbsp &nbsp  &nbsp</label>
                         <input  type="text" name="Name_denoted_by_initial"id="Name_denoted_by_initial" placeholder="Name denoted by initial"style="width: 700px;height: 35px;" class="form-control "value="<?php echo htmlspecialchars($Name_denoted_by_initial); ?>">
                         </div>  <br>
                     
 
                         <div>
-                        <label for="Address(Present)"class="col-sm-3 col-form-label">5. Address(Present) &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp</label>
+                        <label for="Address(Present)"class="col-sm-3 col-form-label">6. Address(Present) &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp</label>
                         <input  type="text" name="Address" id="Address" placeholder="Address(Present)"style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Address); ?>">
                         </div>  <br>
                     
                         <div>
-                        <label for="Mobile_Phone_no"class="col-sm-3 col-form-label">6. Mobile Phone no &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="Mobile_Phone_no"class="col-sm-3 col-form-label">7. Mobile Phone no &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="Mobile_Phone_no"  id="Mobile_Phone_no" placeholder="Mobile Phone no" style="width: 700px;height: 35px;" class="form-control "value="<?php echo htmlspecialchars($Mobile_Phone_no); ?>">
                         </div><br>
 
                      
                         <div>
-                        <label for="Date_of_admission"class="col-sm-3 col-form-label">7. Date of admission &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="Date_of_admission"class="col-sm-3 col-form-label">8. Date of admission &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="Date_of_admission" placeholder="Date of admission" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Date_of_admission); ?>">
                         </div><br>
 
                         <div>
-                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">8.Name of the examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">9. Name of the examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="Name_of_the_examination" placeholder="Name ofthe examination" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Name_of_the_examination); ?>">
                         </div><br>
 
 
                         <div>
-                        <label for="Faculty"class="col-sm-3 col-form-label">9.Faculty&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="Faculty"class="col-sm-3 col-form-label">10. Faculty&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="faculty" placeholder="Faculty" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($faculty); ?>">
                         </div><br>
 
 
                         <div>
-                        <label for="year"class="col-sm-3 col-form-label">10.Year &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="year"class="col-sm-3 col-form-label">11. Year &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="year" placeholder="year" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($year); ?>">
                         </div><br>
 
 
                         <div>
-                        <label for="semester"class="col-sm-3 col-form-label">11.Semester &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <label for="semester"class="col-sm-3 col-form-label">12. Semester &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
                         <input type="text" name="semester" placeholder="semester" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($semester); ?>">
                         </div><br>
 
@@ -458,7 +468,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </tr>
                             </table>
 
-                        <div style="float:right;margin-top:20px;margin-right:50px;">
+                        <div style="float:right;margin-top:20px;margin-right:-20px;">
                         <a href="entryFormget.php"class="btn btn-danger m-2" >GO BACK</a>
                         <input class="btn btn-success m-2"type="submit" name="submit" value="SUBMIT">&nbsp &nbsp &nbsp &nbsp 
 
@@ -491,6 +501,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             
                             
                         mysqli_query($conn,"INSERT INTO `examEnrty` VALUES(
+                            '$_POST[Index_Number]',
                             '$_POST[faculty]',
                             '$_POST[Name_of_the_examination]',
                             '$_POST[year]', 

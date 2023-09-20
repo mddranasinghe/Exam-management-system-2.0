@@ -107,7 +107,7 @@ if (mysqli_num_rows($res2) > 0) {
                 <p> NAME :-<?php echo $row['Name_with_initials'];  ?>   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Reg No :- <?php echo $row['Registration_No']; ?></p>
                 <br>
 
-                <p> Index No :- 
+                <p> Index No :- <?php echo $row['INnum'];  ?> 
                 <div>
                     Candidates are expected to produce this admission card to the Supervisor/Invigilator/Examiner at the Examination Hall. This form should be filled and
                      signed by the candidates in the presence of the Supervisor/Invigilator
