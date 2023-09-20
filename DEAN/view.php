@@ -112,7 +112,15 @@
                                         </div><br>
 
                                         <div>
-                                            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                            <label for="Index_Number" class="col-sm-2 col-form-label">Index Number
+                                                </label>
+                                            <input type="text" class="form-control" name="Index_Number"
+                                                id="Index_Number" placeholder="Index_Number"
+                                                style="width: 700px; height: 35px;"
+                                                value="<?php echo $row['INnum']; ?>">
+                                        </div><br>
+                                        <div>
+                                            <label for="gender" class="col-sm-2 col-form-label">Title</label>
 
                                             <input type="text" name="gender" id="gender" placeholder="Gender"
                                                 style="width: 700px; height: 35px;" class="form-control"

@@ -32,20 +32,6 @@ while ($data=mysqli_fetch_assoc($res3)) {
 }
 
 ?>
-<?php
-// Assuming you have a database connection established in db_connection.php
-include "db_connection.php";
-
-// Fetch all signature data from the database
-$sql = "SELECT signature_data FROM signnew";
-$result = mysqli_query($conn, $sql);
-
-// Store all the signature data in an array
-$signatureDataArray = array();
-while ($rowa = mysqli_fetch_assoc($result)) {
-    $signatureDataArray[] = $rowa['signature_data'];
-}
-?>
 
 <!DOCTYPE html>
 <html>
@@ -83,15 +69,27 @@ while ($rowa = mysqli_fetch_assoc($result)) {
 
                                         <div>
                                             <label for="Registration_No" class="col-sm-2 col-form-label">Registration
-                                                No</label>
+                                                Number</label>
                                             <input type="text" class="form-control" name="Registration_No"
                                                 id="Registration_No" placeholder="Registration No"
                                                 style="width: 700px; height: 35px;"
                                                 value="<?php echo $row['Registration_No']; ?>">
                                         </div><br>
 
+                                        
                                         <div>
-                                            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                            <label for="Index_Number" class="col-sm-2 col-form-label">Index Number
+                                                </label>
+                                            <input type="text" class="form-control" name="Index_Number"
+                                                id="Index_Number" placeholder="Index_Number"
+                                                style="width: 700px; height: 35px;"
+                                                value="<?php echo $row['INnum']; ?>">
+                                        </div><br>
+
+
+
+                                        <div>
+                                            <label for="gender" class="col-sm-2 col-form-label">Title</label>
 
                                             <input type="text" name="gender" id="gender" placeholder="Gender"
                                                 style="width: 700px; height: 35px;" class="form-control"
@@ -256,7 +254,7 @@ while ($rowa = mysqli_fetch_assoc($result)) {
                                 <div>
                                     <p style="margin-left:750px">
 
-                                        <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
+                                        
                                 
                                     </p>
                                 </div>
