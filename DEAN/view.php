@@ -217,7 +217,7 @@
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF DEAN</th>
+                                            <th style="width: 20%;">APPROVAL OF DEAN</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -279,7 +279,7 @@
 
                                         <div style="margin-left:50%">
                                             <button type="button" class="btn btn-success" id="recommendButton">Approved</button>
-                                            <button type="button" class="btn btn-danger" id="notRecommendButton">Not Approved</button>
+                                           <!-- <button type="button" class="btn btn-danger" id="notRecommendButton">Not Approved</button>-->
                                         </div>
 
                                         <div>

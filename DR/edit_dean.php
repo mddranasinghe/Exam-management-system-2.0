@@ -6,7 +6,7 @@ include "Admin_nav.php";
 ?>
 <?php
 // Initialize variables
-$deanName = $deanNumber = $faculty = "";
+ $deanNumber = $faculty = "";
 $errorMessage = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $DEANName = $row['DEANName'];
+    
         $DEANNumber = $row['DEANNum'];
 
         $faculty = $row['Faculty'];
@@ -37,14 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
 
 // Handle form submission for updating HOD information
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
-    
-    $DEANName = $_POST['DEANName'];
+
     $DEANNumber = $_POST['DEANNumber'];
   
     $faculty = $_POST['faculty'];
 
     // Perform database query to update HOD information
-    $query = "UPDATE dean SET DEANName = '$DEANName', DEANNum = '$DEANNumber',Faculty = '$faculty' WHERE DEANNum = '$DEANNumber'";
+    $query = "UPDATE dean SET DEANNum = '$DEANNumber',Faculty = '$faculty' WHERE DEANNum = '$DEANNumber'";
     
     // Check if the connection is successful
     if (!$conn) {
@@ -68,17 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
         <?php } ?>
         <form method="post" class="form-container">
             
+          
             <div class="mb-3">
-                <label for="DEANName" class="form-label">DEAN Name:</label>
-                <input type="text" class="form-control" id="DEANName" name="DEANName" value="<?php echo $DEANName; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="DEANNumber" class="form-label">DEAN Number:</label>
+                <label for="DEANNumber" class="form-label">DEAN'S USERNAME :</label>
                 <input type="text" class="form-control" id="DEANNumber" name="DEANNumber" value="<?php echo $DEANNumber; ?>" required>
             </div>
           
             <div class="mb-3">
-                <label for="faculty" class="form-label">Faculty:</label>
+                <label for="faculty" class="form-label">FACULTY</label>
                 <select class="form-control" id="faculty" name="faculty" required>
                     <option value="">Select Faculty</option>
                     <option value="Technological Studies" <?php if ($faculty === "Technological Studies") echo "selected"; ?>>Technological Studies</option>
