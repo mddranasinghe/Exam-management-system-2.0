@@ -10,7 +10,7 @@ if (isset($_SESSION['regNum'])) {
   max-width: 650px;
   position: absolute;
   top:280px;
-  margin-left:700px;
+  margin-left:800px;
 
   
 }

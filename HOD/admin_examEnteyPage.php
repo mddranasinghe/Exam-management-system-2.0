@@ -39,7 +39,7 @@ $semester='1st semester';
         </div>
 
         <div class="submit-button">
-            <input class=" btn btn-success m-2 btn-lm" type="submit" name="submit" value="SUBMIT"  style="width: auto;">
+            <input class=" btn btn-success m-2 btn-lm" type="submit" name="submit" value="FILTER"  style="width: auto;">
         </div>
     </form>
 </div>

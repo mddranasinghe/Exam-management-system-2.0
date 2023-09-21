@@ -25,7 +25,7 @@ include 'db_connection.php';
         width: auto;
         margin: 0 5px;
         padding: 5px 5px 5px 25px;
-        background-color: white;
+ 
         border-radius: 12px;
         border: 1px solid #000;
         display: flex;
@@ -48,18 +48,18 @@ include 'db_connection.php';
     }
 </style>
 <form class="topForm" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
-    <select name="faculty" id="facultyDD">
+    <select name="faculty" id="facultyDD" class="form-control col-s m-2 col-form-label" style="width:310px">
         <option value="Technological Studies">Technological Studies</option>
         <option value="Business Studies">Business Studies</option>
         <option value="Applied Science">Applied Science</option>
     </select>
-    <select name="year" id="yearDD">
+    <select name="year" id="yearDD" class="form-control col-s m-2 col-form-label" style="width:310px">
         <option value="1st year">1st year</option>
         <option value="2nd year">2nd year</option>
         <option value="3rd year">3rd year</option>
         <option value="4th year">4th year</option>
     </select>
-    <select name="semester" id="semesterDD">
+    <select name="semester" id="semesterDD" class="form-control col-s m-2 col-form-label" style="width:310px">
         <option value="1st semester">1st semester</option>
         <option value="2nd semester">2nd semester</option>
     </select>
@@ -108,10 +108,10 @@ include 'db_connection.php';
                 if ($data[$value] != null) {
             ?>
                     <tr>
-                        <td class="narrow"><input type="text" name="code<?php echo $data[$key] ?>" id="code <?php echo $data[$key] ?>" value="<?php echo $data[$key] ?>" readonly></td>
-                        <td class="wide"><input type="text" name="subject<?php echo $data[$value] ?>" id="subject <?php echo $data[$value] ?>" value="<?php echo $data[$value] ?>" readonly></td>
+                        <td class="narrow"><input type="text" name="code<?php echo $data[$key] ?>" id="code <?php echo $data[$key] ?>" value="<?php echo $data[$key] ?>" readonly input class="form-control"></td>
+                        <td class="wide"><input type="text" name="subject<?php echo $data[$value] ?>" id="subject <?php echo $data[$value] ?>" value="<?php echo $data[$value] ?>" readonly input class="form-control"></td>
                         <td>
-                            <select name="lecturer<?php echo $data[$value] ?>" id="selectLecturer<?php echo $data[$value] ?>">
+                            <select name="lecturer<?php echo $data[$value] ?>" id="selectLecturer<?php echo $data[$value] ?>"input class="form-control">
                                 <?php
                                 foreach ($lecturers as $key => $value) {
                                 ?>

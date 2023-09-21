@@ -231,7 +231,7 @@ body
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="viewResitList.php" >RESIT</a>
                     
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="LEC.php" >LECTURE</a>
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="asign_lec.php" >ASIGN-LECTURER</a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="asign_lec2.php" >ASIGN-LECTURER</a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="manageSubjects.php" >SUBJECT</a>
                     </div>
                  <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>

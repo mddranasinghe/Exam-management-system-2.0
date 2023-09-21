@@ -137,7 +137,8 @@ include "./Admin_nav.php";
 <div id="addSubjects">
     <form action="./subjectBack.php" method="post">
     <fieldset id="year">
-        <legend>Year</legend>
+    <div class="container p-1 my-2 bg-dark text-white">
+        <h4 style="text-align:center"> Select Year<h4></div>
             <input type="radio" name="year" id="firstY" value="1st year" checked>
             <label for="firstY">First</label>
             <input type="radio" name="year" id="secondY" value="2nd year" >
@@ -148,14 +149,17 @@ include "./Admin_nav.php";
             <label for="fourthY">Fourth</label>        
     </fieldset>
     <fieldset id="semester">
-        <legend>Semester</legend>
+    <div class="container p-1 my-2 bg-dark text-white">
+        <h4 style="text-align:center"> Select Semester<h4></div>
         <input type="radio" name="semester" id="firstS" value="1st semester" checked>
         <label for="firstS">First</label>
         <input type="radio" name="semester" id="secondS" value="2nd semester" >
         <label for="secondS">Second</label>
     </fieldset>
     <fieldset id="faculty">
-        <legend>Faculty</legend>
+    <div class="container p-1 my-2 bg-dark text-white">
+        <h4 style="text-align:center"> Select Faculty<h4></div>
+        
         <input type="radio" name="faculty" id="FAS" value="Applied science" checked>
         <label for="FAS">Faculty of Applied Science</label>
         <input type="radio" name="faculty" id="FBS" value="Business studies" >
@@ -164,19 +168,21 @@ include "./Admin_nav.php";
         <label for="FTS">Faculty of Technological Studies</label>
     </fieldset>
     <fieldset id="coursesAmount">
-        <legend>Select Course Amount and Types</legend>
+    <div class="container p-1 my-2 bg-dark text-white">
+        <h4 style="text-align:center">Select Course Amount and Types<h4></div>
         <div class="flexCol">
-            <label for="properAmount">Proper Subject Amount:<input type="number" name="properAmount" id="properAmount" max="10" min="0" required ></label>
+            <label for="properAmount">Proper Subject Amount:<input type="number"  name="properAmount" id="properAmount" max="10" min="0" required ></label>
             <label for="courseCodeLetters">Course Code Start:<input type="text" id="courseCodeLetters" name="courseCodeLetters" placeholder="Ex: TICT" required ></label>
             <label for="auxAmount">Auxilary Subject Amount:<input type="number" name="auxAmount" id="auxAmount" max="5" min="0" required ></label>
             <div class="combineElements">
-                <input type="button" value="Select" onclick="generateForm()">
-                <input type="button" value="Reset" onclick="clearForm()">
+                <input type="button" value="Select" class="btn btn-success"onclick="generateForm()">
+                <input type="button" value="Reset" class="btn btn-danger"onclick="clearForm()">
             </div>
         </div>
     </fieldset>
     <fieldset>
-        <legend>Courses</legend>
+    <div class="container p-1 my-2 bg-dark text-white">
+        <h4 style="text-align:center"> Assign Courses <h4></div>
         <div id="courseDetails" class="flexCol"></div>
     </fieldset>
     <fieldset>
@@ -184,7 +190,7 @@ include "./Admin_nav.php";
             <input type="checkbox" name="overWrite" id="overWriteChb" unchecked>
             <label for="overWriteChb">Over Write</label>
         </div>
-        <input type="submit" value="SUBMIT" name="submit">
+        <input type="submit" value="SUBMIT"  class="btn btn-primary" name="submit">
     </fieldset>
     </form>
 </div>
