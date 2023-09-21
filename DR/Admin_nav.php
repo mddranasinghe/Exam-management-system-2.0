@@ -225,115 +225,51 @@ body
             }
         }
 
-        #navbarMain{    
-    margin-left:350px
-}
+        /* Add your existing CSS here */
 
-    .hidden{
-            display: none;
-        }
-        .show{
-            display: unset !important;
-        }
-        @media (max-width: 768px) {
-        .ImageStyle {
-            width: 80%; 
-            height: 80%;
-        }
-        .form-inline{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: right;
-        }
-        #main-nav-a{
-            align-self: flex-end;
-        }
-        #dropDownIcon{
-                display: unset !important;
-                align-self: flex-end;
-            }
-        #navBar{
-            display:none;
-            position:absolute;
-            background-color: #350339;
-            right: 0;
-            top:50px;
-            padding: 5px;
-        }
-        #navbarMain{
-            margin:auto;
-        }
+        /* Mobile-first styles */
+        body {
+            background-color: #e4bfe2;
         }
 
-        
-        @media (max-width: 480px) {
-        .ImageStyle {
-            width: 100%; 
-            height: auto;
+        .topic {
+            font-size: 28px;
+            margin-top: 10px;
         }
-        #logo-img{
-            padding:10px 10px;
+
+        .tpic {
+            width: 90%;
+            margin: 20px auto;
         }
-        #dropDownIcon{
-                display: unset !important;
+
+        /* Add more responsive styles here using media queries */
+
+        /* For tablets and larger screens */
+        @media (min-width: 768px) {
+            .topic {
+                font-size: 32px;
             }
-        #navBar{
-            display:none;
-            position:absolute;
-            background-color: #350339;
-            right: 0;
-            top:50px;
-            padding: 5px;
-        }
-        #navbarMain{
-            margin-left:0;
-        }
-        .home_full{
-            display: flex;
-            flex-direction: column;
-            
-        }
-        .N_box{
-            width: 80vw;
-            margin :auto;
-        }
-        }
-       @media only screen and (min-width: 769px) {
-        #dropDownIcon{
-                display: none;
+
+            .tpic {
+                width: 70%;
+                margin: 30px auto;
             }
-        /* #navbar{
-            display: flex !important;
-        } */
-        .show{
-            display: flex !important;
         }
-        .home_full{
-            display: flex;
-            flex-direction: column;
+
+        /* For laptops and larger screens */
+        @media (min-width: 1024px) {
+            .topic {
+                font-size: 40px;
+            }
+
+            .tpic {
+                width: 50%;
+                margin: 50px auto;
+            }
         }
-    }
-        @media (max-width: 480px) {
-        .ImageStyle {
-            width: 100%; 
-            height: auto;
-        }
-        
-        
-       }
-       
-       @media (max-width: 765px) {
-        .ImageStyle {
-            width: 100%; 
-            height: auto;
-        }
-        .N_box{
-            width: 78vw;
-            margin :auto;
-        }
-        
-       }
+
+
+
     </style>
 
   
@@ -352,7 +288,7 @@ body
                     <div class="cleaner"></div>
                     <div class="navbar-brand-wpz">
                         <a href="https://vau.ac.lk/" class="custom-logo-link" rel="home" itemprop="url">
-                            <img class="ImageStyle" id="logo-img" width="600" height="145" src="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png" class="custom-logo" alt="University of Vavuniya" decoding="async" loading="lazy" itemprop="logo" srcset="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png 742w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-300x80.png 300w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-624x166.png 624w" sizes="(max-width: 742px) 100vw, 742px" /></a>
+                            <img id="logo-img" width="600" height="145" src="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png" class="custom-logo" alt="University of Vavuniya" decoding="async" loading="lazy" itemprop="logo" srcset="https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo.png 742w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-300x80.png 300w, https://vau.ac.lk/wp-content/uploads/2021/07/cropped-UoV_Logo-624x166.png 624w" sizes="(max-width: 742px) 100vw, 742px" /></a>
                         <p class="tagline"></p>
 
                     </div><!-- .navbar-brand -->
@@ -368,29 +304,22 @@ body
         <div class="navbar-header-main">
             <nav id="main-navbar" class="main-navbar">
             <form class="form-inline justify-content-between" >
-            <i class="fa fa-list hidden" id="dropDownIcon" onclick="dorpDown()"></i>
-
-                    <div class="form-inline"  id="navBar">
+                    <div class="form-inline">
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="Admin_home.php">HOME</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="admin_examEnteyPage.php">EXAM-ENTRY</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="viewResitList.php" >RESIT</a>
-                    
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="student.php" >STUDENTS</a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="HOD.php" >HOD</a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="den.php" >DEAN</a>
-                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="about.php">ABOUT</a>
+                    
                     </div>
                         <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>
                     <a class="nav-link" id="main-nav-a" href="#">ACADEMIC <i class="fa-solid fa-caret-down"></i></a>-->
                
 
                    
-
-                    <div class="form-inline right"   id="navbarMain">
-
-                  
-
+                    <div class="form-inline right" style="margin-left:100px">
                     <?php
             if(isset($_SESSION['regNum'])){
                 ?>
@@ -411,6 +340,9 @@ body
                 </form>
             </nav>
         </div>
-        <!-- end #main-menu -->
+     
     </div>
+
+        
+
 </html>

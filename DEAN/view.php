@@ -3,8 +3,9 @@
     include "db_connection.php";
 
         $Registration_No = $_GET['Registration_No'];
-        $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
-        $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+        $Name_of_the_examination=$_SESSION['Name_of_the_examination'];
+        $sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'";
+        $sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'";
 
         $res = mysqli_query($conn, $sql);
         $res2 = mysqli_query($conn, $sql2);
@@ -111,7 +112,15 @@
                                         </div><br>
 
                                         <div>
-                                            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                            <label for="Index_Number" class="col-sm-2 col-form-label">Index Number
+                                                </label>
+                                            <input type="text" class="form-control" name="Index_Number"
+                                                id="Index_Number" placeholder="Index_Number"
+                                                style="width: 700px; height: 35px;"
+                                                value="<?php echo $row['INnum']; ?>">
+                                        </div><br>
+                                        <div>
+                                            <label for="gender" class="col-sm-2 col-form-label">Title</label>
 
                                             <input type="text" name="gender" id="gender" placeholder="Gender"
                                                 style="width: 700px; height: 35px;" class="form-control"
@@ -208,7 +217,7 @@
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 20%;">APPROVE OF DEAN</th>
+                                            <th style="width: 20%;">APPROVAL OF DEAN</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -270,7 +279,7 @@
 
                                         <div style="margin-left:50%">
                                             <button type="button" class="btn btn-success" id="recommendButton">Approved</button>
-                                            <button type="button" class="btn btn-danger" id="notRecommendButton">Not Approved</button>
+                                           <!-- <button type="button" class="btn btn-danger" id="notRecommendButton">Not Approved</button>-->
                                         </div>
 
                                         <div>

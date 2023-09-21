@@ -8,8 +8,9 @@ include('./Admin_nav.php');
 include "db_connection.php";
 
 $Registration_No = $_GET['Registration_No'];
-$sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'";
-$sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'";
+$Name_of_the_examination=$_SESSION['Name_of_the_examination'];
+$sql = "SELECT * FROM examenrty WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'";
+$sql2 = "SELECT * FROM approve_state WHERE Registration_No='$Registration_No'AND Name_of_the_examination='$Name_of_the_examination'";
 
 $res = mysqli_query($conn, $sql);
 $res2 = mysqli_query($conn, $sql2);
@@ -65,6 +66,15 @@ if (mysqli_num_rows($res2) > 0) {
                                         <label for="Registration_No" class="col-sm-2 col-form-label">Registration No</label>
                                         <input type="text" class="form-control" name="Registration_No" id="Registration_No" placeholder="Registration No" style="width: 700px; height: 35px;" value="<?php echo $row['Registration_No']; ?>">
                                     </div><br>
+
+                                    <div>
+                                            <label for="Index_Number" class="col-sm-2 col-form-label">Index Number
+                                                </label>
+                                            <input type="text" class="form-control" name="Index_Number"
+                                                id="Index_Number" placeholder="Index_Number"
+                                                style="width: 700px; height: 35px;"
+                                                value="<?php echo $row['INnum']; ?>">
+                                        </div><br>
 
                                     <div>
                                         <label for="gender" class="col-sm-2 col-form-label">Title</label>
@@ -190,7 +200,7 @@ if (mysqli_num_rows($res2) > 0) {
                         </div>
                                 <p style="margin-left:790px">
                                     <a href="admin_examEnteyPage.php" class="btn btn-danger m-2">GO BACK</a>
-                                    <button type="button" onclick="generatePDF('pdf-content'),hideNavbarAndDownload()"class="btn btn-info m-2">DOWNLOAD</button>
+                                   <?php echo"<a class='btn btn-primary btn-sm' href='./printPage.php?Registration_No=$Registration_No'>DOWNLOAD</a>"?>
                                 </p>
                             </body>
                         </div>
@@ -212,34 +222,8 @@ if (mysqli_num_rows($res2) > 0) {
                         }
                     </script>
 
-                    <script>
-                        function generatePDF() 
-                            {
-                                const style = `
-                                    @page {
-                                        size: A4;
-                                        margin: 0;
-                                    }
-                                    html, body {
-                                        width: 210mm;
-                                        height: 297mm;
-                                        margin: 0;
-                                        padding: 0;
-                                    }
-                                `;
-                                const head = document.head || document.getElementsByTagName('head')[0];
-                                const styleElement = document.createElement('style');
-                                styleElement.type = 'text/css';
-                                styleElement.appendChild(document.createTextNode(style));
-                                head.appendChild(styleElement);
-
-                                setTimeout(()=>{window.print()},2000);
-                                    
-                                    head.removeChild(styleElement);
-                            }
-                    </script>
-
-                    
+                   
+     
                 </div>
             </div>
         </section>

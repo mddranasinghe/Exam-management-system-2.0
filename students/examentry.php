@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
  
 
-    $stmt = $conn->prepare("SELECT gender,Name_with_initials, Name_denoted_by_initial, Address,Mobile_Phone_no,Date_of_admission  FROM students WHERE  Registration_No= ?");
+    $stmt = $conn->prepare("SELECT INnum, gender,Name_with_initials, Name_denoted_by_initial, Address,Mobile_Phone_no,Date_of_admission  FROM students WHERE  Registration_No= ?");
     $stmt->bind_param("s", $Registration_No);
     $stmt->execute();
     
@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $INnum=$row["INnum"];
         $gender = $row["gender"];
         $Name_with_initials = $row["Name_with_initials"];
         $Name_denoted_by_initial = $row["Name_denoted_by_initial"];
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Date_of_admission = $row["Date_of_admission"];
        
     } else {
-    
+        $INnum = "";
         $gender = "";
         $Name_with_initials = "";
         $Name_denoted_by_initial = "";
@@ -40,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
 
     $Registration_No = "";
+    $INnum = "";
     $gender = "";
     $Name_with_initials = "";
     $Name_denoted_by_initial = "";
@@ -211,24 +213,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             
         }
-        .Full-form{
+        .sec{
            
             width: 100%;
             height: 100%;
             margin-top:-40px; 
-            
-        }
-        .Full-form{
-
-            width:100%;
-            height:100%;
-            /* background-color:#white; */
-            background-color:#e4bfe2;
-            margin-left:30px;
-            margin-top:0px;
-        }
-
-        body{
             background-color:#e4bfe2;
         }
 
@@ -240,11 +229,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             height:70px;
             margin-top:30px;
             margin-left:50%;
-            
+        
         }
-        .box1{
-            background-color:#e4bfe2;
-        }
+
         .box2 
         {
             border-color:black;
@@ -261,12 +248,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        table{
         text-align:left;
         width:1000px;
-              
+
+       
        }
-       .sec{
-            width: 90%;
-            height: 35px;
-        } 
        tr{
         width:600px;
 
@@ -276,14 +260,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        td {
   text-align: left;
 }
-    @media (max-width: 768px){
-        .formText{
-            width: 98%;
-        }
-    }    
 
-       
-    </style>	
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+
+
+ 
   
 </head>
 <body>
@@ -293,12 +279,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="sec">
 			
 			
-        <div class="Full-form"> 
-
+        <div style="width:1200px;height:100%;margin:auto;"> 
                         <div class ="box1">   
-				
+				<div class ="box1">
                     <img src="n.png" style="float:center;">
-                
+                </div>
 
 
                 
@@ -322,77 +307,73 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form>
                          
                         <div >
-
                         <label for="Registration_No" class="col-sm-3 col-form-label">1. Registration No </label>
-                        <input type="text"class="form-control formText" name="Registration_No" id="Registration_No"placeholder="Registration No" value="<?php echo htmlspecialchars($Registration_No); ?>">
-
+                        <input type="text"class="form-control " name="Registration_No" id="Registration_No"placeholder="Registration No" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Registration_No); ?>" readonly>
          
                         </div><br>
 
-                       
                         <div>
+                                            <label for="Index_Number" class="col-sm-3 col-form-label">2. Index Number
+                                                </label>
+                                            <input type="text" class="form-control" name="Index_Number"
+                                                id="Index_Number" placeholder="Index_Number"
+                                                style="width: 700px; height: 35px;"
+                                                value="<?php echo htmlspecialchars($INnum); ?>">
+                                        </div><br>
 
-                        <label for="gender"class="col-sm-3 col-form-label">2.Gender &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
-                        <input type="text" name="gender"id="gender" placeholder="gender" class="form-control formText" value="<?php echo htmlspecialchars($gender); ?>">
-
+                        <div>
+                        <label for="gender"class="col-sm-3 col-form-label">3. Title &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                        <input type="text" name="gender"id="gender" placeholder="gender"style="width: 700px;height: 35px;" class="form-control " value="<?php echo htmlspecialchars($gender); ?>">
 </div><br>
 <div>
-                        <label for="Name_with_initials" class="col-sm-3 col-form-label">3.Name with initials </label>
+                        <label for="Name_with_initials" class="col-sm-3 col-form-label">4. Name with initials </label>
  
-                    <input type="text" name="Name_with_initials"id="Name_with_initials" placeholder="Name with initials" class="form-control formText"value="<?php echo htmlspecialchars($Name_with_initials); ?>">
+                    <input type="text" name="Name_with_initials"id="Name_with_initials" placeholder="Name with initials"style="width: 700px;height: 35px;" class="form-control "value="<?php echo htmlspecialchars($Name_with_initials); ?>">
                         </div><br>
 
                         <div>
-                        <label for="Name_denoted_by_initial"class="col-sm-3 col-form-label">4. Name denoted by initial &nbsp &nbsp  &nbsp</label>
-                        <input  type="text" name="Name_denoted_by_initial"id="Name_denoted_by_initial" placeholder="Name denoted by initial" class="form-control formText"value="<?php echo htmlspecialchars($Name_denoted_by_initial); ?>">
+                        <label for="Name_denoted_by_initial"class="col-sm-3 col-form-label">5. Name denoted by initial &nbsp &nbsp  &nbsp</label>
+                        <input  type="text" name="Name_denoted_by_initial"id="Name_denoted_by_initial" placeholder="Name denoted by initial"style="width: 700px;height: 35px;" class="form-control "value="<?php echo htmlspecialchars($Name_denoted_by_initial); ?>">
                         </div>  <br>
                     
 
                         <div>
-                        <label for="Address(Present)"class="col-sm-3 col-form-label">5. Address(Present) &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp</label>
-                        <input  type="text" name="Address" id="Address" placeholder="Address(Present)"  class="form-control formText"value="<?php echo htmlspecialchars($Address); ?>">
+                        <label for="Address(Present)"class="col-sm-3 col-form-label">6. Address(Present) &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp</label>
+                        <input  type="text" name="Address" id="Address" placeholder="Address(Present)"style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Address); ?>">
                         </div>  <br>
                     
                         <div>
-                        <label for="Mobile_Phone_no"class="col-sm-3 col-form-label">6. Mobile Phone no &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
-                        <input type="text" name="Mobile_Phone_no"  id="Mobile_Phone_no" placeholder="Mobile Phone no" class="form-control formText"value="<?php echo htmlspecialchars($Mobile_Phone_no); ?>">
+                        <label for="Mobile_Phone_no"class="col-sm-3 col-form-label">7. Mobile Phone no &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
+                        <input type="text" name="Mobile_Phone_no"  id="Mobile_Phone_no" placeholder="Mobile Phone no" style="width: 700px;height: 35px;" class="form-control "value="<?php echo htmlspecialchars($Mobile_Phone_no); ?>">
                         </div><br>
 
                      
                         <div>
-                        <label for="Date_of_admission"class="col-sm-3 col-form-label">7. Date of admission &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
-                        <input type="text" name="Date_of_admission" placeholder="Date of admission"  class="form-control formText"value="<?php echo htmlspecialchars($Date_of_admission); ?>">
+                        <label for="Date_of_admission"class="col-sm-3 col-form-label">8. Date of admission &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <input type="text" name="Date_of_admission" placeholder="Date of admission" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Date_of_admission); ?>">
                         </div><br>
 
                         <div>
-
-                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">7.Name of the examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
-                        <input type="text" name="Name_of_the_examination" placeholder="Name ofthe examination"  class="form-control formText"value="<?php echo htmlspecialchars($Name_of_the_examination); ?>">
-
-                        </div><br>
-
-
-                        <div>
-
-                        <label for="Faculty"class="col-sm-3 col-form-label">7.Faculty&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
-                        <input type="text" name="faculty" placeholder="Faculty"  class="form-control formText"value="<?php echo htmlspecialchars($faculty); ?>">
-
+                        <label for="Name_of_the_examination"class="col-sm-3 col-form-label">9. Name of the examination&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <input type="text" name="Name_of_the_examination" placeholder="Name ofthe examination" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($Name_of_the_examination); ?>">
                         </div><br>
 
 
                         <div>
-
-                        <label for="year"class="col-sm-3 col-form-label">7.Year &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
-                        <input type="text" name="year" placeholder="year"  class="form-control formText"value="<?php echo htmlspecialchars($year); ?>">
-
+                        <label for="Faculty"class="col-sm-3 col-form-label">10. Faculty&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <input type="text" name="faculty" placeholder="Faculty" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($faculty); ?>">
                         </div><br>
 
 
                         <div>
+                        <label for="year"class="col-sm-3 col-form-label">11. Year &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <input type="text" name="year" placeholder="year" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($year); ?>">
+                        </div><br>
 
-                        <label for="semester"class="col-sm-3 col-form-label">7.Semester &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
-                        <input type="text" name="semester" placeholder="semester"  class="form-control formText"value="<?php echo htmlspecialchars($semester); ?>">
 
+                        <div>
+                        <label for="semester"class="col-sm-3 col-form-label">12. Semester &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp</label>
+                        <input type="text" name="semester" placeholder="semester" style="width: 700px;height: 35px;"  class="form-control "value="<?php echo htmlspecialchars($semester); ?>">
                         </div><br>
 
 
@@ -409,133 +390,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <tr>
                                 <td><input class="form-control " type="text" name="course_code_1"   value="<?php echo htmlspecialchars($course_code_1); ?>"></td>
                                 <td><input class="form-control "type="text" name="subject_name_1"  value="<?php echo htmlspecialchars($subject_name_1); ?>" ></td>
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
             
                             </tr>
                             <tr>
                                 <td><input class="form-control "type="text" name="course_code_2"  value="<?php echo htmlspecialchars($course_code_2); ?>" ></td>
                                 <td><input class="form-control "type="text" name="subject_name_2" value="<?php echo htmlspecialchars($subject_name_2); ?>" ></td>
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
             
                             </tr>
                             <tr>
                                 <td><input class="form-control "type="text" name="course_code_3"  value="<?php echo htmlspecialchars($course_code_3); ?>" ></td>
                                 <td><input class="form-control "type="text" name="subject_name_3"  value="<?php echo htmlspecialchars($subject_name_3); ?>" ></td>
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
             
                             </tr>
                             <tr>
                                 <td><input class="form-control "type="text" name="course_code_4"  value="<?php echo htmlspecialchars($course_code_4); ?>"></td>
                                 <td><input class="form-control "type="text" name="subject_name_4" value="<?php echo htmlspecialchars($subject_name_4); ?>"  ></td>
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
             
                             </tr>
                             <tr>
                                 <td><input class="form-control "type="text" name="course_code_5"   value="<?php echo htmlspecialchars($course_code_5); ?>"></td>
                                 <td><input class="form-control "type="text" name="subject_name_5" value="<?php echo htmlspecialchars($subject_name_5); ?>"  ></td>
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
             
                             </tr>
                             <tr>
                                 <td><input class="form-control " type="text" name="course_code_6"   value="<?php echo htmlspecialchars($course_code_6); ?>"></td>
                                 <td><input class="form-control "type="text" name="subject_name_6"  value="<?php echo htmlspecialchars($subject_name_6); ?>" ></td>
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
                             </tr>
                             <tr>
                                 <td><input class="form-control "type="text" name="course_code_7"   value="<?php echo htmlspecialchars($course_code_7); ?>"></td>
                                 <td><input class="form-control "type="text" name="subject_name_7"  value="<?php echo htmlspecialchars($subject_name_7); ?>"  ></td>
-                                <td><button onclick="deleteRow(this)"class="btn btn-info">X</button></td>
             
                             </tr>
-                                         				
-                            <?php
+                                 
+                            
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_8"   value="<?php echo htmlspecialchars($course_code_8); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_8"  value="<?php echo htmlspecialchars($subject_name_8); ?>"  ></td>
+            
+                            </tr>
+ 
+            
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_9"   value="<?php echo htmlspecialchars($course_code_9); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_9"  value="<?php echo htmlspecialchars($subject_name_9); ?>"  ></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_10"   value="<?php echo htmlspecialchars($course_code_10); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_10"  value="<?php echo htmlspecialchars($subject_name_10); ?>"  ></td>
+            
+                            </tr>                       				
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_11"   value="<?php echo htmlspecialchars($course_code_11); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_11"  value="<?php echo htmlspecialchars($subject_name_11); ?>"  ></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_12"   value="<?php echo htmlspecialchars($course_code_12); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_12"  value="<?php echo htmlspecialchars($subject_name_12); ?>"  ></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_13"   value="<?php echo htmlspecialchars($course_code_13); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_13"  value="<?php echo htmlspecialchars($subject_name_13); ?>"  ></td>
+            
+                            </tr>
 
-    if (!empty($course_code_8) || !empty($subject_name_8)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_8" value="' . htmlspecialchars($course_code_8) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_8" value="' . htmlspecialchars($subject_name_8) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>         				
-                            <?php
-
-    if (!empty($course_code_9) || !empty($subject_name_9)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_9" value="' . htmlspecialchars($course_code_9) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_9" value="' . htmlspecialchars($subject_name_9) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>
-                                       				
-                            <?php
-
-    if (!empty($course_code_10) || !empty($subject_name_10)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_10" value="' . htmlspecialchars($course_code_10) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_10" value="' . htmlspecialchars($subject_name_10) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>
-                                            				
-                            <?php
-
-    if (!empty($course_code_11) || !empty($subject_name_11)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_11" value="' . htmlspecialchars($course_code_11) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_11" value="' . htmlspecialchars($subject_name_11) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>
-                                           				
-                            <?php
-
-    if (!empty($course_code_12) || !empty($subject_name_12)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_12" value="' . htmlspecialchars($course_code_12) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_12" value="' . htmlspecialchars($subject_name_12) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>
-                                     				
-                            <?php
-
-    if (!empty($course_code_13) || !empty($subject_name_13)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_13" value="' . htmlspecialchars($course_code_13) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_13" value="' . htmlspecialchars($subject_name_13) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>       				
-                            <?php
-
-    if (!empty($course_code_14) || !empty($subject_name_14)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_14" value="' . htmlspecialchars($course_code_14) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_14" value="' . htmlspecialchars($subject_name_14) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>
-                        				
-                            <?php
-
-    if (!empty($course_code_15) || !empty($subject_name_15)) {
-        echo '<tr>';
-        echo '<td><input class="form-control" type="text" name="course_code_15" value="' . htmlspecialchars($course_code_15) . '"></td>';
-        echo '<td><input class="form-control" type="text" name="subject_name_15" value="' . htmlspecialchars($subject_name_15) . '"></td>';
-        echo '<td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>';
-        echo '</tr>';
-    }
-    ?>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_14"   value="<?php echo htmlspecialchars($course_code_14); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_14"  value="<?php echo htmlspecialchars($subject_name_14); ?>"  ></td>
+            
+                            </tr>
+                            <tr>
+                                <td><input class="form-control "type="text" name="course_code_15"   value="<?php echo htmlspecialchars($course_code_15); ?>"></td>
+                                <td><input class="form-control "type="text" name="subject_name_15"  value="<?php echo htmlspecialchars($subject_name_15); ?>"  ></td>
+            
+                            </tr>
                             </table>
 
-                        <div style="float:right;margin-top:20px;margin-right:50px;">
+                        <div style="float:right;margin-top:20px;margin-right:-20px;">
                         <a href="entryFormget.php"class="btn btn-danger m-2" >GO BACK</a>
                         <input class="btn btn-success m-2"type="submit" name="submit" value="SUBMIT">&nbsp &nbsp &nbsp &nbsp 
 
@@ -548,23 +481,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 				
 				<?php
-
+           
                     if(isset($_POST['submit']))
                     {
+                        
                         $count=0;
-                        $sql="SELECT Registration_No from `examEnrty`";
+                        $sql="SELECT Registration_No,Name_of_the_examination from `examEnrty`";
                         $res=mysqli_query($conn,$sql);
 
                         while($row=mysqli_fetch_assoc($res))
                         {
-                        if($row['Registration_No']==$_POST['Registration_No'])
+                        if($row['Registration_No']==$_POST['Registration_No']&& $row['Name_of_the_examination']==$_POST['Name_of_the_examination'])
                         {
                             $count=$count+1;
                         }
                         }
                         if($count==0)
                         {
+                            
+                            
                         mysqli_query($conn,"INSERT INTO `examEnrty` VALUES(
+                            '$_POST[Index_Number]',
                             '$_POST[faculty]',
                             '$_POST[Name_of_the_examination]',
                             '$_POST[year]', 

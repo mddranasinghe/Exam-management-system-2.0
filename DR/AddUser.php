@@ -3,14 +3,7 @@
     
     include "db_connection.php";
 
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
-    
-    // Include PHPMailer autoload.php
-    require 'path/to/PHPMailer/src/Exception.php';
-    require 'path/to/PHPMailer/src/PHPMailer.php';
-    require 'path/to/PHPMailer/src/SMTP.php';
+   
 
 
     
@@ -25,6 +18,7 @@
 
 
             $regNum = mysqli_real_escape_string($conn, $_POST['regNum']);
+            $INnum = mysqli_real_escape_string($conn, $_POST['INnum']);
             $gender= mysqli_real_escape_string($conn, $_POST['gender']);
             $name = mysqli_real_escape_string($conn, $_POST['name']);
             $initialName = mysqli_real_escape_string($conn, $_POST['initialName']);
@@ -36,30 +30,22 @@
 
             $faculty = mysqli_real_escape_string($conn, $_POST['faculty']);
 
-$sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_denoted_by_initial, password, Date_of_admission,email, Mobile_Phone_no, Address, faculty) VALUES ('$regNum', '$gender', '$name', '$initialName', '$password', '$admissionDate','$email','$phone', '$address', '$faculty')";
+$sql = "INSERT INTO students (Registration_No,INnum, gender, Name_with_initials, Name_denoted_by_initial, password, Date_of_admission,email, Mobile_Phone_no, Address, faculty) VALUES ('$regNum','$INnum' ,'$gender', '$name', '$initialName', '$password', '$admissionDate','$email','$phone', '$address', '$faculty')";
 
 
     
           
     if (mysqli_query($conn, $sql)) {
-      // Insertion successful
-      $successMessage = "STUDENTS information has been saved successfully.";
-      $to = $email;
-      $subject = "Welcome to Our University";
-      $message = "Dear " . $regNum . ",\n\nWelcome to our university. Your email is: " . $email . "\nYour password is: " . $password;
-      $headers = "From: mdinukadulanjana@gmail.com";
-  
-      if (mail($to, $subject, $message, $headers)) {
-          echo "Student added successfully, and email sent!";
-      } else {
-          echo "Student added successfully, but email sending failed.";
+    
+        $successMessage= "Student Added Successfully" . mysqli_error($conn);
       }
-  } else {
+  } 
+  else {
       // Insertion failed
       $errorMessage = "Error: " . mysqli_error($conn);
   }
         }
-    }
+    
 
     // Close the database connection
     $conn->close();
@@ -83,6 +69,9 @@ $sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_
     <label for="regNum" class="col-sm-3 col-form-label">Registration Number:</label>
     <input  class="form-control col-sm-7 col-form-label"  type="text"  placeholder="Registration Number" name="regNum" id="regNum"><br>
 
+    <label for="INnum" class="col-sm-3 col-form-label">Index Number:</label>
+    <input  class="form-control col-sm-7 col-form-label"  type="text"  placeholder="Index Numbetr" name="INnum" id="INnum"><br>
+
     <label for="faculty" class="col-sm-3 col-form-label">Faculty:</label>
                 <select class="form-control col-sm-7 col-form-label" id="faculty" name="faculty" required>
                     <option value="">Select Faculty</option>
@@ -91,12 +80,13 @@ $sql = "INSERT INTO students (Registration_No, gender, Name_with_initials, Name_
                     <option value="Business Studies">Business Studies</option>
                 </select><br>
 
-    <label for=" Name_with_initials"  class="col-sm-2 col-form-label"> Gender  </label></td>
+    <label for=" Name_with_initials"  class="col-sm-2 col-form-label"> Title : </label></td>
   
                                     <select name="gender" id="language"class="form-control col-sm-7 col-form-label">
-                                        <option value="">Select gender</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Male">Male</option>
+                                        <option value="">Select</option>
+                                        <option value="Mr"> Mr.</option>
+                                        <option value="Miss.">Miss.</option>
+                                        <option value="Mrs.">Mrs.</option>
                                       
                                     </select><br>
                                 
