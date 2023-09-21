@@ -164,7 +164,6 @@ include "./Admin_nav.php";
             <label for="secondY">Second</label>
             <input type="radio" name="year" id="thirdY" value="3rd year">
             <label for="thirdY">Third</label>
-<<<<<<< Updated upstream
             <input type="radio" name="year" id="fourthY" value="4th year">
             <label for="fourthY">Fourth</label>
         </fieldset>
@@ -216,59 +215,6 @@ include "./Admin_nav.php";
             </div>
             <input type="submit" value="SUBMIT" class="btn btn-primary" name="submit">
         </fieldset>
-=======
-            <input type="radio" name="year" id="fourthY" value="4th year" >
-            <label for="fourthY">Fourth</label>        
-    </fieldset>
-    <fieldset id="semester">
-    <div class="container p-1 my-2 bg-dark text-white">
-        <h4 style="text-align:center"> Select Semester<h4></div>
-        <input type="radio" name="semester" id="firstS" value="1st semester" checked>
-        <label for="firstS">First</label>
-        <input type="radio" name="semester" id="secondS" value="2nd semester" >
-        <label for="secondS">Second</label>
-    </fieldset>
-    <fieldset id="faculty">
-    <div class="container p-1 my-2 bg-dark text-white">
-        <h4 style="text-align:center"> Select Faculty<h4></div>
-        
-        <input type="radio" name="faculty" id="FTS" value="Technological studies" checked>
-        <label for="FTS" style=margin-top:-10%>Faculty of Technological Studies</label><br>
-        <input type="radio" name="faculty" id="FAS" value="Applied science" >
-        <label for="FAS" style=margin-top:-40%>Faculty of Applied Science</label><br>
-        <input type="radio" name="faculty" id="FBS" value="Business studies" >
-        <label for="FBS" style=margin-top:-10%>Faculty of Business Studies</label><br>
-        
-    </fieldset>
-    <fieldset id="coursesAmount">
-    <div class="container p-1 my-2 bg-dark text-white">
-        <h4 style="text-align:center">Select Course Amount and Types<h4></div>
-        <div class="flexCol" style="width:50%">
-        <table style="width:80%">
-            <tr>
-                <td>
-            <label for="properAmount" >Proper Subject Amount:</td><td><input type="number"  class="form-control"name="properAmount" id="properAmount" max="10" min="0" required ></label></td></tr><tr>
-           <td> <label for="courseCodeLetters">Course Code Start:</td><td><input type="text"  class="form-control"id="courseCodeLetters" name="courseCodeLetters" placeholder="Ex: TICT" required ></label></td></tr><tr>
-           <td> <label for="auxAmount">Auxilary Subject Amount:</td><td><input type="number" class="form-control" name="auxAmount" id="auxAmount" max="5" min="0" required ></label></td></tr></table>
-            <div class="combineElements">
-                <input type="button" value="Select" class="btn btn-success"onclick="generateForm()">
-                <input type="button" value="Reset" class="btn btn-danger"onclick="clearForm()">
-            </div>
-        </div>
-    </fieldset>
-    <fieldset>
-    <div class="container p-1 my-2 bg-dark text-white">
-        <h4 style="text-align:center"> Add Courses <h4></div>
-        <div id="courseDetails" class="flexCol"></div>
-    </fieldset>
-    <fieldset>
-        <div class="combineElements">
-            <input type="checkbox" name="overWrite" id="overWriteChb" unchecked>
-            <label for="overWriteChb">Over Write</label>
-        </div>
-        <input type="submit" value="SUBMIT"  class="btn btn-primary" name="submit">
-    </fieldset>
->>>>>>> Stashed changes
     </form>
 </div>
 <!-- <div id="viewRecentSubjects">

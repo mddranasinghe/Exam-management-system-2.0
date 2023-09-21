@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
 
 
     <div class="container">
-        <h2>View HOD Details</h2>
+        <h2>VIEW DEAN DEATILS</h2>
         <?php if (!empty($errorMessage)) { ?>
             <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
         <?php } ?>
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
        
         
             <tr>
-                <th>DEAN'S USERNAME</th>
+                <th>DEAN USERNAME</th>
                 <td><?php echo $DEANNumber; ?></td>
             </tr>
     

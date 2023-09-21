@@ -15,11 +15,7 @@ if (isset($_POST['DEANsubmit'])) {
     $password=$_POST['password'];
 
     // Perform database query to insert DEAN information
-<<<<<<< Updated upstream
-    $query = "INSERT INTO dean (DEANNum,  Faculty, Email, contactno,passwordS) VALUES ('$DEANNum',  '$faculty', '$email', '$contactNo',' $password')";
-=======
     $query = "INSERT INTO dean (DEANNum, Faculty, Email, contactno,passwordS) VALUES ('$DEANNum', '$faculty', '$email', '$contactNo',' $password')";
->>>>>>> Stashed changes
 
     if (mysqli_query($conn, $query)) {
         // Insertion successful
@@ -62,11 +58,7 @@ if (isset($_POST['DEANsubmit'])) {
         <label for="email"class="col-sm-3 col-form-label">EMAIL:</label>
         <input type="email" class="form-control col-sm-7 col-form-label"id="email" name="email" required placeholder="exmple@vau.ac.lk"style=margin-top:1%><br>
 
-<<<<<<< Updated upstream
-        <label for="password" class="col-sm-2 col-form-label">Password:</label>
-=======
         <label for="password" class="col-sm-2 col-form-label">Password :</label>
->>>>>>> Stashed changes
 <input class="form-control col-sm-7 col-form-label"type="password" name="password" placeholder="Password" id="password" required="" style=margin-top:1%><br>
  
        

@@ -74,11 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
             </div>
           
             <div class="mb-3">
-<<<<<<< Updated upstream
                 <label for="faculty" class="form-label">FACULTY</label>
-=======
-                <label for="faculty" class="form-label">FACULTY :</label>
->>>>>>> Stashed changes
                 <select class="form-control" id="faculty" name="faculty" required>
                     <option value="">Select Faculty</option>
                     <option value="Technological Studies" <?php if ($faculty === "Technological Studies") echo "selected"; ?>>Technological Studies</option>

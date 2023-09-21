@@ -16,11 +16,7 @@ if (isset($_POST['HODsubmit'])) {
     $password=$_POST['password'];
 
     // Perform database query to insert HOD information
-<<<<<<< Updated upstream
-    $query = "INSERT INTO hod (HODNum,department, Faculty, Email, contactno,passwordS) VALUES ('$hodNum', '$hodDEP', '$faculty', '$email', '$contactNo',' $password')";
-=======
     $query = "INSERT INTO hod (HODNum, department, Faculty, Email, contactno,passwordS) VALUES ('$hodNum', '$hodDEP', '$faculty', '$email', '$contactNo',' $password')";
->>>>>>> Stashed changes
 
     if (mysqli_query($conn, $query)) {
         // Insertion successful
@@ -38,7 +34,7 @@ if (isset($_POST['HODsubmit'])) {
 
 <div class="container p-3 my-3 bg-light text-dark">
 <div class="container p-1 my-2 bg-dark text-white">
-   <h2 style="text-align:center">ADD HEAD'S DETAILS</h2></div>
+   <h2 style="text-align:center">ADD HOD DETAILS</h2></div>
    
    <?php if (!empty($successMessage)) { ?>
     
@@ -49,14 +45,13 @@ if (isset($_POST['HODsubmit'])) {
             <?php } ?><div class="Add_user_form">
  <form name="login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
-        <label for="hodNum" class="col-sm-5 col-form-label">HEAD'S USERNAME :</label>
+        <label for="hodNum" class="col-sm-5 col-form-label">HOD USERNAME :</label>
         <input type="text"  class="form-control col-sm-7 col-form-label" id="hodNum" name="hodNum" required style=margin-top:1%><br>
       
-<<<<<<< Updated upstream
     
-        <label for="hodDEP" class="col-sm-3 col-form-label">HEAD'S DEPARMNT :</label><br>
+        <label for="hodDEP" class="col-sm-3 col-form-label">HOD DEPARMENT :</label><br>
         <select  id="hodDEP" name="hodDEP" required class="form-control col-sm-7 col-form-label" style=margin-top:1%>
-            <option value="">SELECT DEPARMNT</option>
+            <option value="">SELECT DEPARMENT</option>
             <option value="Business Economics">Business Economics</option>
             <option value="English Language Teaching">English Language Teaching</option>
             <option value="Finance and Accountancy">Finance and Accountancy</option>
@@ -70,12 +65,6 @@ if (isset($_POST['HODsubmit'])) {
            
         </select><br>
 
-=======
-        <label for="hodDEP" class="col-sm-5 col-form-label">HEAD'S DEPARMENT :</label>
-        <input type="text"  class="form-control col-sm-7 col-form-label" id="hodDEP" name="hodDEP" required style=margin-top:1%><br>
-      
-
->>>>>>> Stashed changes
         <label for="faculty" class="col-sm-3 col-form-label">FACULTY :</label><br>
         <select  id="faculty" name="faculty" required class="form-control col-sm-7 col-form-label" style=margin-top:1%>
             <option value="">Select Faculty</option>
@@ -91,11 +80,7 @@ if (isset($_POST['HODsubmit'])) {
 <input class="form-control col-sm-7 col-form-label"type="password" name="password" placeholder="Password" id="password" required="" style=margin-top:1%><br>
  
        
-<<<<<<< Updated upstream
-        <label for="contactNo"class="col-sm-3 col-form-label">CONTACT:</label>
-=======
         <label for="contactNo"class="col-sm-3 col-form-label">CONTACT NUMBER :</label>
->>>>>>> Stashed changes
         <input type="text" class="form-control col-sm-7 col-form-label" id="contactNo" name="contactNo" required placeholder="071xxxxxx2" style=margin-top:1%><br>
 
         <button type="submit" name="HODsubmit" class="btn btn-success submit-btn" >SUBMIT</button>

@@ -39,11 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
        
          
             <tr>
-                <th>HEAD'S USERNAMEr</th>
+                <th>HOD USERNAME</th>
                 <td><?php echo $hodNumber; ?></td>
             </tr>
             <tr>
-                <th>DEPARTMNT</th>
+                <th>DEPARTMENT</th>
                 <td><?php echo $department; ?></td>
             </tr>
             <tr>
