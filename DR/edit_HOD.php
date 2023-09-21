@@ -25,7 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
+<<<<<<< Updated upstream
         $department = $row['department'];
+=======
+        $hodName = $row[''];
+>>>>>>> Stashed changes
         $hodNumber = $row['HODNum'];
         $faculty = $row['Faculty'];
     } else {

@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
   } 
   else if ($role == 'Lecturer'){ 
 
-	$sql1 = "SELECT * FROM Lec WHERE LECNum='$regnum' AND Password=$password";
+	$sql1 = "SELECT * FROM lec WHERE LECNum='$regnum' AND Password=$password";
 	$result1= mysqli_query($conn, $sql1);
 	if(mysqli_num_rows($result1)>0){
 		

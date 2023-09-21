@@ -230,9 +230,9 @@ body
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="viewResitList.php" >RESIT</a>
                     
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="LEC.php" >LECTURE</a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="LEC.php" >LECTURER</a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="asign_lec2.php" >ASIGN-LECTURER</a>
-                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="manageSubjects.php" >SUBJECT</a>
+                        <a  class="nav-link active" id="main-nav-a" aria-current="page" href="manageSubjects.php" >ADD-COURSES</a>
                     </div>
                  <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>
                     <a class="nav-link" id="main-nav-a" href="#">ACADEMIC <i class="fa-solid fa-caret-down"></i></a>-->
@@ -245,7 +245,7 @@ body
                
                         <h4  style="color:#fcb900">HEAD-<?php echo $_SESSION['regNum']; ?></h4>
 
-                        <a class="nav-link active " id="main-nav-a" aria-current="page" href="../logout.php" style="margin-left:100px">LOGOUT</a>
+                        <a class="nav-link active " id="main-nav-a" aria-current="page" href="../logout.php" style="margin-left:50px">LOGOUT</a>
          <?php } ?>
                     
         <?php
@@ -266,7 +266,5 @@ body
     </div>
 
         
-<footer class=" fixed-bottom" >
-            <p class="text-center fw-bold" style="color:white">Copyright © 2023 University of Vavuniya</p>
-        </footer>
+
 </html>

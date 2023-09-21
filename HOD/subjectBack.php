@@ -127,6 +127,8 @@ switch ($_POST['semester']) {
     }
     }
     ?>
+    
+
             <script> location.replace("./manageSubjects.php"); </script>
     <?php
     // while ($data=mysqli_fetch_assoc($result)) {
