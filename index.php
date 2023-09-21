@@ -65,7 +65,7 @@
         </header>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand mx-auto" href="#">LOGIN</a>
+        <a class="navbar-brand mx-auto" href="#">EXAMINATION INFORMATION SYSTEM</a>
     </nav>
     <div style="margin-top:-120px">
     <div class="container d-flex justify-content-center align-items-center"
@@ -90,7 +90,7 @@
                     id="password">
             </div>
             <div class="mb-1">
-                <label class="form-label">Role:</label>
+                <label class="form-label">Role</label>
             </div>
             <select class="form-select mb-3"
                     name="role" 
@@ -106,7 +106,7 @@
 
             </select>
             <button type="submit" 
-                    class="btn btn-primary d-block mx-auto" name="submit">LOGIN</button>
+                    class="btn d-block mx-auto" name="submit" style="background-color:#4b0150; color:white">LOGIN</button>
         </form>
     </div>
 

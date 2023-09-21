@@ -301,5 +301,8 @@ if (isset($_SESSION['regNum'])) {
     
     </form>
             </div>
+
+                
+
             <?php
         }?>

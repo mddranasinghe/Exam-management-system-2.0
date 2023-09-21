@@ -262,6 +262,11 @@ body
                 </form>
             </nav>
         </div>
-        <!-- end #main-menu -->
+     
     </div>
+
+        
+<footer class=" fixed-bottom" >
+            <p class="text-center fw-bold" style="color:white">Copyright © 2023 University of Vavuniya</p>
+        </footer>
 </html>
