@@ -280,7 +280,7 @@ include "db_connection.php";
                                         <!-- Your existing form fields and buttons go here -->
                                         <!-- ... -->
 
-                                        <div style="margin-left:50%">
+                                        <div style="margin-left:72%">
                                             <button type="button" class="btn btn-success" id="recommendButton">Recommend</button>
                                            <!-- <button type="button" class="btn btn-danger" id="notRecommendButton">Not Recommend</button>-->
                                         </div>

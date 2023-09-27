@@ -31,9 +31,8 @@ include "db_connection.php";
                                     <option value="Second Year Second Semester Examination In Information Communication Technology">Second Year Second Semester Examination In Information Communication Technology</option>
                                     <option value="Third Year First Semester Examination In Information Communication Technology">Third Year First Semester Examination In Information Communication Technology</option>
                                     <option value="Third Year Second Semester Examination In Information Communication Technology">Third Year Second Semester Examination In Information Communication Technology</option>
-                                    <option value="Forth Year First Semester Examination In Information Communication Technology">Fourth Year First Semester Examination In Information Communication Technology</option>
-                                   
-                                    <option value="Forth Year Second Semester Examination In Applied Science">Fourth Year Second Semester Examination In Applied Science</option>
+                                    <option value="Forth Year Second Semester Examination In Information Communication Technology">Fourth Year Second Semester Examination In Information Communication Technology</option>
+                                    
                                     <option value="First Year First Semester Examination In Applied Science">First Year First Semester Examination In Applied Science</option>
                                     <option value="First Year Second Semester Examination In Applied Science">First Year Second Semester Examination In Applied Science</option>
                                     <option value="Second Year First Semester Examination In Applied Science">Second Year First Semester Examination In Applied Science</option>
@@ -41,7 +40,14 @@ include "db_connection.php";
                                     <option value="Third Year First Semester Examination In Applied Science">Third Year First Semester Examination In Applied Science</option>
                                     <option value="Third Year Second Semester Examination In Applied Science">Third Year Second Semester Examination In Applied Science</option>
                                     <option value="Forth Year First Semester Examination In Applied Science">Fourth Year First Semester Examination In Applied Science</option>
-                                    <option value="Forth Year Second Semester Examination In Applied Science">Fourth Year Second Semester Examination In Applied Science</option>
+                              
+                                    <option value="First Year First Semester Examination In Business Studies">First Year First Semester Examination In Business Studies</option>
+                                    <option value="First Year Second Semester Examination In Business Studies">First Year Second Semester Examination In Business Studies</option>
+                                    <option value="Second Year First Semester Examination In Business Studies">Second Year First Semester Examination In Business Studies</option>
+                                    <option value="Second Year Second Semester Examination In Business Studies">Second Year Second Semester Examination In Business Studies</option>
+                                    <option value="Third Year First Semester Examination In Business Studies">Third Year First Semester Examination In Business Studies</option>
+                                    <option value="Third Year Second Semester Examination In Business Studies">Third Year Second Semester Examination In Business Studies</option>
+                                    <option value="Forth Year First Semester Examination In Business Studies">Fourth Year First Semester Examination In Business Studies</option>
                                 </select>
                      
   

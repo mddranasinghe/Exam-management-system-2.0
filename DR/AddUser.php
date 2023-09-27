@@ -3,7 +3,13 @@
     
     include "db_connection.php";
 
-   
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    require './PHPMailer-master/src/Exception.php';
+    require './PHPMailer-master/src/PHPMailer.php';
+    require './PHPMailer-master\src\SMTP.php';
 
 
     
@@ -36,13 +42,53 @@ $sql = "INSERT INTO students (Registration_No,INnum, gender, Name_with_initials,
     
           
     if (mysqli_query($conn, $sql)) {
+
+
+
+        $mail = new PHPMailer(true);
+
+        try {
+           
+           // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                   
+            $mail->isSMTP();                                           
+            $mail->Host       = 'smtp.gmail.com';                   
+            $mail->SMTPAuth   = true;                                   
+            $mail->Username   = 'mdinukadulanjana@gmail.com';                    
+            $mail->Password   = 'bkjkeafxazevfbec';                               
+            $mail->SMTPSecure = 'ssl';            
+            $mail->Port       = 465;                                  
+        
+            //Recipients
+            $mail->setFrom('mdinukadulanjana@gmail.com', 'EIS Admin');
+            $mail->addAddress($email,  $initialName);     //Add a recipient
+           // $mail->addAddress('ellen@example.com');               //Name is optional
+           // $mail->addReplyTo('info@example.com', 'Information');
+            //$mail->addCC('cc@example.com');
+            //$mail->addBCC('bcc@example.com');
+        
+            //Attachments
+           // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+            //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+        
     
-        $successMessage= "Student Added Successfully" . mysqli_error($conn);
+            $mail->isHTML(true);                                  
+            $mail->Subject = 'EXAMINATION INFORMATION SYSTEM UOV';
+            $mail->Body    = 'WELCOME! THIS IS YOUR PASSWORD :'.$password;
+            $mail->AltBody = 'USING YOUR REGISTAION NO AND ABOVE PASSWORD YOU CAN LOG OUR EIS ';
+        
+            $mail->send();
+            $successMessage= "Student Added And Send Email Successfully " . mysqli_error($conn);
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+         
+    
+       
       }
   } 
   else {
       // Insertion failed
-      $errorMessage = "Error: " . mysqli_error($conn);
+      $errorMessage = "Error: " . mysqli_error($conn); 
   }
         }
     
