@@ -14,7 +14,8 @@ if (!$conn) {
 }
 
 // Function to filter lecturers by faculty
-function filterLecturersByFaculty($faculty, $conn) {
+function filterLecturersByFaculty($faculty, $conn)
+{
     $query = "SELECT * FROM lec";
     if ($faculty !== '') {
         $query .= " WHERE Faculty = '$faculty'";
@@ -26,43 +27,50 @@ function filterLecturersByFaculty($faculty, $conn) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Manage Lecturer</title>
     <!-- Add Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <style>
         /* Your custom CSS styles here */
-      
-    
+
+
         .lecturer-list th,
         .lecturer-list td {
             text-align: center;
         }
+
         .center-heading {
             text-align: center;
             flex-grow: 1;
         }
+
         .faculty-dropdown {
             width: 150px;
         }
+
         .pagination {
             justify-content: center;
         }
+
         .page-item {
             display: inline-block;
             margin: 5px;
         }
+
         .page-link {
             border-radius: 50%;
         }
     </style>
 </head>
+
 <body>
- 
+
 
     <div class="container">
         <br><br>
-        
+
         <div class="form-group mt-3">
             <label for="facultyDropdown">Filter by Faculty:</label>
             <select class="form-select faculty-dropdown" id="facultyDropdown" onchange="filterByFaculty(this.value)">
@@ -75,7 +83,7 @@ function filterLecturersByFaculty($faculty, $conn) {
         <table class="table table-bordered lecturer-list">
             <thead>
                 <tr>
-                 
+
                     <th>Lecturer Name</th>
                     <th>Lecturer Number</th>
 
@@ -100,14 +108,14 @@ function filterLecturersByFaculty($faculty, $conn) {
                 $result = mysqli_query($conn, $query);
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    
+
                     $lecturerName = $row['LECName'];
                     $lecturerNumber = $row['LECNum'];
-              
+
                     $faculty = $row['Faculty'];
                 ?>
                     <tr class="faculty-row">
-                        
+
                         <td><?php echo $lecturerName; ?></td>
                         <td><?php echo $lecturerNumber; ?></td>
                         <td><?php echo $faculty; ?></td>
@@ -149,12 +157,14 @@ function filterLecturersByFaculty($faculty, $conn) {
             $.ajax({
                 url: 'filterlecturer.php',
                 type: 'GET',
-                data: { faculty: faculty },
-                success: function (response) {
+                data: {
+                    faculty: faculty
+                },
+                success: function(response) {
                     // Replace the current lecturer list with the filtered results
                     $('.lecturer-list tbody').html(response);
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     console.error(error);
                 }
             });
@@ -166,9 +176,10 @@ function filterLecturersByFaculty($faculty, $conn) {
         }
 
         // Call the loadLecturerList function when the page is ready
-        $(document).ready(function () {
+        $(document).ready(function() {
             loadLecturerList();
         });
     </script>
 </body>
+
 </html>

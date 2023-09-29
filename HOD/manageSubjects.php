@@ -110,7 +110,7 @@ include "./Admin_nav.php";
     }
 </script>
 <style type="text/css">
-    #addSubjects {
+    /* #addSubjects {
         margin: 10px auto;
         padding: 5px;
         background-color: #fff;
@@ -143,40 +143,61 @@ include "./Admin_nav.php";
     fieldset input,
     fieldset label {
         margin-left: 10px;
-        /* display: inline-flex;
-        justify-content:between; */
+         display: inline-flex;
+        justify-content:between; 
     }
 
     .flexCol {
         display: flex;
         flex-direction: column;
-    }
+    }*/
 </style>
-<div id="addSubjects">
-    <form action="./subjectBack.php" method="post">
-        <fieldset id="year">
-            <div class="container p-1 my-2 bg-dark text-white">
-                <h4 style="text-align:center"> Select Year<h4>
+<div id="addSubjects" class="container-fluid">
+    <form action="./subjectBack.php" method="post" class="container">
+        <fieldset id="year" class="row ">
+            <div class="col">
+                <div class="row">
+                    <h4 class="bg-dark py-2 rounded text-white text-center fs-4 col"> Select Year<h4>
+                </div>
+                <div class="row mx-2">
+                    <!-- <span style="height:50px; background-color: blue; width:100%;"></span> -->
+                    <div class="col-md col-12 form-check">
+                        <input type="radio" name="year" id="firstY" value="1st year" checked class="form-check-input">
+                        <label class="form-label" for="firstY">First</label>
+                    </div>
+                    <div class="col-md col-12 form-check">
+                        <input type="radio" name="year" id="secondY" value="2nd year" class="form-check-input">
+                        <label class="form-label" for="secondY">Second</label>
+                    </div>
+                    <div class="col-md col-12 form-check">
+                        <input type="radio" name="year" id="thirdY" value="3rd year" class="form-check-input">
+                        <label class="form-label" for="thirdY">Third</label>
+                    </div>
+                    <div class="col-md col-12 form-check">
+                        <input type="radio" name="year" id="fourthY" value="4th year" class="form-check-input">
+                        <label class="form-label" for="fourthY">Fourth</label>
+                    </div>
+                </div>
             </div>
-            <input type="radio" name="year" id="firstY" value="1st year" checked>
-            <label for="firstY">First</label>
-            <input type="radio" name="year" id="secondY" value="2nd year">
-            <label for="secondY">Second</label>
-            <input type="radio" name="year" id="thirdY" value="3rd year">
-            <label for="thirdY">Third</label>
-            <input type="radio" name="year" id="fourthY" value="4th year">
-            <label for="fourthY">Fourth</label>
         </fieldset>
-        <fieldset id="semester">
-            <div class="container p-1 my-2 bg-dark text-white">
-                <h4 style="text-align:center"> Select Semester<h4>
+        <fieldset id="semester" class="row">
+            <div class="col">
+                <div class="row">
+                    <h4 class="container p-1 my-2 bg-dark text-white text-center rounded"> Select Semester<h4>
+                </div>
+                <div class="row mx-2">
+                    <div class="col-md col-12 form-check align-self-center">
+                        <input type="radio" name="semester" id="firstS" value="1st semester" checked class="form-check-input">
+                        <label for="firstS" class="form-label">First</label>
+                    </div>
+                    <div class="col-md col-12 form-check">
+                        <input type="radio" name="semester" id="secondS" value="2nd semester" class="form-check-input">
+                        <label for="secondS" class="form-label">Second</label>
+                    </div>
+                </div>
             </div>
-            <input type="radio" name="semester" id="firstS" value="1st semester" checked>
-            <label for="firstS">First</label>
-            <input type="radio" name="semester" id="secondS" value="2nd semester">
-            <label for="secondS">Second</label>
         </fieldset>
-        <fieldset id="faculty">
+        <!-- <fieldset id="faculty">
             <div class="container p-1 my-2 bg-dark text-white">
                 <h4 style="text-align:center"> Select Faculty<h4>
             </div>
@@ -187,33 +208,52 @@ include "./Admin_nav.php";
             <label for="FBS">Faculty of Business Studies</label>
             <input type="radio" name="faculty" id="FTS" value="Technological studies">
             <label for="FTS">Faculty of Technological Studies</label>
-        </fieldset>
-        <fieldset id="coursesAmount">
-            <div class="container p-1 my-2 bg-dark text-white">
-                <h4 style="text-align:center">Select Course Amount and Types<h4>
-            </div>
-            <div class="flexCol">
-                <label for="properAmount">Proper Subject Amount:<input type="number" name="properAmount" id="properAmount" max="10" min="0" required></label>
-                <label for="courseCodeLetters">Course Code Start:<input type="text" id="courseCodeLetters" name="courseCodeLetters" placeholder="Ex: TICT" required></label>
-                <label for="auxAmount">Auxilary Subject Amount:<input type="number" name="auxAmount" id="auxAmount" max="5" min="0" required></label>
-                <div class="combineElements">
-                    <input type="button" value="Select" class="btn btn-success" onclick="generateForm()">
-                    <input type="button" value="Reset" class="btn btn-danger" onclick="clearForm()">
+        </fieldset> -->
+        <fieldset id="coursesAmount" class="row">
+            <div class="col">
+                <div class="row">
+                    <h4 class="container p-1 my-2 bg-dark text-white text-center rounded">Select Course Amount and Types<h4>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating">
+                            <input class="form-control" type="number" name="properAmount" id="properAmount" max="10" min="0" required placeholder="properAmount">
+                            <label class="form-label" for="properAmount">Proper Subject Amount:</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" type="text" id="courseCodeLetters" name="courseCodeLetters" placeholder="Ex: TICT" required>
+                            <label class="form-label" for="courseCodeLetters">Course Code Start: (Ex: TICT)</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" type="number" name="auxAmount" id="auxAmount" max="5" min="0" required placeholder="auxAmount">
+                            <label class="form-label" for="auxAmount">Auxilary Subject Amount:</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="btn-group">
+                            <input type="button" value="Select" class="btn btn-success" onclick="generateForm()">
+
+                            <input type="button" value="Reset" class="btn btn-danger" onclick="clearForm()">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </fieldset>
-        <fieldset>
-            <div class="container p-1 my-2 bg-dark text-white">
-                <h4 style="text-align:center"> Assign Courses <h4>
+        <fieldset class="row">
+            <div class="col">
+                <div class="row">
+                    <h4 class="container p-1 my-2 bg-dark text-white text-center rounded"> Assign Courses </h4>
+                </div>
             </div>
-            <div id="courseDetails" class="flexCol"></div>
+            <div id="courseDetails" class="row"></div>
         </fieldset>
-        <fieldset>
-            <div class="combineElements">
-                <input type="checkbox" name="overWrite" id="overWriteChb" unchecked>
-                <label for="overWriteChb">Over Write</label>
+        <fieldset class="row m-4">
+            <div class="col form-switch">
+                <input type="checkbox" name="overWrite" id="overWriteChb" class="form-check-input" unchecked>
+                <label for="overWriteChb" class="form-check-label">Over Write</label>
             </div>
-            <input type="submit" value="SUBMIT" class="btn btn-primary" name="submit">
+            <input type="submit" value="SUBMIT" class="col btn btn-primary" name="submit">
         </fieldset>
     </form>
 </div>

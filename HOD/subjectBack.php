@@ -1,12 +1,23 @@
 <?php
 include "../db_connection.php";
 include "./Admin_nav.php";
+include "./userTypeFunc.php";
 $aux = [];
 $proper = [];
 $courseCode = [];
 $courseName = [];
 $yearNumber;
 $semesterNumber;
+if (faculty() == "fts") {
+    $faculty = "Technological studies";
+} else if (faculty() == "fbs") {
+    $faculty = "Business studies";
+} else if (faculty() == "fas") {
+    $faculty = "Applied scinece";
+} else {
+    $faculty = null;
+}
+
 switch ($_POST['year']) {
     case '1st year':
         $yearNumber = 1;
@@ -81,7 +92,7 @@ if (isset($_POST["submit"])) {
     );
     $year = $_POST['year'];
     $semester = $_POST['semester'];
-    $faculty = $_POST['faculty'];
+    // $faculty=$_POST['faculty'];
     $sql = "SELECT id FROM course_offerings WHERE year='$year' AND semester='$semester' AND faculty='$faculty'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
