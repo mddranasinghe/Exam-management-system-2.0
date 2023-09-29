@@ -22,7 +22,7 @@ if (!$conn) {
             <thead>
                 <tr>
     
-                    <th>DEAN Name</th>
+                  
                     <th>DEAN Number</th>
       
                     <th>Faculty</th>
@@ -38,14 +38,12 @@ if (!$conn) {
 
                 while ($row = mysqli_fetch_assoc($result)) {
                   
-                    $DEANName = $row['DEANName'];
                     $DEANNumber = $row['DEANNum'];
                    
                     $faculty = $row['Faculty'];
                 ?>
                     <tr>
                     
-                        <td><?php echo $DEANName; ?></td>
                         <td><?php echo $DEANNumber; ?></td>
                    
                         <td><?php echo $faculty; ?></td>

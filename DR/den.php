@@ -18,6 +18,6 @@ if (isset($_SESSION['regNum'])) {
                 <h3 style="text-align: center;">DEAN</h3>
                 <p style="text-align: center;">Total DEAN: <?php echo $totalDEAN; ?></p>
                 <div style="text-align: center;">
-                    <a href="add_DEAN.php" class="btn btn-primary">Add DEAN</a>
-                    <a href="manage_DEAN.php" class="btn btn-secondary">Manage DEAN</a>
+                    <a href="add_dean.php" class="btn btn-primary">Add DEAN</a>
+                    <a href="manage_dean.php" class="btn btn-secondary">Manage DEAN</a>
                 </div>

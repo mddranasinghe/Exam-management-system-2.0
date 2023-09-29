@@ -221,7 +221,7 @@ include "db_connection.php";
                                         <tr>
                                             <th style="width: 20%;">COURSE CODE</th>
                                             <th style="width: 40%;">SUBJECT TITLE</th>
-                                            <th style="width: 30%;">ReCOMMENDATION  OF HOD</th>
+                                            <th style="width: 30%;">RECOMMEDED OF HEAD</th>
                                             <th style="width: 20%;"></th>
                                         </tr>
                                     </thead>
@@ -280,9 +280,9 @@ include "db_connection.php";
                                         <!-- Your existing form fields and buttons go here -->
                                         <!-- ... -->
 
-                                        <div style="margin-left:50%">
+                                        <div style="margin-left:72%">
                                             <button type="button" class="btn btn-success" id="recommendButton">Recommend</button>
-                                            <button type="button" class="btn btn-danger" id="notRecommendButton">Not Recommend</button>
+                                           <!-- <button type="button" class="btn btn-danger" id="notRecommendButton">Not Recommend</button>-->
                                         </div>
 
                                         <div>

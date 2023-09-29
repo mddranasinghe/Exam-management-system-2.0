@@ -22,9 +22,9 @@ if (!$conn) {
             <thead>
                 <tr>
     
-                    <th>HOD Name</th>
-                    <th>HOD Number</th>
-      
+              
+                    <th>HEAD'S USERNAME</th>
+                    <th>DEPARTMENT</th>
                     <th>Faculty</th>
                     <th>Actions</th>
                 </tr>
@@ -38,14 +38,14 @@ if (!$conn) {
 
                 while ($row = mysqli_fetch_assoc($result)) {
                   
-                    $hodName = $row['HODName'];
+                    $department = $row['department'];
                     $hodNumber = $row['HODNum'];
                    
                     $faculty = $row['Faculty'];
                 ?>
                     <tr>
                     
-                        <td><?php echo $hodName; ?></td>
+                        <td><?php echo $department; ?></td>
                         <td><?php echo $hodNumber; ?></td>
                    
                         <td><?php echo $faculty; ?></td>

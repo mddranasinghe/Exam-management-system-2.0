@@ -124,7 +124,7 @@ if (mysqli_num_rows($res2) > 0) {
                         <th style="width: 5%;">Eligibility</th>
                         <th style="width: 10%;">Date</th>
                         <th style="width: 5%;">Candidate's Signature</th>
-                        <th style="width: 5%;">Initial of Supervisor</th>
+                        <th style="width: 5%;">Initials of Supervisor/Invigilator</th>
                     </tr>
                 </thead>
                 <tbody>

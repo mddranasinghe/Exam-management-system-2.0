@@ -5,7 +5,7 @@ include "Admin_nav.php";
 
 
 // Initialize variables
- $DEANName = $DEANNumber = $faculty = "";
+ $DEANNumber = $faculty = "";
 $errorMessage = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $DEANName = $row['DEANName'];
+    
         $DEANNumber = $row['DEANNum'];
 
         $faculty = $row['Faculty'];
@@ -31,23 +31,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['DEANNum'])) {
 
 
     <div class="container">
-        <h2>View HOD Details</h2>
+        <h2>VIEW DEAN DEATILS</h2>
         <?php if (!empty($errorMessage)) { ?>
             <div class="alert alert-danger"><?php echo $errorMessage; ?></div>
         <?php } ?>
         <table class="table hod-details">
        
+        
             <tr>
-                <th>HOD Name</th>
-                <td><?php echo $DEANName; ?></td>
-            </tr>
-            <tr>
-                <th>HOD Number</th>
+                <th>DEAN USERNAME</th>
                 <td><?php echo $DEANNumber; ?></td>
             </tr>
     
             <tr>
-                <th>Faculty</th>
+                <th>FACULTY</th>
                 <td><?php echo $faculty; ?></td>
             </tr>
         </table>

@@ -9,14 +9,14 @@ if (isset($_POST['HODsubmit'])) {
 
     // Get form data
     $hodNum = $_POST['hodNum'];
-    $hodName = $_POST['hodName'];
+    $hodDEP = $_POST['hodDEP'];
     $faculty = $_POST['faculty'];
     $email = $_POST['email'];
     $contactNo = $_POST['contactNo'];
     $password=$_POST['password'];
 
     // Perform database query to insert HOD information
-    $query = "INSERT INTO hod (HODNum, HODName, Faculty, Email, contactno,passwordS) VALUES ('$hodNum', '$hodName', '$faculty', '$email', '$contactNo',' $password')";
+    $query = "INSERT INTO hod (HODNum, department, Faculty, Email, contactno,passwordS) VALUES ('$hodNum', '$hodDEP', '$faculty', '$email', '$contactNo',' $password')";
 
     if (mysqli_query($conn, $query)) {
         // Insertion successful
@@ -34,7 +34,7 @@ if (isset($_POST['HODsubmit'])) {
 
 <div class="container p-3 my-3 bg-light text-dark">
 <div class="container p-1 my-2 bg-dark text-white">
-   <h2 style="text-align:center">ADD HEAD DETAILS</h2></div>
+   <h2 style="text-align:center">ADD HOD DETAILS</h2></div>
    
    <?php if (!empty($successMessage)) { ?>
     
@@ -45,35 +45,47 @@ if (isset($_POST['HODsubmit'])) {
             <?php } ?><div class="Add_user_form">
  <form name="login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
-        <label for="hodNum" class="col-sm-5 col-form-label">HOD Registration Number:</label>
-        <input type="text"  class="form-control col-sm-7 col-form-label" id="hodNum" name="hodNum" required><br>
+        <label for="hodNum" class="col-sm-5 col-form-label">HOD USERNAME :</label>
+        <input type="text"  class="form-control col-sm-7 col-form-label" id="hodNum" name="hodNum" required style=margin-top:1%><br>
       
-        <label for="hodName"class="col-sm-3 col-form-label">HOD Name:</label>
-        <input type="text" class="form-control col-sm-7 col-form-label" id="hodName" name="hodName" required><br>
-      
-       
+    
+        <label for="hodDEP" class="col-sm-3 col-form-label">HOD DEPARMENT :</label><br>
+        <select  id="hodDEP" name="hodDEP" required class="form-control col-sm-7 col-form-label" style=margin-top:1%>
+            <option value="">SELECT DEPARMENT</option>
+            <option value="Business Economics">Business Economics</option>
+            <option value="English Language Teaching">English Language Teaching</option>
+            <option value="Finance and Accountancy">Finance and Accountancy</option>
+            <option value="Management and Entrepreneurship">Management and Entrepreneurship</option>
+            <option value="Marketing Management">Marketing Management</option>
+            <option value="Project Management">Project Management</option>
+            <option value=" Department of Bio-science"> Department of Bio-science</option>
+            <option value="Department of Physical Science">Department of Physical Science</option>
+            <option value="Department of ICT">Department of ICT</option>
 
-        <label for="faculty" class="col-sm-3 col-form-label">Faculty:</label><br>
-        <select  id="faculty" name="faculty" required class="form-control col-sm-7 col-form-label">
+           
+        </select><br>
+
+        <label for="faculty" class="col-sm-3 col-form-label">FACULTY :</label><br>
+        <select  id="faculty" name="faculty" required class="form-control col-sm-7 col-form-label" style=margin-top:1%>
             <option value="">Select Faculty</option>
             <option value="Technological Studies">Technological Studies</option>
             <option value="Applied Science">Applied Science</option>
             <option value="Business Studies">Business Studies</option>
         </select><br>
 
-        <label for="email"class="col-sm-3 col-form-label">Email:</label>
-        <input type="email" class="form-control col-sm-7 col-form-label"id="email" name="email" required placeholder="exmple@vau.ac.lk"><br>
+        <label for="email"class="col-sm-3 col-form-label">EMAIL :</label>
+        <input type="email" class="form-control col-sm-7 col-form-label"id="email" name="email" required placeholder="exmple@vau.ac.lk" style=margin-top:1%><br>
 
-        <label for="password" class="col-sm-2 col-form-label">Password:</label>
-<input class="form-control col-sm-7 col-form-label"type="password" name="password" placeholder="Password" id="password" required=""><br>
+        <label for="password" class="col-sm-2 col-form-label">PASSWORD :</label>
+<input class="form-control col-sm-7 col-form-label"type="password" name="password" placeholder="Password" id="password" required="" style=margin-top:1%><br>
  
        
-        <label for="contactNo"class="col-sm-3 col-form-label">Contact No:</label>
-        <input type="text" class="form-control col-sm-7 col-form-label" id="contactNo" name="contactNo" required placeholder="071xxxxxx2"><br>
+        <label for="contactNo"class="col-sm-3 col-form-label">CONTACT NUMBER :</label>
+        <input type="text" class="form-control col-sm-7 col-form-label" id="contactNo" name="contactNo" required placeholder="071xxxxxx2" style=margin-top:1%><br>
 
-        <button type="submit" name="HODsubmit" class="btn btn-primary submit-btn" >Submit</button>
+        <button type="submit" name="HODsubmit" class="btn btn-success submit-btn" >SUBMIT</button>
 
-
+        <button type="reset" name="HODsubmit" class="btn btn-danger submit-btn" >RESET</button>
    
 </form>
 

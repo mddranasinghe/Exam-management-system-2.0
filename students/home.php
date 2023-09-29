@@ -131,29 +131,9 @@ $conn->close();
 
 
 
-<div class="column2">
-<div class="slideshow-container" style="margin-top:0px;">
-
-<!-- Full-width images with number and caption text -->
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="filesUpload/ga.png" width="100px" height="500px" style="width:100%">
-  </div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="filesUpload/fts.jpg"  width="100px" height="500px" style="width:100%">
-  </div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="filesUpload/th.jpg"  width="100px" height="500px" style="width:100%">
-  </div>
 
 <!-- Next and previous buttons -->
-<a class="prev" >&#10094;</a>
-<a class="next">&#10095;</a>
-</div>
+
 <br>
 
 <!-- The dots/circles 

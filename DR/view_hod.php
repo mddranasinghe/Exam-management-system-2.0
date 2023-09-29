@@ -5,7 +5,7 @@ include "Admin_nav.php";
 
 
 // Initialize variables
- $hodName = $hodNumber = $faculty = "";
+ $department = $hodNumber = $faculty = "";
 $errorMessage = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $hodName = $row['HODName'];
+        $department = $row['department'];
         $hodNumber = $row['HODNum'];
 
         $faculty = $row['Faculty'];
@@ -37,17 +37,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
         <?php } ?>
         <table class="table hod-details">
        
+         
             <tr>
-                <th>HOD Name</th>
-                <td><?php echo $hodName; ?></td>
-            </tr>
-            <tr>
-                <th>HOD Number</th>
+                <th>HOD USERNAME</th>
                 <td><?php echo $hodNumber; ?></td>
             </tr>
-    
             <tr>
-                <th>Faculty</th>
+                <th>DEPARTMENT</th>
+                <td><?php echo $department; ?></td>
+            </tr>
+            <tr>
+                <th>FACULTY</th>
                 <td><?php echo $faculty; ?></td>
             </tr>
         </table>

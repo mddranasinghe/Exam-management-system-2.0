@@ -286,7 +286,6 @@ body
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href="admin_examEnteyPage.php">EXAM-ENTRY</a>
                         <a class="nav-link active" id="main-nav-a" aria-current="page" href= "viewMcList.php">MEDICAL </a>
                         <a  class="nav-link active" id="main-nav-a" aria-current="page" href="viewResitList.php" >RESIT</a>
-                        <a class="nav-link active" id="main-nav-a" aria-current="page" href="LEC_PROFILE.php">USER PROFILE</a>
                     </div>
                  <!--   <a class="nav-link active" id="main-nav-a" aria-current="page" href="examentry.php">APPLY<i class="fa-solid fa-caret-down"></i></a>
                     <a class="nav-link" id="main-nav-a" href="#">ACADEMIC <i class="fa-solid fa-caret-down"></i></a>-->
@@ -318,8 +317,5 @@ body
 
     </div>
 
-        
-<footer class=" fixed-bottom" >
-            <p class="text-center fw-bold" style="color:white">Copyright © 2023 University of Vavuniya</p>
-        </footer>
+
 </html>

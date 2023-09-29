@@ -6,7 +6,7 @@ include "Admin_nav.php";
 ?>
 <?php
 // Initialize variables
-$hodName = $hodNumber = $faculty = "";
+$department = $hodNumber = $faculty = "";
 $errorMessage = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
@@ -25,9 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $hodName = $row['HODName'];
+        $department = $row['department'];
         $hodNumber = $row['HODNum'];
-
         $faculty = $row['Faculty'];
     } else {
         // HOD not found
@@ -38,13 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['HODNum'])) {
 // Handle form submission for updating HOD information
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     
-    $hodName = $_POST['hodName'];
+    $department = $_POST['hodDEP'];
     $hodNumber = $_POST['hodNumber'];
   
     $faculty = $_POST['faculty'];
 
     // Perform database query to update HOD information
-    $query = "UPDATE hod SET HODName = '$hodName', HODNum = '$hodNumber',Faculty = '$faculty' WHERE HODNum = '$hodNumber'";
+    $query = "UPDATE hod SET department = '$department', HODNum = '$hodNumber',Faculty = '$faculty' WHERE HODNum = '$hodNumber'";
     
     // Check if the connection is successful
     if (!$conn) {
@@ -68,17 +67,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
         <?php } ?>
         <form method="post" class="form-container">
             
+           
+        <label for="hodDEP"  class="form-label">HEAD'S DEPARMNT :</label><br>
+        <select  id="hodDEP" name="hodDEP" required class="form-control"style=margin-top:1%>
+            <option value="">SELECT DEPARMNT</option>
+            <option value="Business Economics">Business Economics</option>
+            <option value="English Language Teaching">English Language Teaching</option>
+            <option value="Finance and Accountancy">Finance and Accountancy</option>
+            <option value="Management and Entrepreneurship">Management and Entrepreneurship</option>
+            <option value="Marketing Management">Marketing Management</option>
+            <option value="Project Management">Project Management</option>
+            <option value=" Department of Bio-science"> Department of Bio-science</option>
+            <option value="Department of Physical Science">Department of Physical Science</option>
+            <option value="Department of ICT">Department of ICT</option>
+
+           
+        </select><br>
             <div class="mb-3">
-                <label for="hodName" class="form-label">HOD Name:</label>
-                <input type="text" class="form-control" id="hodName" name="hodName" value="<?php echo $hodName; ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="hodNumber" class="form-label">HOD Number:</label>
+                <label for="hodNumber" class="form-label">HEAD'S USERNAME :</label>
                 <input type="text" class="form-control" id="hodNumber" name="hodNumber" value="<?php echo $hodNumber; ?>" required>
             </div>
           
             <div class="mb-3">
-                <label for="faculty" class="form-label">Faculty:</label>
+                <label for="faculty" class="form-label">FACULTY :</label>
                 <select class="form-control" id="faculty" name="faculty" required>
                     <option value="">Select Faculty</option>
                     <option value="Technological Studies" <?php if ($faculty === "Technological Studies") echo "selected"; ?>>Technological Studies</option>
@@ -86,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
                     <option value="Business Studies" <?php if ($faculty === "Business Studies") echo "selected"; ?>>Business Studies</option>
                 </select>
             </div>
-            <button type="submit" name="update" class="btn btn-primary">Update</button>
+            <button type="submit" name="update" class="btn btn-primary">UPDATE</button>
         </form>
     </div>
 
