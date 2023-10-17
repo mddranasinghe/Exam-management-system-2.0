@@ -1,205 +1,100 @@
-<?php 
-include "nav.php";
-if (isset($_SESSION['regNum'])) { 
-?>
-<head>
-<style>
-    * {box-sizing:border-box}
-
-.slideshow-container {
-  max-width: 650px;
-  position: absolute;
-  top:280px;
-  margin-left:800px;
-
-  
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 100.0s ease-in-out;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 70%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators 
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}*/
-
-
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 3s;
- transition-duration:100s;
-}
-
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-</style>
-
-</head>
-<body>
-<div class="row">
-  <div class="column1">
-  <div class="container p-3  bg-dark text-white" style="width:50%; float:left; ">
-
-<h2>EXAMINATION NOTIFICATIONS</h2>
-
 <?php
+include '../db_connection.php';
+include './nav.php';
+include './studentFunctions.php';
+if (!isset($_SESSION['regNum'])) {
+    header("Location: ../");
+}
+$year = filterYear($_SESSION['regNum']);
+$faculty = filterFaculty($_SESSION['regNum']);
+$level = 1;
+$currentSem = 1;
+function fetch_data($faculty, $semester, $year, $indexyear)
+{
 
-include 'db_connection.php';
-
-$sql = "SELECT * FROM notifications ORDER BY created_at DESC";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-
-    while($row = $result->fetch_assoc()) {
-        echo '<div class="notification">';
-        echo '<h2>' . $row['title'] . '</h2>';
-        echo '<p>' . $row['message'] . '</p>';
-        echo '<span class="timestamp">' . $row['created_at'] . '</span>';
-        echo '</div>';
+    // Construct the SQL query
+    $sql = "SELECT * FROM notificationmanagement WHERE faculty = '$faculty' AND semester = '$semester' AND year = '$year' AND indexyear = '$indexyear'";
+    $sql2 = "SELECT year,semester from studentcurrentlevel WHERE Registration_No='$_SESSION[regNum]'";
+    global $conn;
+    // Execute the SQL query and get the results
+    $results = mysqli_query($conn, $sql);
+    $results2 = mysqli_query($conn, $sql2);
+    if ($results2->num_rows > 0) {
+        $data2 = $results2->fetch_assoc();
+        $level = $data2['Year'];
+        $currentSem = $data2['Semester'];
     }
-} else {
-    echo 'No notifications to display.';
+    // Check if the query returns any results
+    if ($results->num_rows > 0) {
+        // Create a HTML div element to display the results
+        $html = '<div class="col-md-5 col-sm-12 bg-secondary rounded "><div class="fs-2 fw-bolder">Announcements</div>';
+        // Iterate over the results and display them in the HTML div element
+        while ($row = $results->fetch_assoc()) {
+            // Switch on the 'type' column to generate different elements
+            $html .= '<div class="row m-2 justify-content-center bg-light border border-dark rounded-2">';
+            $yearName = yearExtend($row['YEAR']);
+            $semesterName = semesterExtend($row['semester']);
+            $facultyName = facultyExtend($row['faculty']);
+            $html .= '<h2 class="text-left text-dark bg-primary rounded-top-1 text-decoration-underline">' . $row['title'] . '</h1>';
+            $html .= '<div class= " rounded-bottom-1 p-2 px-3"> ';
+            if ($row['TYPE'] == 'applicationSubmission') {
+                $html .= '<p class="fw-bold fs-6">' . "Submit your " . $row['category'] . " Applications for the examination of $yearName $semesterName  before the due date. This notice is for $facultyName students" . '</p>';
+            } else if ($row['TYPE'] == 'announcement') {
+                $html .= '<p class="fs-6 fst-italic">" ' . $row['message'] . ' "</p>';
+            } else if ($row['TYPE'] == 'resultRelesase') {
+                $html .= '<p class="fw-bold fs-5 text-decoration-underline text-success">' . $facultyName . '</p>';
+                $html .= '<p class="fs-6">' . "Exam results has been released for  $yearName $semesterName  <br> Academic year : " . $row['indexYear'] . "/" . intval($row['indexYear']) + 1 . '</p>';
+            } else {
+                $html .= '<p>' . $row['message'] . '</p>';
+            }
+            if ($row['category'] != null) {
+                $html .= '<p class="text-end py-1 px-2 rounded-pill text-light fw-bold border bg-dark w-auto float-start">' . $row['category'] . '</p>';
+            }
+
+            if ($row['dateTo'] != null) {
+                $html .= '<p class="text-end p-1 rounded-pill text-danger fw-bold border border-dark bg-light w-auto float-end">' . 'Due date : ' . $row['dateTo'] . '</p>';
+            }
+            $html .= '</div>';
+            $html .= '</div>';
+            // switch ($row['TYPE']) {
+            //     case 'text':
+            //         $html .= '<p>' . $row['data'] . '</p>';
+            //         break;
+            //     case 'image':
+            //         $html .= '<img src="' . $row['data'] . '" />';
+            //         break;
+            //     case 'link':
+            //         $html .= '<a href="' . $row['data'] . '">' . $row['data'] . '</a>';
+            //         break;
+            //     default:
+            //         $html .= '<p>' . $row['data'] . '</p>';
+            //         break;
+            // }
+        }
+        $html .= '</div>';
+
+        // Close the HTML div element
+
+
+        // Return the HTML div element
+        return $html;
+    } else {
+        // The query did not return any results
+        return null;
+    }
+
+    // Close the connection to the MySQL database
+    mysqli_close($conn);
 }
 
-$conn->close();
+// echo $year, $faculty, $level, $currentSem;
 ?>
-</div></div>
+<section class="container-fluid">
+    <div class="row mx-4">
 
+        <?php echo fetch_data($faculty, $level, $currentSem, $year); ?>
 
+        <div class="col-auto"></div>
+    </div>
 
-
-
-<!-- Next and previous buttons -->
-
-<br>
-
-<!-- The dots/circles 
-<div style="text-align:center">
-<span class="dot" onclick="currentSlide(1)"></span>
-<span class="dot" onclick="currentSlide(2)"></span>
-<span class="dot" onclick="currentSlide(3)"></span>
-</div>-->
-
-
-
-</div>
-
-</div>
-<script>
-    let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
-</script>
-  
-</body>
-</html>
-
-<?php
-       }
-      
-        ?>
-
-
-
-
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-                
-                
-            
-		
-
-                            
-
-                            
-                               
-                                    
-
-	
-                
-
-            
-    			
+</section>
