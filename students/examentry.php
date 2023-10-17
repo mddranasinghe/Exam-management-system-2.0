@@ -2,11 +2,12 @@
 include "nav.php";
 include "db_connection.php";
 require "./CheckDatabase.php";
+include "./studentFunctions.php";
 ?>
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $Registration_No = $_POST["Registration_No"];
+    $Registration_No = $_SESSION["regNum"];
     $Name_of_the_examination = $_POST["Name_of_the_examination"];
 
     date_default_timezone_set("Asia/Colombo");
@@ -57,12 +58,33 @@ include "db_connection.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $year = $_POST["year"];
-    $semester = $_POST["semester"];
-    $faculty = $_POST["faculty"];
+    $indexNo = $_SESSION['regNum'];
+    $faculty = filterFaculty($indexNo);
+    $facultyExtended = facultyText($faculty);
+    $stmt = $conn->prepare("SELECT Year,Semester FROM studentcurrentlevel WHERE Registration_No=?");
+    $stmt->bind_param('s', $indexNo);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($stmt->num_rows() > 1) {
+        $data = $result->fetch_row();
+        $year = $data['Year'];
+        $semester = $data['Semester'];
+        $yearText = yearNumToText($year);
+        $semesterText = semesterNumToText($semester);
+        $yearExtended = yearExtend($year);
+        $semesterExtended = semesterExtend($semester);
+    } else {
+        $yearText = '1st year';
+        $semesterText = '1st semester';
+    }
+
+
+    // $year = $_POST["year"];
+    // $semester = $_POST["semester"];
+    // $faculty = $_POST["faculty"];
 
     $stmt = $conn->prepare("SELECT *  FROM course_offerings WHERE  year= ? and semester= ? and faculty= ?");
-    $stmt->bind_param("sss", $year, $semester, $faculty);
+    $stmt->bind_param("sss", $yearText, $semesterText, $facultyExtended);
     $stmt->execute();
 
 
@@ -351,25 +373,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                 <div>
                                                     <label for="Name_of_the_examination" class="col-sm-3 col-form-label">9. Name of the examination&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
-                                                    <input type="text" name="Name_of_the_examination" placeholder="Name ofthe examination" style="width: 700px;height: 35px;" class="form-control " value="<?php echo htmlspecialchars($Name_of_the_examination); ?>">
+                                                    <input type="text" name="Name_of_the_examination" placeholder="Name ofthe examination" style="width: 700px;height: 35px;" class="form-control " readonly value="<?php echo htmlspecialchars($Name_of_the_examination); ?>">
                                                 </div><br>
 
 
                                                 <div>
                                                     <label for="Faculty" class="col-sm-3 col-form-label">10. Faculty&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
-                                                    <input type="text" name="faculty" placeholder="Faculty" style="width: 700px;height: 35px;" class="form-control " value="<?php echo htmlspecialchars($faculty); ?>">
+                                                    <input type="text" name="faculty" placeholder="Faculty" style="width: 700px;height: 35px;" class="form-control " readonly value="<?php echo htmlspecialchars($facultyExtended); ?>">
                                                 </div><br>
 
 
                                                 <div>
                                                     <label for="year" class="col-sm-3 col-form-label">11. Year &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
-                                                    <input type="text" name="year" placeholder="year" style="width: 700px;height: 35px;" class="form-control " value="<?php echo htmlspecialchars($year); ?>">
+                                                    <input type="text" name="year" placeholder="year" style="width: 700px;height: 35px;" class="form-control " readonly value="<?php echo htmlspecialchars($yearText); ?>">
                                                 </div><br>
 
 
                                                 <div>
                                                     <label for="semester" class="col-sm-3 col-form-label">12. Semester &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</label>
-                                                    <input type="text" name="semester" placeholder="semester" style="width: 700px;height: 35px;" class="form-control " value="<?php echo htmlspecialchars($semester); ?>">
+                                                    <input type="text" name="semester" placeholder="semester" style="width: 700px;height: 35px;" class="form-control " readonly value="<?php echo htmlspecialchars($semesterText); ?>">
                                                 </div><br>
 
 
@@ -535,8 +557,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             '$_POST[subject_name_14]',
                             '$_POST[course_code_15]', 
                             '$_POST[subject_name_15]');");
+                                                $stmt = $conn->prepare("SELECT * FROM  examEntryTracking WHERE Registration_No='$_POST[Registration_No]' AND Exam='$_POST[Name_of_the_examination]'");
+                                                $stmt->execute();
+                                                $results = $stmt->get_result();
+                                                if ($results->num_rows > 0) {
+                                                    //update the application submition date and time on a resubmission
+                                                    mysqli_query($conn, "UPDATE examEntryTracking SET 'Date'=$date,'time'=$time'");
+                                                } else {
+                                                    //record the time and date of the application submission
+                                                    mysqli_query($conn, "INSERT INTO examEntryTracking(Registration_No,Exam,Date,Time) VALUES('$_POST[Registration_No]','$_POST[Name_of_the_examination]','$date','$time')");
+                                                }
 
-                                                mysqli_query($conn, "INSERT INTO examEntryTracking(Registration_No,Exam,Date,Time) VALUES('$_POST[Registration_No]','$_POST[Name_of_the_examination]','$date','$time')");
                                         ?>
                                                 <script type="text/javascript">
                                                     alert("Registration successful");

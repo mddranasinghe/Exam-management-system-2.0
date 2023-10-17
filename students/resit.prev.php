@@ -187,9 +187,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <style type="text/css">
+        .wapper {
+            width: 1972px;
+            height: 1430px;
+
+
+
+        }
+
         .sec {
 
-
+            width: 1972px;
+            height: 1530px;
             margin-top: -20px;
             background-color: #e4bfe2;
         }
@@ -263,7 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <form action="resit.php" method="post">
                                             <div>
                                                 <label class="col-sm-3 col-form-label" for="Registration_No">1. Registration No </label>
-                                                <input class="form-control " type="text" name="Registration_No" placeholder="Registration No" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Registration_No); ?>" readonly>
+                                                <input class="form-control " type="text" name="Registration_No" placeholder="Registration No" style="width: 200px;height: 35px;" value="<?php echo htmlspecialchars($Registration_No); ?>" readonly>
 
 
                                             </div><br>
@@ -271,7 +280,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                             <div>
                                                 <label class="col-sm-3 col-form-label" for="gender">2.Gender </label>
-                                                <input class="form-control " type="text" name="gender" id="gender" placeholder="gender" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($gender); ?>">
+                                                <input class="form-control " type="text" name="gender" id="gender" placeholder="gender" style="width: 200px;height: 35px;" value="<?php echo htmlspecialchars($gender); ?>">
                                             </div><br>
 
                                             <div>
@@ -292,12 +301,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                             <div>
                                                 <label class="col-sm-3 col-form-label" for="Mobile_Phone_no">6. Mobile Phone No </label>
-                                                <input class="form-control " type="text" name="Mobile_Phone_no" placeholder="Mobile Phone no" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Mobile_Phone_no); ?>">
+                                                <input class="form-control " type="text" name="Mobile_Phone_no" placeholder="Mobile Phone no" style="width: 200px;height: 35px;" value="<?php echo htmlspecialchars($Mobile_Phone_no); ?>">
                                             </div><br>
 
                                             <div>
                                                 <label class="col-sm-3 col-form-label" for="Date_of_admission">7. Date of Admission </label>
-                                                <input class="form-control " type="text" name="Date_of_admission" placeholder="Date of admission" style="width: 700px;height: 35px;" value="<?php echo htmlspecialchars($Date_of_admission); ?>">
+                                                <input class="form-control " type="text" name="Date_of_admission" placeholder="Date of admission" style="width: 200px;height: 35px;" value="<?php echo htmlspecialchars($Date_of_admission); ?>">
                                             </div><br>
 
                                             <div>
@@ -335,115 +344,115 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                         <th rowspan="2" style="text-align:center;">COURSE CODE</th>
                                                         <th rowspan="2" style="text-align:center;">SUBJECT TITLE</th>
-                                                        <th colspan="4" style="text-align:center;">RESULT</th>
+                                                        <th colspan="3" style="text-align:center;">RESULT</th>
 
 
                                                     </tr>
                                                     <tr>
                                                         <th style="text-align:center;">1st attempt </th>
                                                         <th style="text-align:center;">2nd attempt</th>
-                                                        <th colspan="2" style="text-align:center;">3rd attempt</th>
+                                                        <th style="text-align:center;">3rd attempt</th>
                                                     </tr>
                                                 </thead>
 
                                                 <tr>
-                                                    <td><input class="form-control" type="text" value="<?php echo $course_code_1 ?>" name="course_code_1"></td>
-                                                    <td><input class="form-control" type="text" value="<?php echo $subject_name_2 ?>" name="subject_name_1"></td>
+                                                    <td><input class="form-control" type="text" name="course_code_1"></td>
+                                                    <td><input class="form-control" type="text" name="subject_name_1"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_1"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_1"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_1"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control" type="text" value="<?php echo $course_code_2 ?>" name="course_code_2"></td>
-                                                    <td><input class="form-control" type="text" value="<?php echo $subject_name_2 ?>" name="subject_name_2"></td>
+                                                    <td><input class="form-control" type="text" name="course_code_2"></td>
+                                                    <td><input class="form-control" type="text" name="subject_name_2"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_2"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_2"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_2"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_3 ?>" name="course_code_3"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_3 ?>" name="subject_name_3"></td>
+                                                    <td><input class="form-control " type="text" name="course_code_3"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_3"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_3"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_3"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_3"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_4 ?>" name="course_code_4"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_4 ?>" name="subject_name_4"></td>
+                                                    <td><input class="form-control " type="text" name="course_code_4"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_4"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_4"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_4"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_4"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_5 ?>" name="course_code_5"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_5 ?>" name="subject_name_5"></td>
+                                                    <td><input class="form-control " type="text" name="course_code_5"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_5"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_5"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_5"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_5"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_6 ?>" name="course_code_6"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_6 ?>" name="subject_name_6"></td>
+                                                    <td><input class="form-control " type="text" name="course_code_6"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_6"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_6"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_6"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_6"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_7 ?>" name="course_code_7"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_7 ?>" name="subject_name_7"></td>
+                                                    <td><input class="form-control " type="text" name="course_code_7"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_7"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_7"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_7"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_7"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_8 ?>" name="course_code_8"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_8 ?>" name="subject_name_8"></td>
+                                                    <td><input class="form-control " type="text" name="course_code_8"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_8"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_8"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_8"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_8"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_9 ?>" name="course_code_9"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_9 ?>" name="subject_name_9"></td>
+                                                    <td><input class="form-control " type="text" name="course_code_9"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_9"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_9"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_9"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_9"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control " type="text" value="<?php echo $course_code_10 ?>" name="Dcourse_code_10"></td>
-                                                    <td><input class="form-control " type="text" value="<?php echo $subject_name_10 ?>" name="subject_name_10"></td>
+                                                    <td><input class="form-control " type="text" name="Dcourse_code_10"></td>
+                                                    <td><input class="form-control " type="text" name="subject_name_10"></td>
                                                     <td><input class="form-control" type="text" name="Ast_attempt_10"></td>
                                                     <td><input class="form-control" type="text" name="Bst_attempt_10"></td>
                                                     <td><input class="form-control" type="text" name="Cst_attempt_10"></td>
-                                                    <td><button onclick="deleteRow(this)" class="btn btn-info">X</button></td>
+
 
                                                 </tr>
 
                                             </table>
 
-                                            <div style="float:right;">
-                                                <input class="btn btn-success" type="submit" name="submit" value="Submit">&nbsp &nbsp &nbsp &nbsp
-                                                <input class="btn btn-danger" type="reset" name="reset" value="Reset">
+                                            <div style="float:right;margin-top:20px;margin-right:50px;">
+                                                <input class="btn btn-default" style="height: 35px ; width: 80px;color: white;background-color:red; margin: 2px;" type="submit" name="submit" value="Submit">&nbsp &nbsp &nbsp &nbsp
+                                                <input class="btn btn-default" type="reset" name="reset" value="Reset" style="height:35px ;color: white;width: 80px;background-color: red;">
                                             </div>
 
 
@@ -499,7 +508,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             }
                                             mysqli_query($conn, "INSERT INTO resitTracking(Registration_No,Exam,Date,Time) VALUES('$_POST[Registration_No]','$_POST[Name_of_the_examination]','$date','$time')");
                                     ?>
-                                            <script type=" text/javascript">
+                                            <script type="text/javascript">
                                                 alert("Registration successful");
                                             </script>
 
