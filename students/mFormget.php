@@ -9,7 +9,7 @@ $currentLevel = 4;
 $currentSemester = 1;
 date_default_timezone_set("Asia/Colombo");
 $date = date("Y-m-d");
-$sql = "SELECT * FROM notificationmanagement WHERE faculty=? AND indexYear=? AND category='Medical' AND YEAR<? AND semester=? AND dateTo>$date";
+$sql = "SELECT * FROM notificationmanagement WHERE faculty=? AND indexYear=? AND category='Medical' AND YEAR<? AND semester=? AND dateTo>'$date'";
 $sql2 = "SELECT year,semester from studentcurrentlevel WHERE Registration_No='$_SESSION[regNum]'";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ssii', $faculty, $year, $currentLevel, $currentSemester);

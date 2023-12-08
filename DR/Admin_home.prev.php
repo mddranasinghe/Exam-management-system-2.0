@@ -1,79 +1,6 @@
 <?php
 include "Admin_nav.php";
 include "db_connection.php";
-
-function fetch_data()
-{
-	global $conn;
-
-
-	$html = '';
-	// Construct the SQL query
-	$sqlExam = "SELECT * FROM notificationmanagement ORDER BY dateTo DESC LIMIT 4";
-
-	// Execute the SQL query and get the results
-	$resultsExam = mysqli_query($conn, $sqlExam);
-
-
-	// Check if the query returns any results
-	if ($resultsExam->num_rows > 0) {
-		// Create a HTML div element to display the results
-		$html .= '<div class=" float-none">';
-		// Iterate over the results and display them in the HTML div element
-		while ($row = $resultsExam->fetch_assoc()) {
-			// Switch on the 'type' column to generate different elements
-			// $html .= '<div class="row m-2 justify-content-center bg-secondary border border-dark rounded-2">';
-			switch ($row['TYPE']) {
-				case 'faculty':
-					$html .= '<div class="row m-2 justify-content-center bg-light border border-dark rounded-2">';
-					$html .= '<h2 class="text-left text-dark bg-primary rounded-top-1 text-decoration-underline">' . $row['title'] . '</h1>';
-					$html .= '<div class= " rounded-bottom-1 p-2 px-3"> ';
-					$html .= '<p class="fs-6 fst-italic">" ' . $row['message'] . ' "</p>';
-					break;
-				case 'announcement':
-					$html .= '<div class="row m-2 justify-content-center bg-light border border-dark rounded-2">';
-					$html .= '<h2 class="text-left text-dark bg-primary rounded-top-1 text-decoration-underline">' . $row['title'] . '</h1>';
-					$html .= '<div class= " rounded-bottom-1 p-2 px-3"> ';
-					$html .= '<p class="fs-6 fst-italic">" ' . $row['message'] . ' "</p>';
-					break;
-				case 'applicationSubmission':
-					$html .= '<div class="row m-2 justify-content-center bg-light border border-dark rounded-2">';
-					$html .= '<h2 class="text-left text-dark bg-primary rounded-top-1 text-decoration-underline">' . $row['title'] . '</h1>';
-					$html .= '<div class= " rounded-bottom-1 p-2 px-3"> ';
-					$html .= '<p class="fw-bold fs-6">' . "Submit your " . $row['category'] . " Applications for the examination of " . $row['YEAR'] . " year " . $row['semester'] .  " semester before the due date. This notice is for " . $row['faculty'] . " students" . '</p>';
-					break;
-				case 'resultRelesase':
-					$html .= '<div class="row m-2 justify-content-center bg-light border border-dark rounded-2">';
-					$html .= '<h2 class="text-left text-dark bg-primary rounded-top-1 text-decoration-underline">' . $row['title'] . '</h1>';
-					$html .= '<div class= " rounded-bottom-1 p-2 px-3"> ';
-					$html .= '<p class="fw-bold fs-5 text-decoration-underline text-success">' . $row['faculty'] . '</p>';
-					$html .= '<p class="fs-6">' . "Exam results has been released for " . $row['YEAR'] . " year " . $row['semester'] .  " semester <br> Academic year : " . $row['indexYear'] . "/" . intval($row['indexYear']) + 1 . '</p>';
-					break;
-				default:
-					break;
-			}
-			if ($row['category'] != null) {
-				$html .= '<p class="text-end py-1 px-2 rounded-pill text-light fw-bold border bg-dark w-auto float-start">' . $row['category'] . '</p>';
-			}
-
-			if ($row['dateTo'] != null) {
-				$html .= '<p class="text-end p-1 rounded-pill text-danger fw-bold border border-dark bg-light w-auto float-end">' . 'Due date : ' . $row['dateTo'] . '</p>';
-			}
-			$html .= '</div>';
-			$html .= '</div>';
-		}
-
-
-		// Close the HTML div element
-
-		$html .= '</div>';
-		// Return the HTML div element
-		// return $html;
-	}
-	return $html;
-	// Close the connection to the MySQL database
-	mysqli_close($conn);
-}
 ?>
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
@@ -259,16 +186,10 @@ function fetch_data()
 						content.replaceChildren(facultyGroup, yearGroup, semesterGroup, indexGroup, messageGroup);
 						break;
 					case "faculty":
-						content.replaceChildren(facultyGroup, yearGroup, semesterGroup, indexGroup, messageGroup);
+						content.replaceChildren(facultyGroup, messageGroup);
 						break;
 					default:
-						let label1 = document.createElement("label");
-						let textarea1 = document.createElement("textarea");
-						label1.innerHTML = "Message";
-						label1.classList = ['form-label'];
-						textarea1.name = "message";
-						textarea1.classList = ['form-control'];
-						content.replaceChildren(label, textarea);
+						content.remove();
 						break;
 				}
 				if (element.value == "announcement") {
@@ -279,26 +200,38 @@ function fetch_data()
 		});
 
 	});
-
-	function headNotification() {
-		location.replace("./manageNotification.php")
-	}
 </script>
-<div class="container-fluid">
-	<div class="row mx-4">
-		<div class="col-md-5 col-sm-12 bg-secondary rounded py-2">
-			<h2 class="text-center">EXAMINATION NOTIFICATIONS</h2>
+<div class="home_full">
+	<div class=N_box>
+		<div class="container p-3 my-3 bg-dark text-white">
+			<h2>EXAMINATION NOTIFICATIONS</h2>
 
-			<div class="row mx-2 justify-content-between">
-				<button type="button" id="notificationEditButton" class="btn btn-warning col-sm-5 col-3" onclick="headNotification()">
-					MODIFY NOTIFICATION
-				</button>
-				<button type="button" id="notificationButton" class="btn btn-success col-sm-5 col-3" data-toggle="modal" data-target="#myModal">
-					ADD NOTIFICATION
-				</button>
-			</div>
-			<?php echo fetch_data() ?>
+			<button type="button" id="notificationButton" class="btn btn-success" data-toggle="modal" data-target="#myModal" style="margin-left:40px">
+				ADD NOTIFICATION
+			</button>
+			<hr>
 
+			<?php
+			$sql = "SELECT * FROM notifications ORDER BY created_at DESC";
+			$result = $conn->query($sql);
+
+			if ($result->num_rows > 0) {
+
+				while ($row = $result->fetch_assoc()) {
+					$id = $row['id'];
+					echo '<div class="notification">';
+					echo '<h2>' . $row['title'] . '</h2>';
+					echo '<p>' . $row['message'] . '</p>';
+					echo '<span class="timestamp">' . $row['created_at'] . '</span>';
+					echo "<a class='btn btn-danger m-2 btn-sm' href='./script.php?id=$id'>Delete</a>";
+					echo '</div>';
+				}
+			} else {
+				echo 'No notifications to display.';
+			}
+
+			$conn->close();
+			?>
 		</div>
 	</div>
 </div>
@@ -325,16 +258,13 @@ function fetch_data()
 							<input type="text" id="title" name="title" required class="form-control">
 							<label for="messageType" class="from-label">Type:</label>
 							<select name="messageType" id="messageType" class="form-select">
-
-								<option selected value="announcement">Announcement</option>
+								<option selected value=""></option>
+								<option value="announcement">Announcement</option>
 								<option value="applicationSubmission">Application Submission</option>
 								<option value="resultRelease">Result Relesase</option>
 								<option value="faculty">Faculty message</option>
 							</select>
-							<div id="subSection">
-								<label for="mes" class="form-label">Message</label>
-								<textarea name="message" id="mes" class="form-control"></textarea>
-							</div>
+							<div id="subSection"></div>
 					</div>
 
 				</div>

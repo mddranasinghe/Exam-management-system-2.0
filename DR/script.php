@@ -20,7 +20,7 @@ if (isset($_POST['send'])) {
             $sql = $conn->prepare("INSERT INTO notificationmanagement(title,type,message) VALUES('$_POST[title]','$_POST[messageType]','$_POST[message]')");
             break;
         case 'applicationSubmission':
-            $sql = $conn->prepare("INSERT INTO notificationmanagement(title,type,category,faculty,year,semester,indexYear,dateFrom,dateTo) VALUES('$_POST[title]','$_POST[messageType]','$_POST[type]','$_POST[faculty]','$_POST[year]','$_POST[semester]','$_POST[indexStart]','$_POST[startDate]','$_POST[endDate]')");
+            $sql = $conn->prepare("INSERT INTO notificationmanagement(title,type,category,faculty,field,year,semester,indexYear,dateFrom,dateTo) VALUES('$_POST[title]','$_POST[messageType]','$_POST[type]','$_POST[faculty]','$_POST[subject]','$_POST[year]','$_POST[semester]','$_POST[indexStart]','$_POST[startDate]','$_POST[endDate]')");
             break;
         case 'resultRelesase':
             $sql = $conn->prepare("INSERT INTO notificationmanagement(title,type,faculty,year,semester,indexYear) VALUES('$_POST[title]','$_POST[messageType]','$_POST[faculty]','$_POST[year]','$_POST[semester]','$_POST[indexStart]')");
@@ -33,6 +33,7 @@ if (isset($_POST['send'])) {
             break;
     }
     $sql->execute();
+    header("Location: ./Admin_home.php");
 }
     // $sql="INSERT INTO notifications (title, message) VALUES  ('$_POST[title]', '$_POST[message]')";
     // $res=mysqli_query($conn,$sql);
